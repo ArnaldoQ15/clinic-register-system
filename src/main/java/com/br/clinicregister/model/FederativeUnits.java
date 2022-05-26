@@ -3,7 +3,7 @@ package com.br.clinicregister.model;
 import lombok.Getter;
 
 @Getter
-public enum PersonDoctorProfessionalRegisterState {
+public enum FederativeUnits {
 
     AM("Amazonas"),
     AL("Alagoas"),
@@ -35,7 +35,7 @@ public enum PersonDoctorProfessionalRegisterState {
 
         private final String description;
 
-    PersonDoctorProfessionalRegisterState(String description) {
+    FederativeUnits(String description) {
         this.description = description;
     }
 

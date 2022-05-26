@@ -2,6 +2,8 @@ package com.br.clinicregister.model;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
 public enum PersonDoctorAgendaScalesNight {
 
@@ -21,6 +23,10 @@ public enum PersonDoctorAgendaScalesNight {
 
     PersonDoctorAgendaScalesNight(String hour) {
         this.hour = hour;
+    }
+
+    public static String valueOf() {
+        return Arrays.toString(values());
     }
 
 }

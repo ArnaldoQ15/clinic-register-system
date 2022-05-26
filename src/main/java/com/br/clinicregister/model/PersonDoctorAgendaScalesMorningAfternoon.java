@@ -5,9 +5,26 @@ import lombok.Getter;
 import java.util.Arrays;
 
 @Getter
-public enum PersonDoctorAgendaScalesAfternoon {
+public enum PersonDoctorAgendaScalesMorningAfternoon {
 
-    // Pattern: A (Afternoon) + Hour + Minutes
+    // Pattern: M/A (Morning/Afternoon) + Hour + Minutes
+
+    M0800("08:00 AM"),
+    M0815("08:15 AM"),
+    M0830("08:30 AM"),
+    M0845("08:45 AM"),
+    M0900("09:00 AM"),
+    M0915("09:15 AM"),
+    M0930("09:30 AM"),
+    M0945("09:45 AM"),
+    M1000("10:00 AM"),
+    M1015("10:15 AM"),
+    M1030("10:30 AM"),
+    M1045("10:45 AM"),
+    M1100("11:00 AM"),
+    M1115("11:15 AM"),
+    M1130("11:30 AM"),
+    M1145("11:45 AM"),
 
     A1400("14:00 PM"),
     A1415("14:15 PM"),
@@ -26,15 +43,13 @@ public enum PersonDoctorAgendaScalesAfternoon {
     A1730("17:30 PM"),
     A1745("17:45 PM");
 
-
     private final String hour;
 
-    PersonDoctorAgendaScalesAfternoon(String hour) {
+    PersonDoctorAgendaScalesMorningAfternoon(String hour) {
         this.hour = hour;
     }
 
     public static String valueOf() {
         return Arrays.toString(values());
     }
-
 }

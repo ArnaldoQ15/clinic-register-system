@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ import javax.validation.constraints.Size;
 @Table(name = "person_phone")
 public abstract class PersonPhone {
 
-    @NotNull
+    @NotBlank
     @Column(name = "person_phone_type")
     protected PersonPhoneType type;
 

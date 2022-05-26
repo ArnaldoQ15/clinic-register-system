@@ -3,10 +3,10 @@ package com.br.clinicregister.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,22 +14,28 @@ import java.text.SimpleDateFormat;
 public class PersonDoctor extends Person {
 
     @NotNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "doctor_id")
+    private Long doctorId;
+
+    @NotNull
     @Column(name = "professional_register_number")
     private Integer professionalRegisterNumber;
 
-    @NotNull
+    @NotBlank
     @Column(name = "professional_register_state")
-    private PersonDoctorProfessionalRegisterState professionalRegisterState;
+    private FederativeUnits professionalRegisterState;
 
     @NotNull
     @Column(name = "professional_register_validity")
-    private SimpleDateFormat professionalRegisterValidity;
+    private Date professionalRegisterValidity;
 
-    @NotNull
+    @NotBlank
     @Column(name = "doctor_especiality")
     private PersonDoctorEspeciality DoctorEspeciality;
 
     @Column(name = "doctor_agenda")
-    private DoctorAgenda doctorAgenda;
+    private PersonDoctorAgenda personDoctorAgenda;
 
 }

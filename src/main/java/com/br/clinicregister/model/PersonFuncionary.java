@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 
@@ -20,7 +21,7 @@ public class PersonFuncionary extends Person {
     @Column(name = "funcionary_id")
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Column(name = "funcionary_role")
     private PersonFuncionaryRole role;
 
@@ -28,7 +29,7 @@ public class PersonFuncionary extends Person {
     @Column(name = "funcionary_admission_date")
     private SimpleDateFormat admission_date;
 
-    @NotNull
+    @NotBlank
     @Email
     @Column(name = "funcionary_email")
     private String funcionary_email;

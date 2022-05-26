@@ -5,9 +5,9 @@ import lombok.Getter;
 import java.util.Arrays;
 
 @Getter
-public enum PersonDoctorAgendaScalesMorning {
+public enum PersonDoctorAgendaScalesMorningNight {
 
-    // Pattern: M (Morning) + Hour + Minutes
+    // Pattern: M/N (Morning/Night) + Hour + Minutes
 
     M0800("08:00 AM"),
     M0815("08:15 AM"),
@@ -24,11 +24,20 @@ public enum PersonDoctorAgendaScalesMorning {
     M1100("11:00 AM"),
     M1115("11:15 AM"),
     M1130("11:30 AM"),
-    M1145("11:45 AM");
+    M1145("11:45 AM"),
+
+    N1800("18:00 PM"),
+    N1815("18:15 PM"),
+    N1830("18:30 PM"),
+    N1845("18:45 PM"),
+    N1900("19:00 PM"),
+    N1915("19:15 PM"),
+    N1930("19:30 PM"),
+    N1945("19:45 PM");
 
     private final String hour;
 
-    PersonDoctorAgendaScalesMorning(String hour) {
+    PersonDoctorAgendaScalesMorningNight(String hour) {
         this.hour = hour;
     }
 
