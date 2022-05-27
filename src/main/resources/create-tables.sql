@@ -54,7 +54,15 @@
    - funcionary_id (FK) (LONG)
    - agenda_id (LONG)
    - agenda_scale (STRING)
+   - agenda_hours_list (STRING)
+   - agenda_appointments
    - agenda_hours_available (STRING)
+
+   * doctor_appointments
+   - person_id (FK) (LONG)
+   - person_name (FK) (STRING)
+   - doctor_id (FK) (LONG)
+   - appointment_id (LONG)
 
    * person_pacient
    - person_id (FK) (LONG)
@@ -62,14 +70,14 @@
    - pacient_child_data
    - pacient_prontuary
 
-   * person_pacient_consults
+   * consults
    - person_id (FK) (LONG)
    - person_name (FK) (STRING)
    - consults_id (LONG)
    - consults_especiality (STRING)
    - consults_doctor (STRING)
 
-   * person_pacient_child
+   * pacient_child
    - person_id (FK) (LONG)
    - person_name (FK) (STRING)
    - pacient_child_id (LONG)
@@ -78,7 +86,7 @@
    - pacient_child_sex (STRING)
    - pacient_child_printed_term (BOOLEAN)
 
-   * person_pacient_health_insurance
+   * pacient_health_insurance
    - person_id (FK) (LONG)
    - person_name (FK) (STRING)
    - person_document_cpf (FK) (INTEGER)
@@ -87,7 +95,7 @@
    - health_insurance_number (INTEGER)
    - health_insurance_coverage (STRING)
 
-   * person_pacient_prontuary
+   * pacient_prontuary
    - pacient_next_consult (STRING)
    - pacient_last_consult (DATE)
    - pacient_symptoms (STRING)

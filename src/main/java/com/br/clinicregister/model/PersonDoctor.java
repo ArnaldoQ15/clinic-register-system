@@ -6,13 +6,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.OffsetDateTime;
 import java.util.Calendar;
-import java.util.Date;
 
 @Getter
 @Setter
-@Table(name = "person_doctor")
+@Entity(name = "personDoctor")
 public class PersonDoctor extends Person {
 
     @NotNull

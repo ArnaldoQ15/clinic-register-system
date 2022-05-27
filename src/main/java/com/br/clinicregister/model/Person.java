@@ -12,7 +12,7 @@ import java.time.OffsetDateTime;
 
 @Getter
 @Setter
-@Table(name = "all_person")
+@Entity(name = "allPerson")
 public abstract class Person {
 
     @NotNull
@@ -74,4 +74,5 @@ public abstract class Person {
         this.documentRg = documentRg;
         this.address = address;
     }
+
 }

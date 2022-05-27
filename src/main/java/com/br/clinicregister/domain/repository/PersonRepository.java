@@ -1,9 +1,9 @@
 package com.br.clinicregister.domain.repository;
 
-import com.br.clinicregister.model.PersonDoctorAgendaAppointments;
+import com.br.clinicregister.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DoctorHoursRepository extends JpaRepository<PersonDoctorAgendaAppointments, Long> {
+public interface PersonRepository extends JpaRepository<Person, Long> {
 }

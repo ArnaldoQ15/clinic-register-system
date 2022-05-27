@@ -20,12 +20,11 @@ public class ClinicRegisterApplication {
         Calendar validadeTeste = Calendar.getInstance();
         validadeTeste.set(2025, Calendar.FEBRUARY, 20);
 
-        Person teste[] = new Person[2];
         PersonPhone inserir[] = new PersonPhone[2];
         PersonAddress endereco[] = new PersonAddress[2];
         PersonDoctorAgenda agendaDoDoutor[] = new PersonDoctorAgenda[2];
 
-        agendaDoDoutor[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING);
+        agendaDoDoutor[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT);
 
         endereco[0] = new PersonAddress("Rua das Gaivotas", 9, "Andorinhas", "Dimas",
                 FederativeUnits.BA, "Salvador", 40000000);

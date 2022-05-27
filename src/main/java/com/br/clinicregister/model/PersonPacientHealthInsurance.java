@@ -4,12 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@Table(name = "person_pacient_health_insurance")
+@Entity(name = "pacientHealthInsurance")
 public class PersonPacientHealthInsurance {
 
     @NotBlank

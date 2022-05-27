@@ -1,16 +1,15 @@
 package com.br.clinicregister.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.Table;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
-@Table(name = "person_pacient_prontuary")
+@Entity(name = "pacientProntuary")
 public class PersonPacientProntuary extends PersonPacient {
 
     @Column(name = "pacient_first_time")

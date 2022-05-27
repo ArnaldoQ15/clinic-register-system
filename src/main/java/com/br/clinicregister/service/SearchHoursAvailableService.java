@@ -11,7 +11,7 @@ public class SearchHoursAvailableService {
 
 //    String disponibleHour[] =
 
-    private DoctorHoursRepository doctorHoursRepository;
+//    private DoctorHoursRepository doctorHoursRepository;
 
     private PersonDoctorAgenda personDoctorAgenda;
 
