@@ -6,7 +6,14 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Objects;
+
+import static com.br.clinicregister.model.PersonDoctorAgendaWeekDays.*;
+import static com.br.clinicregister.model.PersonDoctorAgendaWeekDays.valueOf;
 
 @Getter
 @Setter
@@ -29,7 +36,7 @@ public class PersonDoctor extends Person {
 
     @NotNull
     @Column(name = "professional_register_validity")
-    private Calendar professionalRegisterValidity;
+    private SimpleDateFormat professionalRegisterValidity;
 
     @NotBlank
     @Column(name = "doctor_especiality")
@@ -38,10 +45,13 @@ public class PersonDoctor extends Person {
     @Column(name = "doctor_agenda")
     private PersonDoctorAgenda personDoctorAgenda;
 
+    public PersonDoctor() {
+    }
+
     public PersonDoctor(String name, Integer age, String email, PersonSex sex, PersonPhone phone,
                         Integer documentCpf, Integer documentRg, PersonAddress address,
                         Integer professionalRegisterNumber, FederativeUnits professionalRegisterState,
-                        Calendar professionalRegisterValidity, PersonDoctorEspeciality doctorEspeciality,
+                        SimpleDateFormat professionalRegisterValidity, PersonDoctorEspeciality doctorEspeciality,
                         PersonDoctorAgenda personDoctorAgenda) {
 
         super(name, age, email, sex, phone, documentCpf, documentRg, address);

@@ -96,8 +96,10 @@
    - health_insurance_coverage (STRING)
 
    * pacient_prontuary
-   - pacient_next_consult (STRING)
-   - pacient_last_consult (DATE)
+   - person_id (FK) (LONG)
+   - person_name (FK) (STRING)
+   - pacient_child_id (FK) (LONG)
+   - pacient_prontuary_id (LONG)
    - pacient_symptoms (STRING)
    -
 

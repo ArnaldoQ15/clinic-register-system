@@ -61,7 +61,7 @@ public abstract class Person {
 
     @NotNull
     @Column(name = "person_register_date")
-    protected OffsetDateTime register_date;
+    protected OffsetDateTime registerDate;
 
     public Person(String name, Integer age, String email, PersonSex sex, PersonPhone phone,
                   Integer documentCpf, Integer documentRg, PersonAddress address) {
@@ -74,5 +74,10 @@ public abstract class Person {
         this.documentRg = documentRg;
         this.address = address;
     }
+
+    protected Person() {
+    }
+
+
 
 }

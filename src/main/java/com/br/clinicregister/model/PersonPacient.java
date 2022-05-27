@@ -33,8 +33,4 @@ public class PersonPacient extends Person {
         super(name, age, email, sex, phone, documentCpf, documentRg, address);
     }
 
-//    public void markConsult() {
-//        PersonPacient pacient =
-//    }
-
 }

@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
+import static com.br.clinicregister.model.PersonDoctorAgendaWeekDays.*;
+
 @Getter
 @Setter
 @Entity(name = "doctorAgenda")
-public class PersonDoctorAgenda {
+public class PersonDoctorAgenda extends PersonDoctor {
 
     @NotNull
     @Id
@@ -31,20 +33,85 @@ public class PersonDoctorAgenda {
     @Column(name = "agenda_hours_available")
     private ArrayList<String> hoursAvailable;
 
+    @Column(name = "doctor_choosed_days")
+    private PersonDoctorAgendaWeekChoosedDays choosedDays;
 
-    public PersonDoctorAgenda(PersonDoctorAgendaScales agendaScale) {
+    @Column(name = "agenda_week_days")
+    private ArrayList<String> daysOfDoc;
+
+
+    public PersonDoctorAgenda(PersonDoctorAgendaScales agendaScale, PersonDoctorAgendaWeekChoosedDays
+            choosedDays) {
         this.agendaScale = agendaScale;
         this.setHoursList();
+        this.choosedDays = choosedDays;
+        this.setDaysOfDoc();
     }
 
     public void setAgendaScale(PersonDoctorAgendaScales agendaScale) {
         this.agendaScale = agendaScale;
         this.setHoursList();
+        this.setDaysOfDoc();
+    }
+
+    public ArrayList<String> setDaysOfDoc() {
+        ArrayList<String> theseDays = new ArrayList<String>();
+
+        if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_WED)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(WED.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_WED_FRI)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(WED.getDays());
+            theseDays.add(FRI.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.TUES_THUR)) {
+            theseDays.add(TUES.getDays());
+            theseDays.add(THUR.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.TUES_THUR_SAT)) {
+            theseDays.add(TUES.getDays());
+            theseDays.add(THUR.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.WED_FRI)) {
+            theseDays.add(WED.getDays());
+            theseDays.add(FRI.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.THUR_SAT)) {
+            theseDays.add(THUR.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_FRI)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(FRI.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_SAT)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_THUR)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(THUR.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_THUR_SAT)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(THUR.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.TUES_FRI)) {
+            theseDays.add(TUES.getDays());
+            theseDays.add(FRI.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.TUES_SAT)) {
+            theseDays.add(TUES.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.WED_SAT)) {
+            theseDays.add(WED.getDays());
+            theseDays.add(SAT.getDays());
+        } else if (this.getChoosedDays().equals(PersonDoctorAgendaWeekChoosedDays.MON_WED_SAT)) {
+            theseDays.add(MON.getDays());
+            theseDays.add(WED.getDays());
+            theseDays.add(SAT.getDays());
+        }
+
+            this.daysOfDoc = theseDays;
+        return this.daysOfDoc;
+
     }
 
     private ArrayList setHoursList() {
         ArrayList<String> listenerHours = new ArrayList<String>();
-
 
         if (getAgendaScale().equals(PersonDoctorAgendaScales.MORNING))
             for (PersonDoctorAgendaScalesMorning onlyMorning : PersonDoctorAgendaScalesMorning.values()) {
@@ -80,6 +147,14 @@ public class PersonDoctorAgenda {
         this.hoursList = listenerHours;
         return this.hoursList;
     }
+
+//    public ArrayList setChoosedWeekDays() {
+//        ArrayList<String> listenerChoosed = new ArrayList<String>();
+//
+//
+//    }
+
+
 
 //    public ArrayList setHoursAvailable () {
 //        ArrayList<String> listenerAvailableHours = new ArrayList<String>();

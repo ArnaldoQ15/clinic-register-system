@@ -1,12 +1,10 @@
 package com.br.clinicregister;
 
+import com.br.clinicregister.common.DateHelper;
 import com.br.clinicregister.model.*;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+import java.text.SimpleDateFormat;
 
 @SpringBootApplication
 public class ClinicRegisterApplication {
@@ -14,32 +12,29 @@ public class ClinicRegisterApplication {
     public static void main(String[] args) {
 //        SpringApplication.run(ClinicRegisterApplication.class, args);
 
-        Locale Brasil = new Locale("pt", "BR");
-        DateFormat dateFormatBr = DateFormat.getDateInstance(DateFormat.FULL, Brasil);
+        DateHelper dateHelper;
 
-        Calendar validadeTeste = Calendar.getInstance();
-        validadeTeste.set(2025, Calendar.FEBRUARY, 20);
+        SimpleDateFormat validade = new SimpleDateFormat("01/01/2028");
 
-        PersonPhone inserir[] = new PersonPhone[2];
-        PersonAddress endereco[] = new PersonAddress[2];
-        PersonDoctorAgenda agendaDoDoutor[] = new PersonDoctorAgenda[2];
 
-        agendaDoDoutor[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT);
+        PersonPhone[] telefone = new PersonPhone[1];
+        PersonAddress[] endereco = new PersonAddress[1];
+        PersonDoctorAgenda[] agenda = new PersonDoctorAgenda[1];
+
+        agenda[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT,
+                PersonDoctorAgendaWeekChoosedDays.MON_WED_SAT);
 
         endereco[0] = new PersonAddress("Rua das Gaivotas", 9, "Andorinhas", "Dimas",
                 FederativeUnits.BA, "Salvador", 40000000);
 
-        inserir[0] = new PersonPhone(PersonPhoneType.CELLPHONE, 766958445, "Trolling");
+        telefone[0] = new PersonPhone(PersonPhoneType.CELLPHONE, 766958445, "Arnaldina da Silva Costa");
 
-//        teste[0] = new Person("Testador", 29, "algumacoisaai@gmail.com", PersonSex.MALE,
-//                inserir[0], 1234567891, 987654321, endereco[0]);
 
-        PersonDoctor testeDoutor[] = new PersonDoctor[2];
+        PersonDoctor[] doutorLinguica = new PersonDoctor[1];
 
-        testeDoutor[0] = new PersonDoctor("Testador", 29, "algumacoisaai@gmail.com", PersonSex.MALE,
-                inserir[0], 1234567891, 987654321, endereco[0], 285128129,
-                FederativeUnits.BA, validadeTeste, PersonDoctorEspeciality.MEDICAL_CLINIC, agendaDoDoutor[0]);
-
+        doutorLinguica[0] = new PersonDoctor("Girafales da Silva Linguiça", 49, "algumacoisaai@gmail.com", PersonSex.MALE,
+                telefone[0], 1234567891, 987654321, endereco[0], 285128129,
+                FederativeUnits.BA, validade, PersonDoctorEspeciality.MEDICAL_CLINIC, agenda[0]);
     }
 
 }
