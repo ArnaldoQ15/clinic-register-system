@@ -9,14 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class SearchHoursAvailableService {
 
+//    String disponibleHour[] =
+
     private DoctorHoursRepository doctorHoursRepository;
 
     private PersonDoctorAgenda personDoctorAgenda;
 
-    public void searchHoursAvailable(Long doctorId) {
-        Boolean checkHourBusy = doctorHoursRepository.findAll()
-                .stream()
-                .anyMatch(personDoctor -> Boolean.parseBoolean(personDoctorAgenda.getHoursList()));
-        }
+//    public void searchHoursAvailable(Long doctorId) {
+//        Boolean checkHourBusy = doctorHoursRepository.findAll()
+//                .stream()
+//                .anyMatch(personDoctor -> Boolean.parseBoolean(personDoctorAgenda.getHoursList()));
+//        }
 
 }

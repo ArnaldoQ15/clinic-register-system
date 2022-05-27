@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -29,4 +30,7 @@ public class PersonPacient extends Person {
     @Column(name = "pacient_prontuary")
     private PersonPacientProntuary prontuary;
 
+    public PersonPacient(String name, Integer age, String email, PersonSex sex, PersonPhone phone, Integer documentCpf, Integer documentRg, PersonAddress address) {
+        super(name, age, email, sex, phone, documentCpf, documentRg, address);
+    }
 }

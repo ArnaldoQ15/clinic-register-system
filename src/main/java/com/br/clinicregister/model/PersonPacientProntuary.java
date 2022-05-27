@@ -1,5 +1,6 @@
 package com.br.clinicregister.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,10 @@ public class PersonPacientProntuary extends PersonPacient {
     @NotBlank
     @Column(name = "pacient_symptoms")
     private String symptoms;
+
+    public PersonPacientProntuary(String name, Integer age, String email, PersonSex sex, PersonPhone phone, Integer documentCpf, Integer documentRg, PersonAddress address) {
+        super(name, age, email, sex, phone, documentCpf, documentRg, address);
+    }
 
     public void setLastConsult(PersonPacientLastConsult lastConsult) {
         if (this.firstTime) {

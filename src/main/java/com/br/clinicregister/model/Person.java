@@ -19,11 +19,13 @@ public abstract class Person {
     @Id
     @Column(name = "person_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn
     private Long id;
 
     @NotBlank
     @Column(name = "person_name")
     @Size(max = 80)
+    @JoinColumn
     protected String name;
 
     @NotNull
@@ -61,4 +63,15 @@ public abstract class Person {
     @Column(name = "person_register_date")
     protected OffsetDateTime register_date;
 
+    public Person(String name, Integer age, String email, PersonSex sex, PersonPhone phone,
+                  Integer documentCpf, Integer documentRg, PersonAddress address) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.sex = sex;
+        this.phone = phone;
+        this.documentCpf = documentCpf;
+        this.documentRg = documentRg;
+        this.address = address;
+    }
 }
