@@ -3,9 +3,7 @@ package com.br.clinicregister.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
@@ -19,6 +17,7 @@ public class PersonDoctorAgenda extends PersonDoctor {
     @NotNull
     @Id
     @Column(name = "agenda_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long agendaId;
 
     @Column(name = "agenda_scale")
@@ -29,9 +28,6 @@ public class PersonDoctorAgenda extends PersonDoctor {
 
     @Column(name = "agenda_appointments")
     private PersonDoctorAgendaAppointments appointments;
-
-    @Column(name = "agenda_hours_available")
-    private ArrayList<String> hoursAvailable;
 
     @Column(name = "doctor_choosed_days")
     private PersonDoctorAgendaWeekChoosedDays choosedDays;

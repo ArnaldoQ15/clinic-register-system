@@ -1,7 +1,7 @@
 package com.br.clinicregister.mapper;
 
 import com.br.clinicregister.input.ConsultInput;
-import com.br.clinicregister.model.Consults;
+import com.br.clinicregister.model.Consult;
 import com.br.clinicregister.response.ConsultResponse;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Component
-public class ConsultsMapper {
+public class ConsultMapper {
 
     private ModelMapper modelMapper;
 
-    public ConsultResponse toModel(Consults consults) {
-        return modelMapper.map(consults, ConsultResponse.class);
+    public ConsultResponse toModel(Consult consult) {
+        return modelMapper.map(consult, ConsultResponse.class);
     }
 
-    public Consults toEntity(ConsultInput consultInput) {
-        return modelMapper.map(consultInput, Consults.class);
+    public Consult toEntity(ConsultInput consultInput) {
+        return modelMapper.map(consultInput, Consult.class);
     }
 
 }

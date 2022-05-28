@@ -3,8 +3,7 @@ package com.br.clinicregister.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,15 +13,21 @@ import javax.validation.constraints.Size;
 @Entity(name = "personPhone")
 public class PersonPhone {
 
+    @Id
+    @Column(name = "phone_id")
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long phoneId;
+
     @NotBlank
-    @Column(name = "person_phone_type")
-    protected PersonPhoneType type;
+    @Column(name = "phone_type")
+    private PersonPhoneType type;
 
     @NotNull
-    @Column(name = "person_phone_number")
-    protected Integer number;
+    @Column(name = "phone_number")
+    private Integer number;
 
-    @Column(name = "person_phone_name")
+    @Column(name = "phone_name")
     @Size(max = 80)
     protected String personPhoneName;
 

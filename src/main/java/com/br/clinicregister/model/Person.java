@@ -24,7 +24,6 @@ public abstract class Person {
 
     @NotBlank
     @Column(name = "person_name")
-    @Size(max = 80)
     @JoinColumn
     protected String name;
 
@@ -43,7 +42,6 @@ public abstract class Person {
 
     @NotNull
     @Column(name = "person_phone")
-    @Size(max = 14)
     protected PersonPhone phone;
 
     @NotNull

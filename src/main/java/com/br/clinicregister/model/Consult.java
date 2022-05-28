@@ -1,5 +1,6 @@
 package com.br.clinicregister.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,8 +12,8 @@ import java.util.Calendar;
 
 @Getter
 @Setter
-@Entity(name = "consults")
-public class Consults {
+@Entity(name = "consult")
+public class Consult {
 
     @NotNull
     @Id
@@ -23,7 +24,8 @@ public class Consults {
     @ManyToOne
     private PersonPacient personPacient;
 
-    @Column(name = "consult_status")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @ManyToOne
     private ConsultStatus status;
 
     @NotNull
@@ -46,7 +48,7 @@ public class Consults {
     @Column(name = "consult_register_date")
     protected OffsetDateTime registerDate;
 
-    public Consults(PersonDoctorEspeciality especiality, PersonDoctor doctor, Calendar dateConsult,
+    public Consult(PersonDoctorEspeciality especiality, PersonDoctor doctor, Calendar dateConsult,
                     OffsetTime hourConsult) {
         this.especiality = especiality;
         this.doctor = doctor;

@@ -1,8 +1,8 @@
 package com.br.clinicregister.service;
 
-import com.br.clinicregister.domain.repository.ConsultsRepository;
+import com.br.clinicregister.domain.repository.ConsultRepository;
+import com.br.clinicregister.model.Consult;
 import com.br.clinicregister.model.ConsultStatus;
-import com.br.clinicregister.model.Consults;
 import com.br.clinicregister.model.Person;
 import com.br.clinicregister.model.PersonPacient;
 import lombok.AllArgsConstructor;
@@ -16,17 +16,17 @@ import java.time.OffsetDateTime;
 public class ConsultRequestService {
 
     private PersonService personService;
-    private ConsultsRepository consultsRepository;
+    private ConsultRepository consultRepository;
 
     @Transactional
-    public Consults request(Consults consults) {
-        Person person = personService.seachPersonId(consults.getPersonPacient().getId());
+    public Consult request(Consult consult) {
+        Person person = personService.seachPersonId(consult.getPersonPacient().getId());
 
-        consults.setPersonPacient((PersonPacient) person);
-        consults.setStatus(ConsultStatus.PENDING);
-        consults.setRegisterDate(OffsetDateTime.now());
+        consult.setPersonPacient((PersonPacient) person);
+        consult.setStatus(ConsultStatus.PENDING);
+        consult.setRegisterDate(OffsetDateTime.now());
 
-        return consultsRepository.save(consults);
+        return consultRepository.save(consult);
     }
 
 }

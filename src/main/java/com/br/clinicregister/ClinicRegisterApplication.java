@@ -24,7 +24,7 @@ public class ClinicRegisterApplication {
         agenda[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT,
                 PersonDoctorAgendaWeekChoosedDays.MON_WED_SAT);
 
-        endereco[0] = new PersonAddress("Rua das Gaivotas", 9, "Andorinhas", "Dimas",
+        endereco[0] = new PersonAddress("Rua das Gaivotas", "9", "Andorinhas", "Dimas",
                 FederativeUnits.BA, "Salvador", 40000000);
 
         telefone[0] = new PersonPhone(PersonPhoneType.CELLPHONE, 766958445, "Arnaldina da Silva Costa");

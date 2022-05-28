@@ -3,8 +3,7 @@ package com.br.clinicregister.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,35 +13,40 @@ import javax.validation.constraints.Size;
 @Entity(name = "personAddress")
 public class PersonAddress {
 
+    @Id
+    @Column(name = "address_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long addressId;
+
     @NotBlank
-    @Column(name = "person_address_street")
+    @Column(name = "address_street")
     private String street;
 
     @NotNull
-    @Column(name = "person_address_number")
-    private Integer number;
+    @Column(name = "address_number")
+    private String number;
 
     @NotBlank
-    @Column(name = "person_address_district")
+    @Column(name = "address_district")
     private String district;
 
-    @Column(name = "person_address_complement")
+    @Column(name = "address_complement")
     private String complement;
 
     @NotBlank
-    @Column(name = "person_address_state")
+    @Column(name = "address_state")
     private FederativeUnits state;
 
     @NotBlank
-    @Column(name = "person_address_city")
+    @Column(name = "address_city")
     private String city;
 
     @NotNull
     @Size(min = 8, max = 8)
-    @Column(name = "person_address_postal_code")
+    @Column(name = "address_postal_code")
     private Integer postalCode;
 
-    public PersonAddress(String street, Integer number, String district, String complement,
+    public PersonAddress(String street, String number, String district, String complement,
                          FederativeUnits state, String city, Integer postalCode) {
         this.street = street;
         this.number = number;

@@ -1,9 +1,9 @@
 package com.br.clinicregister.controller;
 
-import com.br.clinicregister.domain.repository.ConsultsRepository;
+import com.br.clinicregister.domain.repository.ConsultRepository;
 import com.br.clinicregister.input.ConsultInput;
-import com.br.clinicregister.mapper.ConsultsMapper;
-import com.br.clinicregister.model.Consults;
+import com.br.clinicregister.mapper.ConsultMapper;
+import com.br.clinicregister.model.Consult;
 import com.br.clinicregister.response.ConsultResponse;
 import com.br.clinicregister.service.ConsultRequestService;
 import lombok.AllArgsConstructor;
@@ -17,18 +17,18 @@ import javax.validation.Valid;
 @RequestMapping("/{personId}/consults")
 public class ConsultController {
 
-    private ConsultsRepository consultsRepository;
+    private ConsultRepository consultRepository;
     private ConsultRequestService consultRequestService;
-    private ConsultsMapper consultsMapper;
+    private ConsultMapper consultMapper;
 
 //    Nova consulta no sistema da clínica
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public ConsultResponse newConsult (@Valid @RequestBody ConsultInput consultInput) {
-        Consults newConsult = consultsMapper.toEntity(consultInput);
-        Consults consultRequested = consultRequestService.request(newConsult);
+        Consult newConsult = consultMapper.toEntity(consultInput);
+        Consult consultRequested = consultRequestService.request(newConsult);
 
-        return consultsMapper.toModel(consultRequested);
+        return consultMapper.toModel(consultRequested);
     }
 
 }

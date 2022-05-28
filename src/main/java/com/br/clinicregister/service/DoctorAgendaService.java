@@ -2,17 +2,8 @@ package com.br.clinicregister.service;
 
 import com.br.clinicregister.domain.repository.DoctorHoursRepository;
 import com.br.clinicregister.domain.repository.DoctorRepository;
-import com.br.clinicregister.model.Consults;
-import com.br.clinicregister.model.PersonDoctor;
 import com.br.clinicregister.model.PersonPacient;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.OffsetDateTime;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 @Service
 public class DoctorAgendaService {
