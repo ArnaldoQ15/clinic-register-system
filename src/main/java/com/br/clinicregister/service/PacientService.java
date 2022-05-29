@@ -20,11 +20,19 @@ public class PacientService {
 
     @Transactional
     public PersonPacient savePacient(PersonPacient personPacient) {
-        Boolean registerExists = pacientRepository.
+
+        Boolean registerExists = pacientRepository.registerExists(personPacient.getEmail())
+                .stream()
+                .anyMatch(personPacientExist -> !personPacientExist.equals(personPacient));
 
         if (registerExists) {
             throw new BusinessException("There is already a pacient registered with this CPF");
         }
+        return pacientRepository.save(personPacient);
     }
 
+    @Transactional
+    public void deletePacient(Long pacientId) {
+        pacientRepository.deleteById(pacientId);
+    }
 }

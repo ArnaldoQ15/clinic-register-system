@@ -123,6 +123,9 @@ CREATE DATABASE clinic_register;
         ADD CONSTRAINT fk_address_id
             FOREIGN KEY (person_address_id)
                 REFERENCES person_address (address_id);
+    ALTER TABLE all_person
+        ADD CONSTRAINT unique_documents
+            UNIQUE (person_document_cpf, person_document_rg);
 
 
 
