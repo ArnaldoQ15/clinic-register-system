@@ -49,7 +49,7 @@
    - doctor_choosed_days (STRING)
    - agenda_week_days (STRING)
 
-    * person_funcionary
+    * person_funcionary ***ADICIONAR DOCTOR***
    - person_id (FK) (LONG)
    - funcionary_id (LONG)
    - funcionary_role (STRING)

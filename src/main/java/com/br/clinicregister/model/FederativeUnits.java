@@ -5,9 +5,9 @@ import lombok.Getter;
 @Getter
 public enum FederativeUnits {
 
-    AM("Amazonas"),
-    AL("Alagoas"),
     AC("Acre"),
+    AL("Alagoas"),
+    AM("Amazonas"),
     AP("Amapa"),
     BA("Bahia"),
     CE("Ceara"),
@@ -24,8 +24,8 @@ public enum FederativeUnits {
     PI("Piaui"),
     PR("Parana"),
     RJ("Rio de Janeiro"),
-    RO("Rondonia"),
     RN("Rio Grande do Norte"),
+    RO("Rondonia"),
     RR("Roraima"),
     RS("Rio Grande do Sul"),
     SC("Santa Catarina"),

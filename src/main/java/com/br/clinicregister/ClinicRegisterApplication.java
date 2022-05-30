@@ -21,8 +21,8 @@ public class ClinicRegisterApplication {
         PersonAddress[] endereco = new PersonAddress[1];
         PersonDoctorAgenda[] agenda = new PersonDoctorAgenda[1];
 
-        agenda[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT,
-                PersonDoctorAgendaWeekChoosedDays.MON_WED_SAT);
+//        agenda[0] = new PersonDoctorAgenda(PersonDoctorAgendaScales.MORNING_AFTERNOON_NIGHT,
+//                PersonDoctorAgendaWeekChoosedDays.MON_WED_SAT);
 
         endereco[0] = new PersonAddress("Rua das Gaivotas", "9", "Andorinhas", "Dimas",
                 FederativeUnits.BA, "Salvador", 40000000);
