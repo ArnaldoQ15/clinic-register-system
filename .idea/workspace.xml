@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="13e95e52-1ed8-48d2-9a02-3d0014c9e01f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinic-register.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/ClinicRegisterApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/common/DateHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/common/ModelMapperConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/controller/ConsultController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/controller/PacientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/ConsultRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/DoctorHoursRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/DoctorRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/EspecialityCardiologyRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/PacientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/domain/repository/PersonRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/exception/BusinessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/exception/EntityNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/input/ConsultInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/input/PersonDoctorInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/input/PersonIdInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/mapper/ConsultMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/Consult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/ConsultStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/ConsultStatusModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/DoctorCardiology.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/FederativeUnits.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgenda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaAppointments.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScales.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesAfternoon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesAfternoonNight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesByEspeciality.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesMorning.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningAfternoon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningAfternoonNight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningNight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesNight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaWeekChoosedDays.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaWeekDays.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorEspeciality.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonFuncionary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonFuncionaryRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacientChild.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacientHealthInsurance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacientHealthInsuranceCoverage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacientHealthInsuranceName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPacientProntuary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonPhoneType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonSex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/testandoCodigo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/response/ConsultResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/response/PersonPacientResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/AgendaDisponibility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/ConsultRequestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/DoctorAgendaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/PacientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/PersonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregister/service/SearchHoursAvailableService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/annotations.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create-alter-database-tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/message.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/annotations.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/ClinicRegisterApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/common/DateHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/common/ModelMapperConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/controller/ConsultController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/controller/PacientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/ConsultRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/DoctorHoursRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/DoctorRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/EspecialityCardiologyRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/PacientRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/domain/repository/PersonRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/exception/BusinessException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/exception/EntityNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/input/ConsultInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/input/PersonDoctorInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/input/PersonIdInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/mapper/ConsultMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/Consult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/ConsultStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/ConsultStatusModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/DoctorCardiology.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/FederativeUnits.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonAddress.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgenda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaAppointments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScales.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesAfternoon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesAfternoonNight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesByEspeciality.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesMorning.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningAfternoon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningAfternoonNight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesMorningNight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaScalesNight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaWeekChoosedDays.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorAgendaWeekDays.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonDoctorEspeciality.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonFuncionary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonFuncionaryRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacientChild.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacientHealthInsurance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacientHealthInsuranceCoverage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacientHealthInsuranceName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPacientProntuary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPhone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonPhoneType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/PersonSex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/model/testandoCodigo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/response/ConsultResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/response/PersonPacientResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/AgendaDisponibility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/ConsultRequestService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/DoctorAgendaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/PacientService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/PersonService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/br/clinicregister/service/SearchHoursAvailableService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/create-alter-database-tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/message.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/br/clinicregister/ClinicRegisterApplicationTests.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="29tjMDFbWrJCUErENhLs846VMdu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.48735633&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7b3f1fc337ea4d082223bfe9d891db18&quot;
+  }
+}</component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$" />
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.PersonDoctorAgendaScalesByEspeciality">
+    <configuration name="PersonDoctorAgendaScalesByEspeciality" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregister.model.PersonDoctorAgendaScalesByEspeciality" />
+      <module name="clinic-register" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregister.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClinicRegisterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="clinic-register" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.br.clinicregister.ClinicRegisterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PersonDoctorAgendaScalesByEspeciality" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13e95e52-1ed8-48d2-9a02-3d0014c9e01f" name="Changes" comment="" />
+      <created>1653939231490</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653939231490</updated>
+      <workItem from="1653939232740" duration="92000" />
+      <workItem from="1653939386571" duration="1679000" />
+      <workItem from="1653941103487" duration="1706000" />
+      <workItem from="1653942900148" duration="221000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesByEspeciality.java</url>
+          <line>289</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesByEspeciality.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregister/model/PersonDoctorAgendaScalesByEspeciality.java</url>
+          <line>278</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
