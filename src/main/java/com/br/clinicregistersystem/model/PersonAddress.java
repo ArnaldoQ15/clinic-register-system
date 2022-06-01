@@ -44,7 +44,8 @@ public class PersonAddress {
     @Column(name = "address_postal_code")
     private Integer postalCode;
 
-    public PersonAddress(String street, String number, String district, String complement, FederativeUnits state, String city, Integer postalCode) {
+    public PersonAddress(String street, String number, String district, String complement, FederativeUnits state,
+                         String city, Integer postalCode) {
         this.street = street;
         this.number = number;
         this.district = district;

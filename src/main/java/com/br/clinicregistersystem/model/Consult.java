@@ -47,4 +47,8 @@ public class Consult {
         this.consultHourRequest = consultHourRequest;
     }
 
+    public Consult() {
+
+    }
+
 }

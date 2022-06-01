@@ -9,15 +9,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 @AllArgsConstructor
 @Service
 public class PacientService {
 
     private PacientRepository pacientRepository;
     private PersonRepository personRepository;
-
+    
 
 //    Find by Pacient ID
     public Pacient searchByPacientId(Long pacientId) {
@@ -30,13 +28,6 @@ public class PacientService {
 //    Save pacient on repository
     @Transactional
     public Pacient savePacient (Pacient pacient) {
-        Boolean cpfInUse = personRepository.findByDocumentCpf(pacient.getPersonDocumentCpf())
-                .stream()
-                .anyMatch(personExist -> !personExist.equals(pacient));
-
-        if (cpfInUse) {
-            throw new BusinessException("There is already a person registered with this CPF.");
-        }
         return pacientRepository.save(pacient);
     }
 
@@ -47,5 +38,6 @@ public class PacientService {
     public void deletePacientById(Long pacientId) {
         pacientRepository.deleteById(pacientId);
     }
+
 
 }

@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c7ccc98-ba7a-4e3d-a457-4d558b458a7a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +32,16 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/Java/jdk-18.0.1.1/lib/src.zip!/java.base/java/time/LocalDate.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,16 +57,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "dart.analysis.tool.window.visible": "false",
     "last_opened_file_path": "D:/Projetos Dev/delivery-company",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.49310344",
     "ruby.rails.projectView.checked": "true",
@@ -69,8 +90,14 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.br.clinicregistersystem.model" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.br.clinicregistersystem.model" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.ConsultService">
+  <component name="RunManager" selected="Spring Boot.ClinicRegisterSystemApplication">
     <configuration name="ConsultService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.ConsultService" />
       <module name="clinic-register-system" />
@@ -84,6 +111,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DoctorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.model" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.model.DoctorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoctorTest.getDoctorId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.model" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.model.DoctorTest" />
+      <option name="METHOD_NAME" value="getDoctorId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DoctorTest.setDoctorEspeciality" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.model" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.model.DoctorTest" />
+      <option name="METHOD_NAME" value="setDoctorEspeciality" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClinicRegisterSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="clinic-register-system" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.br.clinicregistersystem.ClinicRegisterSystemApplication" />
@@ -93,11 +167,17 @@
     </configuration>
     <list>
       <item itemvalue="Application.ConsultService" />
+      <item itemvalue="JUnit.DoctorTest" />
+      <item itemvalue="JUnit.DoctorTest.getDoctorId" />
+      <item itemvalue="JUnit.DoctorTest.setDoctorEspeciality" />
       <item itemvalue="Spring Boot.ClinicRegisterSystemApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ConsultService" />
+        <item itemvalue="JUnit.DoctorTest" />
+        <item itemvalue="JUnit.DoctorTest.setDoctorEspeciality" />
+        <item itemvalue="JUnit.DoctorTest.getDoctorId" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +190,8 @@
       <option name="presentableId" value="Default" />
       <updated>1653943376550</updated>
       <workItem from="1653943377807" duration="12319000" />
-      <workItem from="1653955822588" duration="7714000" />
+      <workItem from="1653955822588" duration="7853000" />
+      <workItem from="1654100368580" duration="18067000" />
     </task>
     <servers />
   </component>
@@ -133,43 +214,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>182</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>153</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>147</line>
-          <option name="timeStamp" value="26" />
+          <line>219</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -183,5 +229,10 @@
         <watch expression="percorredor" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/clinic_register_system$ConsultService.ic" NAME="ConsultService Coverage Results" MODIFIED="1654115049781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
   </component>
 </project>

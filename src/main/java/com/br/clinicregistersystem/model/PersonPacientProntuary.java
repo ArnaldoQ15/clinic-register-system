@@ -21,15 +21,9 @@ public class PersonPacientProntuary {
     @Column(name = "pacient_symptoms")
     private String symptoms;
 
-    @Transient
-    @OneToOne
-    private Pacient personPacient;
-
     public PersonPacientProntuary(Boolean firstTime, String symptoms) {
         this.firstTime = true;
         this.symptoms = symptoms;
     }
 
-    public void setPersonPacient(Pacient personPacient) {
-    }
 }

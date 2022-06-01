@@ -4,20 +4,22 @@ import com.br.clinicregistersystem.domain.repository.ConsultRepository;
 import com.br.clinicregistersystem.model.*;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 
 @Service
 public class ConsultService {
 
-    public static void main(String[] args) {
-        PersonPhone[] telefone = new PersonPhone[2];
+    public static void main(String[] args) throws ParseException {
+        PersonPhone[] telefone = new PersonPhone[3];
         PersonAddress[] endereco = new PersonAddress[2];
+        List<PersonAddress> novoEndereco = new ArrayList <PersonAddress>();
         Doctor[] doutorLinguica = new Doctor[1];
-        SimpleDateFormat validade = new SimpleDateFormat("09/07/2028");
         Pacient[] novoPaciente = new Pacient[1];
         Consult[] novaConsulta = new Consult[1];
         PacientChild[] crianca = new PacientChild[1];
@@ -25,9 +27,37 @@ public class ConsultService {
         PersonPacientProntuary[] prontuario = new PersonPacientProntuary[1];
 
 
+
         telefone[0] = new PersonPhone(PersonPhoneType.CELLPHONE, 76695844558L, "Arnaldina da Silva Costa");
 
         telefone[1] = new PersonPhone(PersonPhoneType.LANDLINE, 21954698547L, "Papai Lucas");
+
+        telefone[2] = new PersonPhone(PersonPhoneType.CELLPHONE, 719451458789L, "");
+
+
+        List<PersonPhone> myPhones = new ArrayList<>();
+        myPhones.add(telefone[0]);
+        myPhones.add(telefone[2]);
+
+        List<PersonPhone> myPhones2 = new ArrayList<>();
+        myPhones2.add(telefone[1]);
+
+//
+//        ---------------------------------------------------------------------------
+//
+
+        String realDate = "03/08/1994";
+        DateTimeFormatter transfer = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate myBirth = LocalDate.parse(realDate, transfer);
+
+        String realDate2 = "01/06/2000";
+        DateTimeFormatter transfer2 = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate myBirth2 = LocalDate.parse(realDate2, transfer2);
+
+        String realDate3 = "09/07/2028";
+        DateTimeFormatter transfer3 = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate validade = LocalDate.parse(realDate3, transfer3);
+
 
 //
 //        ---------------------------------------------------------------------------
@@ -40,12 +70,19 @@ public class ConsultService {
         endereco[1] = new PersonAddress("Avenida Brasil", "20R", "Caldeiras", "", FederativeUnits.RJ,
                 "Rio de Janeiro", 48425741);
 
+
+        List<PersonAddress> myLocale = new ArrayList<>();
+        myLocale.add(endereco[0]);
+
+        List<PersonAddress> myLocale2 = new ArrayList<>();
+        myLocale2.add(endereco[1]);
+
 //
 //        ---------------------------------------------------------------------------
 //
 
         doutorLinguica[0] = new Doctor("Girafales da Silva Linguiça", 49, "algumacoisaai@gmail.com", PersonSex.MALE,
-                telefone[0], 1234567891L, 987654321L, endereco[0], 285128129,
+                myPhones, myBirth, 1234567891L, 987654321L, myLocale, 285128129,
                 FederativeUnits.BA, validade, DoctorEspeciality.MEDICAL_CLINIC);
 
 //
@@ -78,7 +115,7 @@ public class ConsultService {
 //
 
         novoPaciente[0] = new Pacient("Dilma Roussef", 59, "dilma@dobrasil.com.br", PersonSex.FEMALE,
-                telefone[1], 45114535671L, 4561478541L, endereco[1], crianca[0], planoDeSaude[0],
+                myPhones2, myBirth2, 45114535671L, 4561478541L, myLocale2, crianca[0], planoDeSaude[0],
                 prontuario[0]);
 
 
@@ -89,9 +126,9 @@ public class ConsultService {
         novaConsulta[0] = new Consult(novoPaciente[0], "Cardiology", "Tuesday", "11:00 AM");
 
 
-        ArrayList<String> doctorHours = new ArrayList<String>();
-        ArrayList<String> doctorDays = new ArrayList<String>();
-        ArrayList<Boolean> disponivelDoutor = new ArrayList<Boolean>();
+        List<String> doctorHours = new ArrayList<String>();
+        List<String> doctorDays = new ArrayList<String>();
+        List<Boolean> disponivelDoutor = new ArrayList<Boolean>();
 
 
         ConsultRepository consultRepository;
@@ -158,8 +195,7 @@ public class ConsultService {
 
 
 
-
-
+        novoPaciente[0].getPersonBirthday();
 
 
 
@@ -178,6 +214,7 @@ public class ConsultService {
 
 
 
+        novoPaciente[0].makeBirthday(novoPaciente[0].getPersonBirthday());
 
 
     }
