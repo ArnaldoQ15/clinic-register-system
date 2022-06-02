@@ -13,11 +13,6 @@ import java.util.List;
 public class Doctor extends Person {
 
     @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "doctor_id")
-    private Long doctorId;
-
-    @NotNull
     @Column(name = "professional_register_number")
     private Integer professionalRegisterNumber;
 

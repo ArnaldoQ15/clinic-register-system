@@ -12,6 +12,5 @@ public interface PacientRepository extends JpaRepository<Pacient, Long> {
 
     List<Pacient> findByPersonEmail(@Param("personEmail") String personEmail);
     List<Pacient> findByPersonDocumentCpf(@Param("personDocumentCpf") Long personDocumentCpf);
-    List<Pacient> findByPersonStatus(@Param("personStatus") Boolean personStatus);
 
 }
