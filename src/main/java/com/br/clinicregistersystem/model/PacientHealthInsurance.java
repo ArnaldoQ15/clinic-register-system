@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Data
 @Entity(name = "pacientHealthInsurance")
@@ -21,6 +22,9 @@ public class PacientHealthInsurance {
 
     @Column(name = "health_insurance_coverage")
     private PacientHealthInsuranceCoverage coverage;
+
+    @Column(name = "health_insurance_last_register_date")
+    private OffsetDateTime lastRegister;
 
     public PacientHealthInsurance(PacientHealthInsuranceName name, Long number, PacientHealthInsuranceCoverage coverage) {
         this.name = name;

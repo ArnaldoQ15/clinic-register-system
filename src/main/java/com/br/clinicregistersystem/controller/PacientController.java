@@ -1,12 +1,17 @@
 package com.br.clinicregistersystem.controller;
 
+import com.br.clinicregistersystem.domain.repository.HealthInsuranceRepository;
 import com.br.clinicregistersystem.domain.repository.PacientRepository;
+import com.br.clinicregistersystem.domain.repository.ProntuaryRepository;
 import com.br.clinicregistersystem.model.Pacient;
+import com.br.clinicregistersystem.model.PacientHealthInsurance;
+import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import com.br.clinicregistersystem.service.PacientService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,8 +26,10 @@ public class PacientController {
 
     private PacientRepository pacientRepository;
 
-    @Autowired
     private PacientService pacientService;
+
+    private ProntuaryRepository prontuaryRepository;
+
 
 //    Return all pacient list
     @GetMapping
@@ -43,7 +50,7 @@ public class PacientController {
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Pacient addPacient (@Valid @RequestBody Pacient pacient) {
-        pacient.setPersonRegisterDate(OffsetDateTime.now());
+        pacient.setPersonLastRegisterDate(OffsetDateTime.now());
         return pacientService.savePacient(pacient);
     }
 
@@ -55,19 +62,92 @@ public class PacientController {
             return ResponseEntity.notFound().build();
         }
 
-        pacient = pacientService.savePacient(pacient);
+        pacient.setPersonId(personId);
+        pacient = pacientService.updatePacients(pacient);
         return ResponseEntity.ok(pacient);
     }
 
-//    Delete a pacient on database
-    @DeleteMapping("/{personId}")
-    public ResponseEntity<Void> deletePacient (@PathVariable Long personId) {
+//    Inactive a pacient on database
+    @PutMapping("/{personId}/inactive")
+    public ResponseEntity<Void> inactivePacient (@Valid @PathVariable Long personId) {
         if (!pacientRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
 
-        pacientService.inactivePacientById((Pacient) pacientRepository.findByPersonStatus(true));
+        pacientService.inactivePacientById(personId);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{personId}/active")
+    public ResponseEntity<Void> activePacient (@Valid @PathVariable Long personId) {
+        if (!pacientRepository.existsById(personId)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        pacientService.activePacientById(personId);
+        return ResponseEntity.noContent().build();
+    }
+
+
+
+
+//    ----------------------------------------------------- PRONTUÁRIO
+
+
+
+    @GetMapping("/{personId}/prontuary")
+    public ResponseEntity<PersonPacientProntuary> searchProntuary(@PathVariable Long personId) {
+
+        return prontuaryRepository.findById(personId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @Transactional
+    @PutMapping("/{personId}/prontuary")
+    public ResponseEntity<PersonPacientProntuary> updateProntuary (@Valid @PathVariable Long personId,
+                                                                   @RequestBody PersonPacientProntuary personPacientProntuary) {
+        if (!prontuaryRepository.existsById(personId)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        personPacientProntuary.setProntuaryId(personId);
+        personPacientProntuary = pacientService.updatePacientProntuary(personPacientProntuary);
+
+        return ResponseEntity.ok(personPacientProntuary);
+    }
+
+
+
+
+//    ----------------------------------------------------- PLANO DE SAÚDE
+
+
+    private HealthInsuranceRepository healthInsuranceRepository;
+
+
+    @GetMapping("/{personId}/health-insurance")
+    public ResponseEntity<PacientHealthInsurance> searchHealthInsurance(@PathVariable Long personId) {
+
+        return healthInsuranceRepository.findById(personId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @Transactional
+    @PutMapping("/{personId}/health-insurance")
+    public ResponseEntity<PacientHealthInsurance> updateHealthInsurance (@Valid @PathVariable Long personId,
+                                                                   @RequestBody PacientHealthInsurance pacientHealthInsurance) {
+        if (!healthInsuranceRepository.existsById(personId)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        pacientHealthInsurance.setPacientHealthInsuranceId(personId);
+        pacientHealthInsurance = pacientService.updateHealthInsurance(pacientHealthInsurance);
+
+        return ResponseEntity.ok(pacientHealthInsurance);
+    }
+
+
 
 }

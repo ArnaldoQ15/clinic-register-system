@@ -61,8 +61,8 @@ public abstract class Person {
     protected List<PersonAddress> personAddresses = new ArrayList<>();
 
     @NotNull
-    @Column(name = "person_register_date")
-    protected OffsetDateTime personRegisterDate;
+    @Column(name = "person_last_register_date")
+    protected OffsetDateTime personLastRegisterDate;
 
     @NotNull
     @Column(name = "person_status")

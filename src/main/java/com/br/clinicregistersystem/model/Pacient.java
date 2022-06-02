@@ -48,4 +48,16 @@ public class Pacient extends Person {
     public Pacient(){
     }
 
+    public void inactiveStatusPacient() {
+        if (getPersonStatus()) {
+            setPersonStatus(false);
+        }
+    }
+
+    public void activeStatusPacient() {
+        if (!getPersonStatus()) {
+            setPersonStatus(true);
+        }
+    }
+
 }
