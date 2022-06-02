@@ -28,6 +28,9 @@ public class Doctor extends Person {
     @Column(name = "doctor_especiality")
     private DoctorEspeciality DoctorEspeciality;
 
+    @OneToMany(mappedBy = "doctorHourId")
+    private List<DoctorHour> doctorHours;
+
     public Doctor(String personName, Integer personAge, String personEmail, PersonSex personSex,
                   List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf,
                   Long personDocumentRg, List<PersonAddress> personAddresses, Boolean personStatus, Integer professionalRegisterNumber,

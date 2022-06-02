@@ -17,7 +17,7 @@ public class Consult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consultId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Pacient pacient;
 
     @NotNull
@@ -40,6 +40,7 @@ public class Consult {
     @Column(name = "consult_register_date")
     private OffsetDateTime registerDate;
 
+
     public Consult(Pacient pacient, String consultEspeciality, String consultDateRequest, String consultHourRequest) {
         this.pacient = pacient;
         this.consultEspeciality = consultEspeciality;
@@ -48,7 +49,6 @@ public class Consult {
     }
 
     public Consult() {
-
     }
 
 }

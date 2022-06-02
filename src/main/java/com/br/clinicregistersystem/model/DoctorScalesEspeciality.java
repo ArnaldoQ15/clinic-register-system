@@ -1,12 +1,6 @@
 package com.br.clinicregistersystem.model;
 
-import com.br.clinicregistersystem.domain.repository.ConsultRepository;
-import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.exception.EntityNotFoundException;
 import lombok.Getter;
-
-import javax.print.Doc;
-import java.util.ArrayList;
 
 @Getter
 public enum DoctorScalesEspeciality {
@@ -127,13 +121,9 @@ public enum DoctorScalesEspeciality {
     MCTA1700("17:00 PM", "Thursday", "Medical Clinic"),
     MCTA1730("17:30 PM", "Thursday", "Medical Clinic"),
     MCTN1800("18:00 PM", "Thursday", "Medical Clinic"),
-    MCTN1815("18:15 PM", "Thursday", "Medical Clinic"),
     MCTN1830("18:30 PM", "Thursday", "Medical Clinic"),
-    MCTN1845("18:45 PM", "Thursday", "Medical Clinic"),
     MCTN1900("19:00 PM", "Thursday", "Medical Clinic"),
-    MCTN1915("19:15 PM", "Thursday", "Medical Clinic"),
     MCTN1930("19:30 PM", "Thursday", "Medical Clinic"),
-    MCTN1945("19:45 PM", "Thursday", "Medical Clinic"),
 
 
 
@@ -167,13 +157,9 @@ public enum DoctorScalesEspeciality {
     DFA1700("17:00 PM", "Friday", "Dermatology"),
     DFA1730("17:30 PM", "Friday", "Dermatology"),
     DFN1800("18:00 PM", "Friday", "Dermatology"),
-    DFN1815("18:15 PM", "Friday", "Dermatology"),
     DFN1830("18:30 PM", "Friday", "Dermatology"),
-    DFN1845("18:45 PM", "Friday", "Dermatology"),
     DFN1900("19:00 PM", "Friday", "Dermatology"),
-    DFN1915("19:15 PM", "Friday", "Dermatology"),
     DFN1930("19:30 PM", "Friday", "Dermatology"),
-    DFN1945("19:45 PM", "Friday", "Dermatology"),
 
 
 
@@ -199,13 +185,9 @@ public enum DoctorScalesEspeciality {
     STTA1700("17:00 PM", "Thursday", "Speech Therapy"),
     STTA1730("17:30 PM", "Thursday", "Speech Therapy"),
     STTN1800("18:00 PM", "Thursday", "Speech Therapy"),
-    STTN1815("18:15 PM", "Thursday", "Speech Therapy"),
     STTN1830("18:30 PM", "Thursday", "Speech Therapy"),
-    STTN1845("18:45 PM", "Thursday", "Speech Therapy"),
     STTN1900("19:00 PM", "Thursday", "Speech Therapy"),
-    STTN1915("19:15 PM", "Thursday", "Speech Therapy"),
     STTN1930("19:30 PM", "Thursday", "Speech Therapy"),
-    STTN1945("19:45 PM", "Thursday", "Speech Therapy"),
 
 
 
@@ -281,12 +263,8 @@ public enum DoctorScalesEspeciality {
     A1700("17:00 PM", "Monday", "angiology"),
     A1730("17:30 PM", "Monday", "angiology"),
     N1800("18:00 PM", "Tuesday", "cardiology"),
-    N1815("18:15 PM", "Tuesday", "cardiology"),
     N1830("18:30 PM", "Tuesday", "cardiology"),
-    N1845("18:45 PM", "Tuesday", "cardiology"),
     N1900("19:00 PM", "Tuesday", "cardiology"),
-    N1915("19:15 PM", "Tuesday", "cardiology"),
     N1930("19:30 PM", "Tuesday", "cardiology"),
-    N1945("19:45 PM", "Tuesday", "cardiology"),
 
  */

@@ -2,6 +2,8 @@ package com.br.clinicregistersystem.controller;
 
 import com.br.clinicregistersystem.domain.repository.DoctorRepository;
 import com.br.clinicregistersystem.model.Doctor;
+import com.br.clinicregistersystem.model.DoctorHour;
+import com.br.clinicregistersystem.service.DoctorHourService;
 import com.br.clinicregistersystem.service.DoctorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ public class DoctorController {
 
     private DoctorRepository doctorRepository;
     private DoctorService doctorService;
+    private DoctorHourService doctorHourService;
 
 
 
@@ -43,8 +46,9 @@ public class DoctorController {
     @Transactional
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor addDoctor(@Valid @RequestBody Doctor doctor) {
+    public Doctor addDoctor(@Valid @RequestBody Doctor doctor, DoctorHour doctorHour) {
         doctor.setPersonLastRegisterDate(OffsetDateTime.now());
+        doctorHourService.createDoctorAgenda(doctor, doctorHour);
         return doctorService.saveDoctor(doctor);
     }
 

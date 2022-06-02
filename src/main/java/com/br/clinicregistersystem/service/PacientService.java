@@ -1,13 +1,8 @@
 package com.br.clinicregistersystem.service;
 
-import com.br.clinicregistersystem.domain.repository.HealthInsuranceRepository;
 import com.br.clinicregistersystem.domain.repository.PacientRepository;
-import com.br.clinicregistersystem.domain.repository.ProntuaryRepository;
 import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.Doctor;
 import com.br.clinicregistersystem.model.Pacient;
-import com.br.clinicregistersystem.model.PacientHealthInsurance;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -72,18 +67,5 @@ public class PacientService {
         pacient.setPersonStatus(!pacient.getPersonStatus());
         pacientRepository.save(pacient);
     }
-
-
-
-
-
-
-
-
-//    ----------------------------------------------------- PLANO DE SAÚDE
-
-
-
-
 
 }
