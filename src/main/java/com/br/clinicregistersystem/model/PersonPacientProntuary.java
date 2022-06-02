@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.OffsetDateTime;
 
 @Data
 @Entity(name = "pacientProntuary")
@@ -11,19 +12,26 @@ public class PersonPacientProntuary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pacient_prontuary_id")
+    @Column(name = "prontuary_id")
     private Long prontuaryId;
 
-    @Column(name = "pacient_first_time")
+    @Column(name = "prontuary_first_time")
     private Boolean firstTime;
 
     @NotBlank
-    @Column(name = "pacient_symptoms")
+    @Column(name = "prontuary_symptoms")
     private String symptoms;
+
+    @Column(name = "prontuary_last_register_date")
+    private OffsetDateTime lastRegisterDate;
 
     public PersonPacientProntuary(Boolean firstTime, String symptoms) {
         this.firstTime = true;
         this.symptoms = symptoms;
+    }
+
+    public PersonPacientProntuary() {
+
     }
 
 }

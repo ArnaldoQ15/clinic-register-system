@@ -20,12 +20,16 @@ public class PacientHealthInsurance {
     private Long number;
 
     @Column(name = "health_insurance_coverage")
-    private PacientHealthInsuranceCoverage Coverage;
+    private PacientHealthInsuranceCoverage coverage;
 
     public PacientHealthInsurance(PacientHealthInsuranceName name, Long number, PacientHealthInsuranceCoverage coverage) {
         this.name = name;
         this.number = number;
-        Coverage = coverage;
+        this.coverage = coverage;
+    }
+
+    public PacientHealthInsurance() {
+
     }
 
 }

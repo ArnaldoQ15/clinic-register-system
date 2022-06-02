@@ -35,4 +35,7 @@ public class PersonPhone {
         this.personPhoneName = personPhoneName;
     }
 
+    public PersonPhone() {
+    }
+
 }

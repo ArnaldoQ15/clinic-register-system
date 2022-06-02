@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Data
 @Entity(name = "personAddress")
@@ -40,7 +39,6 @@ public class PersonAddress {
     private String city;
 
     @NotNull
-    @Size(min = 8, max = 8)
     @Column(name = "address_postal_code")
     private Integer postalCode;
 
@@ -53,6 +51,10 @@ public class PersonAddress {
         this.state = state;
         this.city = city;
         this.postalCode = postalCode;
+    }
+
+    public PersonAddress() {
+
     }
 
 }

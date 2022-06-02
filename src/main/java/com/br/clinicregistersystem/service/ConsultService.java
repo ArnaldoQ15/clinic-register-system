@@ -82,7 +82,7 @@ public class ConsultService {
 //
 
         doutorLinguica[0] = new Doctor("Girafales da Silva Linguiça", 49, "algumacoisaai@gmail.com", PersonSex.MALE,
-                myPhones, myBirth, 1234567891L, 987654321L, myLocale, 285128129,
+                myPhones, myBirth, 1234567891L, 987654321L, myLocale, true, 285128129,
                 FederativeUnits.BA, validade, DoctorEspeciality.MEDICAL_CLINIC);
 
 //
@@ -115,7 +115,7 @@ public class ConsultService {
 //
 
         novoPaciente[0] = new Pacient("Dilma Roussef", 59, "dilma@dobrasil.com.br", PersonSex.FEMALE,
-                myPhones2, myBirth2, 45114535671L, 4561478541L, myLocale2, crianca[0], planoDeSaude[0],
+                myPhones2, myBirth2, 45114535671L, 4561478541L, myLocale2, true, crianca[0], planoDeSaude[0],
                 prontuario[0]);
 
 
@@ -213,8 +213,8 @@ public class ConsultService {
 //        }
 
 
-
         novoPaciente[0].makeBirthday(novoPaciente[0].getPersonBirthday());
+
 
 
     }

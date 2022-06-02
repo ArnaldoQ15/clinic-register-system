@@ -32,4 +32,8 @@ public class PacientChild {
         this.printedTerm = false;
     }
 
+    public PacientChild() {
+
+    }
+
 }

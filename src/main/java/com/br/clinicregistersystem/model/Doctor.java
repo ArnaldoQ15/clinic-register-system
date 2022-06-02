@@ -35,13 +35,16 @@ public class Doctor extends Person {
 
     public Doctor(String personName, Integer personAge, String personEmail, PersonSex personSex,
                   List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf,
-                  Long personDocumentRg, List<PersonAddress> personAddresses, Integer professionalRegisterNumber,
+                  Long personDocumentRg, List<PersonAddress> personAddresses, Boolean personStatus, Integer professionalRegisterNumber,
                   FederativeUnits professionalRegisterState, LocalDate professionalRegisterValidity, DoctorEspeciality doctorEspeciality) {
-        super(personName, personAge, personEmail, personSex, personPhone, personBirthday, personDocumentCpf, personDocumentRg, personAddresses);
+        super(personName, personAge, personEmail, personSex, personPhone, personBirthday, personDocumentCpf, personDocumentRg, personAddresses, personStatus);
         this.professionalRegisterNumber = professionalRegisterNumber;
         this.professionalRegisterState = professionalRegisterState;
         this.professionalRegisterValidity = professionalRegisterValidity;
         DoctorEspeciality = doctorEspeciality;
+    }
+
+    public Doctor() {
     }
 
 }

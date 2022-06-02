@@ -64,9 +64,13 @@ public abstract class Person {
     @Column(name = "person_register_date")
     protected OffsetDateTime personRegisterDate;
 
+    @NotNull
+    @Column(name = "person_status")
+    protected Boolean personStatus;
+
     public Person(String personName, Integer personAge, String personEmail, PersonSex personSex,
                   List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf, Long personDocumentRg,
-                  List<PersonAddress> personAddresses) {
+                  List<PersonAddress> personAddresses, Boolean personStatus) {
         this.personName = personName;
         this.personAge = personAge;
         this.personEmail = personEmail;
@@ -76,6 +80,10 @@ public abstract class Person {
         this.personDocumentCpf = personDocumentCpf;
         this.personDocumentRg = personDocumentRg;
         this.personAddresses = personAddresses;
+        this.personStatus = true;
+    }
+
+    protected Person() {
     }
 
     public List<PersonAddress> getPersonAddresses() {

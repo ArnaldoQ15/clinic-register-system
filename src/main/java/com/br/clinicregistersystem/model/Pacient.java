@@ -2,9 +2,10 @@ package com.br.clinicregistersystem.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,23 +13,18 @@ import java.util.List;
 @Entity(name = "personPacient")
 public class Pacient extends Person {
 
-    @NotNull
-    @Column(name = "pacient_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pacientId;
-
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private PacientChild pacientChild;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     private PacientHealthInsurance healthInsurance;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.PERSIST)
     @NotBlank
     private PersonPacientProntuary prontuary;
 
-    public Pacient(String personName, Integer personAge, String personEmail, PersonSex personSex, List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf, Long personDocumentRg, List<PersonAddress> personAddresses, PacientChild pacientChild, PacientHealthInsurance healthInsurance, PersonPacientProntuary prontuary) {
-        super(personName, personAge, personEmail, personSex, personPhone, personBirthday, personDocumentCpf, personDocumentRg, personAddresses);
+    public Pacient(String personName, Integer personAge, String personEmail, PersonSex personSex, List<PersonPhone> personPhones, LocalDate personBirthday, Long personDocumentCpf, Long personDocumentRg, List<PersonAddress> personAddresses, Boolean personStatus, PacientChild pacientChild, PacientHealthInsurance healthInsurance, PersonPacientProntuary prontuary) {
+        super(personName, personAge, personEmail, personSex, personPhones, personBirthday, personDocumentCpf, personDocumentRg, personAddresses, personStatus);
         this.pacientChild = pacientChild;
         this.healthInsurance = healthInsurance;
         this.prontuary = prontuary;
@@ -49,5 +45,7 @@ public class Pacient extends Person {
         this.setPersonAge(actualAge);
     }
 
+    public Pacient(){
+    }
 
 }
