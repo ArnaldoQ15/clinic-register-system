@@ -1,11 +1,13 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "personAddress")
 public class PersonAddress {
@@ -51,10 +53,6 @@ public class PersonAddress {
         this.state = state;
         this.city = city;
         this.postalCode = postalCode;
-    }
-
-    public PersonAddress() {
-
     }
 
 }

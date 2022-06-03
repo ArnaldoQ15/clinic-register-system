@@ -1,14 +1,18 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
 
+@PrimaryKeyJoinColumn(name = "personId")
+@NoArgsConstructor
 @Data
 @Entity(name = "personPacient")
 public class Pacient extends Person {
@@ -43,9 +47,6 @@ public class Pacient extends Person {
         }
 
         this.setPersonAge(actualAge);
-    }
-
-    public Pacient(){
     }
 
 }

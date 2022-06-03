@@ -1,9 +1,11 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "pacientChild")
 public class PacientChild {
@@ -30,10 +32,6 @@ public class PacientChild {
         this.childAge = childAge;
         this.childSex = childSex;
         this.printedTerm = false;
-    }
-
-    public PacientChild() {
-
     }
 
 }

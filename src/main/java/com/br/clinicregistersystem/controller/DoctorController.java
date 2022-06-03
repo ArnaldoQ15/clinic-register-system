@@ -1,8 +1,7 @@
 package com.br.clinicregistersystem.controller;
 
 import com.br.clinicregistersystem.domain.repository.DoctorRepository;
-import com.br.clinicregistersystem.model.Doctor;
-import com.br.clinicregistersystem.model.DoctorHour;
+import com.br.clinicregistersystem.model.*;
 import com.br.clinicregistersystem.service.DoctorHourService;
 import com.br.clinicregistersystem.service.DoctorService;
 import lombok.AllArgsConstructor;
@@ -11,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import javax.validation.Valid;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -46,9 +46,12 @@ public class DoctorController {
     @Transactional
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor addDoctor(@Valid @RequestBody Doctor doctor, DoctorHour doctorHour) {
+    public Doctor addDoctor(@Valid @RequestBody Doctor doctor, DoctorHourMonday doctorHourMonday, DoctorHourTuesday doctorHourTuesday,
+                            DoctorHourWednesday doctorHourWednesday, DoctorHourThursday doctorHourThursday,
+                            DoctorHourFriday doctorHourFriday, DoctorHourSaturday doctorHourSaturday) {
         doctor.setPersonLastRegisterDate(OffsetDateTime.now());
-        doctorHourService.createDoctorAgenda(doctor, doctorHour);
+        doctorHourService.createDoctorAgenda(doctor, doctorHourMonday, doctorHourTuesday, doctorHourWednesday,
+                doctorHourThursday, doctorHourFriday, doctorHourSaturday);
         return doctorService.saveDoctor(doctor);
     }
 

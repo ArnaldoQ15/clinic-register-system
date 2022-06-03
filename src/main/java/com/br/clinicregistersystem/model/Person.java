@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.model;
 import com.br.clinicregistersystem.exception.ValidationGroups;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -13,9 +14,13 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.InheritanceType.JOINED;
+
+@NoArgsConstructor
+@Inheritance(strategy=JOINED)
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@MappedSuperclass
+@Entity
 public abstract class Person {
 
     @NotNull(groups = ValidationGroups.PersonId.class)
@@ -81,9 +86,6 @@ public abstract class Person {
         this.personDocumentRg = personDocumentRg;
         this.personAddresses = personAddresses;
         this.personStatus = true;
-    }
-
-    protected Person() {
     }
 
     public List<PersonAddress> getPersonAddresses() {

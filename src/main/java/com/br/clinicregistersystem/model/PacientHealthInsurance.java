@@ -1,10 +1,12 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "pacientHealthInsurance")
 public class PacientHealthInsurance {
@@ -30,10 +32,6 @@ public class PacientHealthInsurance {
         this.name = name;
         this.number = number;
         this.coverage = coverage;
-    }
-
-    public PacientHealthInsurance() {
-
     }
 
 }

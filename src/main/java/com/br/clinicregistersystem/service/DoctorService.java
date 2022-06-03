@@ -28,20 +28,6 @@ public class DoctorService {
     @Transactional
     public Doctor saveDoctor(Doctor doctor) {
         doctor.setPersonStatus(true);
-
-        Boolean cpfInUse = doctorRepository.findByPersonDocumentCpf(doctor.getPersonDocumentCpf())
-                .stream()
-                .anyMatch(cpfDoctorExist -> !cpfDoctorExist.equals(doctor));
-
-        Boolean emailInUse = doctorRepository.findByPersonEmail(doctor.getPersonEmail())
-                .stream()
-                .anyMatch(emailDoctorExist -> !emailDoctorExist.equals(doctor));
-
-        if (emailInUse) {
-            throw new BusinessException("There is already a doctor registered with this e-mail.");
-        } else if (cpfInUse) {
-            throw new BusinessException("There is already a doctor registered with this CPF.");
-        }
         return doctorRepository.save(doctor);
     }
 

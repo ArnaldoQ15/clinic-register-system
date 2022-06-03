@@ -2,14 +2,17 @@ package com.br.clinicregistersystem.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "consult")
 public class Consult {
+
 
     @NotNull
     @Id
@@ -19,6 +22,9 @@ public class Consult {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Pacient pacient;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Doctor doctor;
 
     @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -46,9 +52,6 @@ public class Consult {
         this.consultEspeciality = consultEspeciality;
         this.consultDateRequest = consultDateRequest;
         this.consultHourRequest = consultHourRequest;
-    }
-
-    public Consult() {
     }
 
 }

@@ -1,12 +1,14 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "personPhone")
 public class PersonPhone {
@@ -33,9 +35,6 @@ public class PersonPhone {
         this.type = type;
         this.number = number;
         this.personPhoneName = personPhoneName;
-    }
-
-    public PersonPhone() {
     }
 
 }

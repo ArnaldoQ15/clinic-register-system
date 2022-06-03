@@ -1,6 +1,7 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+@PrimaryKeyJoinColumn(name = "personId")
+@NoArgsConstructor
 @Data
 @Entity(name = "personDoctor")
 public class Doctor extends Person {
@@ -26,10 +29,8 @@ public class Doctor extends Person {
 
     @NotBlank
     @Column(name = "doctor_especiality")
-    private DoctorEspeciality DoctorEspeciality;
+    private DoctorEspeciality doctorEspeciality;
 
-    @OneToMany(mappedBy = "doctorHourId")
-    private List<DoctorHour> doctorHours;
 
     public Doctor(String personName, Integer personAge, String personEmail, PersonSex personSex,
                   List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf,
@@ -39,10 +40,7 @@ public class Doctor extends Person {
         this.professionalRegisterNumber = professionalRegisterNumber;
         this.professionalRegisterState = professionalRegisterState;
         this.professionalRegisterValidity = professionalRegisterValidity;
-        DoctorEspeciality = doctorEspeciality;
-    }
-
-    public Doctor() {
+        this.doctorEspeciality = doctorEspeciality;
     }
 
 }

@@ -1,11 +1,13 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
 
+@NoArgsConstructor
 @Data
 @Entity(name = "pacientProntuary")
 public class PersonPacientProntuary {
@@ -28,10 +30,6 @@ public class PersonPacientProntuary {
     public PersonPacientProntuary(Boolean firstTime, String symptoms) {
         this.firstTime = true;
         this.symptoms = symptoms;
-    }
-
-    public PersonPacientProntuary() {
-
     }
 
 }

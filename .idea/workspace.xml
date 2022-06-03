@@ -5,13 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c7ccc98-ba7a-4e3d-a457-4d558b458a7a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourMondayRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourMonday.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorScalesEspeciality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorScalesEspeciality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/AwaitingConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PacientChild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PacientChild.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PacientHealthInsurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PacientHealthInsurance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +39,8 @@
       <list>
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,6 +52,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="29trlrgyzgnwBcOkdp1EplPLIdJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -90,6 +106,10 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.br.clinicregistersystem.model" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.br.clinicregistersystem.domain.repository" />
+      <recent name="com.br.clinicregistersystem.model" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ClinicRegisterSystemApplication">
     <configuration name="com.br.clinicregistersystem.service.AwaitingConsultService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -134,7 +154,7 @@
       <workItem from="1653943377807" duration="12319000" />
       <workItem from="1653955822588" duration="7853000" />
       <workItem from="1654100368580" duration="25165000" />
-      <workItem from="1654145556390" duration="28976000" />
+      <workItem from="1654145556390" duration="64763000" />
     </task>
     <servers />
   </component>
@@ -154,6 +174,197 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>55</line>
+          <properties class="com.br.clinicregistersystem.service.DoctorHourService" method="createDoctorAgenda">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="252" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>225</line>
+          <properties class="com.br.clinicregistersystem.service.DoctorHourService" method="checkDocHours">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>38</line>
+          <properties class="com.br.clinicregistersystem.service.ConsultService" method="saveConsult">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="323" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>43</line>
+          <properties class="com.br.clinicregistersystem.controller.ConsultController" method="addConsult">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="332" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="253" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="254" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="306" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="321" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="328" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="331" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="333" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="334" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="335" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="337" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>232</line>
+          <option name="timeStamp" value="338" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="340" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="341" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java</url>
+          <line>234</line>
+          <option name="timeStamp" value="342" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="347" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="348" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
         <breakpoint type="python-exception">
@@ -168,11 +379,6 @@
         <PinnedItemInfo parentTag="com.br.clinicregistersystem.model.PersonPacientProntuary" memberName="personPacient" />
       </pinned-members>
     </pin-to-top-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="pacient.personPhones" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/clinic_register_system$ConsultService.ic" NAME="ConsultService Coverage Results" MODIFIED="1654115049781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
