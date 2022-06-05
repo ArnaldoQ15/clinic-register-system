@@ -15,16 +15,14 @@ public class HealthInsuranceService {
     private HealthInsuranceRepository healthInsuranceRepository;
 
 
-
-//    Find the pacient's health insurance
+    /**Find the pacient's health insurance.*/
     public PacientHealthInsurance pacientHealthInsurance(Long personId) {
         return healthInsuranceRepository.findById(personId)
                 .orElseThrow(() -> new BusinessException("Pacient's health insurance not found."));
     }
 
 
-
-//    Update the pacient's health insurance
+    /**Update the pacient's health insurance.*/
     public PacientHealthInsurance updateHealthInsurance(PacientHealthInsurance pacientHealthInsurance) {
         pacientHealthInsurance.setLastRegister(OffsetDateTime.now());
         return healthInsuranceRepository.save(pacientHealthInsurance);

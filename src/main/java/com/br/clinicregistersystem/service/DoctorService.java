@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,14 +18,14 @@ public class DoctorService {
     private DoctorRepository doctorRepository;
 
 
-
+    /**Search a doctor by Person ID.*/
     public Doctor searchByPersonId(Long personId) {
         return doctorRepository.findById(personId)
                 .orElseThrow(() -> new BusinessException("Doctor not found."));
     }
 
 
-
+    /**Save doctor on database.*/
     @Transactional
     public Doctor saveDoctor(Doctor doctor) {
         doctor.setPersonStatus(true);
@@ -32,7 +33,19 @@ public class DoctorService {
     }
 
 
+    /**Validate if a doctor exists on database.*/
+    public void validatePersonExists(Doctor doctor) {
+        Optional<Doctor> personCpf = doctorRepository.findByPersonDocumentCpf(doctor.getPersonDocumentCpf());
+        if (personCpf.isPresent())
+            throw new BusinessException("There is already a doctor registered with this CPF.");
 
+        Optional<Doctor> personEmail = doctorRepository.findByPersonEmail(doctor.getPersonEmail());
+        if (personEmail.isPresent())
+            throw new BusinessException("There is already a doctor registered with this e-mail.");
+    }
+
+
+    /**Update the doctor on database.*/
     @Transactional
     public Doctor updateDoctor(Doctor doctor) {
         doctor.setPersonStatus(true);
@@ -49,7 +62,7 @@ public class DoctorService {
 
 
 
-//    Inactive/active (if was inactive) a doctor by Person ID
+    /**Inactive/active (if was inactive) a doctor by Person ID.*/
     @Transactional
     public void changeStatusDoctor(Long personId) {
         Doctor doctor = this.searchByPersonId(personId);
@@ -59,7 +72,7 @@ public class DoctorService {
 
 
 
-//    Renew professional register of doctor
+    /**Renew professional register of doctor.*/
     @Transactional
     public void renewValidity(Long personId) {
         Doctor doctor = this.searchByPersonId(personId);

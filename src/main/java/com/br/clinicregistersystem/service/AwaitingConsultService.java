@@ -122,7 +122,7 @@ public class AwaitingConsultService {
 //        ---------------------------------------------------------------------------
 //
 
-        novaConsulta[0] = new Consult(novoPaciente[0], "Cardiology", "Tuesday", "11:00 AM");
+        novaConsulta[0] = new Consult(novoPaciente[0], DoctorEspeciality.CARDIOLOGY, "Tuesday", "11:00 AM");
 
 
         List<String> doctorHours = new ArrayList<String>();
@@ -143,15 +143,15 @@ public class AwaitingConsultService {
         }
 
 
-        for (DoctorScalesEspeciality nomes : DoctorScalesEspeciality.values()) {
-            if ((nomes.getEspeciality() == novaConsulta[0].getConsultEspeciality()) &&
-                    (nomes.getDay() == novaConsulta[0].getConsultDateRequest())) {
-                if (disponivelDoutor.equals(false)) {
-                } else {
-                    disponivelDoutor.add(true);
-                }
-            }
-        }
+//        for (DoctorScalesEspeciality nomes : DoctorScalesEspeciality.values()) {
+//            if ((nomes.getEspeciality() == novaConsulta[0].getConsultEspeciality()) &&
+//                    (nomes.getDay() == novaConsulta[0].getConsultDateRequest())) {
+//                if (disponivelDoutor.equals(false)) {
+//                } else {
+//                    disponivelDoutor.add(true);
+//                }
+//            }
+//        }
 
         disponivelDoutor.set(1, false);
         disponivelDoutor.set(6, false);

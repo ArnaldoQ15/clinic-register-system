@@ -1,6 +1,7 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.*;
+import com.br.clinicregistersystem.dto.ConsultDto;
 import com.br.clinicregistersystem.model.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,44 +23,19 @@ public class DoctorHourService {
     List<String> hourDoc = new ArrayList<String>();
     List<String> dayDoc = new ArrayList<String>();
     List<Boolean> dispDoc = new ArrayList<Boolean>();
-
     List<String> allDocHours = new ArrayList<String>();
-
-    Map<String, HashMap<String, Boolean>> mapaDias;
     HashMap<String, Boolean> monday = new HashMap<>();
 
 
-//    Find by Person ID
-//    public DoctorHour searchByPersonId(Long personId) {
-//        return doctorHourRepository.findById(personId)
-//                .orElseThrow(() -> new BusinessException("Doctor's agenda not found."));
-//    }
+    /**Set doctor agenda list on database.*/
+    public void createDoctorAgenda(Doctor doctor) {
 
-
-////    Find by currently doctor's appointments
-//    public Boolean haveSpace(Consult consult, DoctorHour doctorHour) {
-//
-//        if ((dayDoc.contains(consult.getConsultDateRequest())) && (hourDoc.contains(consult.getConsultHourRequest()))) {
-//            Integer positionOnIndex = hourDoc.indexOf(consult.getConsultHourRequest());
-//
-//            if (dispDoc.get(positionOnIndex).equals(true)) {
-//
-//                if (consult.getConsultDateRequest() == "monday") {
-//                    doctorHour.setMonday();
-//                }
-//            }
-//        }
-//    }
-
-
-    //    Set doctor agenda list on database
-    public void createDoctorAgenda(Doctor doctor, DoctorHourMonday doctorHourMonday, DoctorHourTuesday doctorHourTuesday,
-                                   DoctorHourWednesday doctorHourWednesday, DoctorHourThursday doctorHourThursday,
-                                   DoctorHourFriday doctorHourFriday, DoctorHourSaturday doctorHourSaturday) {
-
-
-        List<Boolean> testador = new ArrayList<>();
-        Integer somador = 0;
+        DoctorHourMonday doctorHourMonday = new DoctorHourMonday();
+        DoctorHourTuesday doctorHourTuesday = new DoctorHourTuesday();
+        DoctorHourWednesday doctorHourWednesday = new DoctorHourWednesday();
+        DoctorHourThursday doctorHourThursday = new DoctorHourThursday();
+        DoctorHourFriday doctorHourFriday = new DoctorHourFriday();
+        DoctorHourSaturday doctorHourSaturday = new DoctorHourSaturday();
 
         Boolean que = monday.get("08:00 AM");
 
@@ -67,7 +43,7 @@ public class DoctorHourService {
             case ANGIOLOGY -> {
                 doctorHourMonday.setDoctor(doctor);
                 doctorHourMonday.setDoctorName(doctor.getPersonName());
-                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourMonday.setM0800(true);
                 monday.put("08:00 AM", doctorHourMonday.getM0800());
                 doctorHourMonday.setM0830(true);
@@ -105,7 +81,7 @@ public class DoctorHourService {
 
                 doctorHourSaturday.setDoctor(doctor);
                 doctorHourSaturday.setDoctorName(doctor.getPersonName());
-                doctorHourSaturday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourSaturday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourSaturday.setM0800(true);
                 doctorHourSaturday.setM0830(true);
                 doctorHourSaturday.setM0900(true);
@@ -120,7 +96,7 @@ public class DoctorHourService {
             case CARDIOLOGY -> {
                 doctorHourTuesday.setDoctor(doctor);
                 doctorHourTuesday.setDoctorName(doctor.getPersonName());
-                doctorHourTuesday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourTuesday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourTuesday.setM0800(true);
                 doctorHourTuesday.setM0830(true);
                 doctorHourTuesday.setM0900(true);
@@ -145,7 +121,7 @@ public class DoctorHourService {
 
                 doctorHourWednesday.setDoctor(doctor);
                 doctorHourWednesday.setDoctorName(doctor.getPersonName());
-                doctorHourWednesday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourWednesday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourWednesday.setA1400(true);
                 doctorHourWednesday.setA1430(true);
                 doctorHourWednesday.setA1500(true);
@@ -159,7 +135,7 @@ public class DoctorHourService {
             case MEDICAL_CLINIC -> {
                 doctorHourMonday.setDoctor(doctor);
                 doctorHourMonday.setDoctorName(doctor.getPersonName());
-                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourMonday.setA1400(true);
                 doctorHourMonday.setA1430(true);
                 doctorHourMonday.setA1500(true);
@@ -177,7 +153,7 @@ public class DoctorHourService {
 
                 doctorHourThursday.setDoctor(doctor);
                 doctorHourThursday.setDoctorName(doctor.getPersonName());
-                doctorHourThursday.setDoctorEspeciality(doctor.getDoctorEspeciality().getDescription());
+                doctorHourThursday.setDoctorEspeciality(doctor.getDoctorEspeciality());
                 doctorHourThursday.setM0800(true);
                 doctorHourThursday.setM0830(true);
                 doctorHourThursday.setM0900(true);
@@ -200,138 +176,78 @@ public class DoctorHourService {
                 doctorHourThursday.setN1930(true);
                 doctorHourThursdayRepository.save(doctorHourThursday);
             }
-//            case DERMATOLOGY -> {
-//            }
-//            case SPEECH_THERAPY -> {
-//            }
-//            case GASTROENTEROLOGY -> {
-//            }
-//            case GYNECOLOGY -> {
-//            }
-//            case MASTOLOGY -> {
-//            }
-//            case NUTRITION -> {
-//            }
-//            case PEDIATRICS -> {
-//            }
-//            case PSYCHOLOGY -> {
-//            }
-//            case UROLOGY -> {
-//            }
+            case DERMATOLOGY -> {
+            }
+            case SPEECH_THERAPY -> {
+            }
+            case GASTROENTEROLOGY -> {
+            }
+            case GYNECOLOGY -> {
+            }
+            case MASTOLOGY -> {
+            }
+            case NUTRITION -> {
+            }
+            case PEDIATRICS -> {
+            }
+            case PSYCHOLOGY -> {
+            }
+            case UROLOGY -> {
+            }
         }
-
     }
 
+    /**Check all doctor hours before save the consult.*/
+    public void checkDoctorHours(Consult consult) {
 
-    public void checkDocHours(Consult consult, Doctor doctor, DoctorHourMonday doctorHourMonday, DoctorHourTuesday doctorHourTuesday,
-                              DoctorHourWednesday doctorHourWednesday, DoctorHourThursday doctorHourThursday,
-                              DoctorHourFriday doctorHourFriday, DoctorHourSaturday doctorHourSaturday) {
-
+        DoctorHourMonday doctorHourMonday = doctorHourMondayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        DoctorHourTuesday doctorHourTuesday = doctorHourTuesdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        DoctorHourWednesday doctorHourWednesday = doctorHourWednesdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        DoctorHourThursday doctorHourThursday = doctorHourThursdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        DoctorHourFriday doctorHourFriday = doctorHourFridayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        DoctorHourSaturday doctorHourSaturday = doctorHourSaturdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
 
         switch (consult.getConsultEspeciality()) {
-            case "ANGIOLOGY" -> {
-                if (monday.containsKey("08:00 AM") && monday.containsValue(true)) { doctorHourMonday.setM0800(false);}
-                else if (monday.containsKey("08:30 AM") && monday.containsValue(true)) { doctorHourMonday.setM0830(false);}
-                else if (monday.containsKey("09:00 AM") && monday.containsValue(true)) { doctorHourMonday.setM0900(false);}
-                else if (monday.containsKey("09:30 AM") && monday.containsValue(true)) { doctorHourMonday.setM0930(false);}
-                else if (monday.containsKey("10:00 AM") && monday.containsValue(true)) { doctorHourMonday.setM1000(false);}
-                else if (monday.containsKey("10:30 AM") && monday.containsValue(true)) { doctorHourMonday.setM1030(false);}
-                else if (monday.containsKey("11:00 AM") && monday.containsValue(true)) { doctorHourMonday.setM1100(false);}
-                else if (monday.containsKey("11:30 AM") && monday.containsValue(true)) { doctorHourMonday.setM1130(false);}
-                else if (monday.containsKey("14:00 PM") && monday.containsValue(true)) { doctorHourMonday.setA1400(false);}
-                else if (monday.containsKey("14:30 PM") && monday.containsValue(true)) { doctorHourMonday.setA1430(false);}
-                else if (monday.containsKey("15:00 PM") && monday.containsValue(true)) { doctorHourMonday.setA1500(false);}
-                else if (monday.containsKey("15:30 PM") && monday.containsValue(true)) { doctorHourMonday.setA1530(false);}
-                else if (monday.containsKey("16:00 PM") && monday.containsValue(true)) { doctorHourMonday.setA1600(false);}
-                else if (monday.containsKey("16:30 PM") && monday.containsValue(true)) { doctorHourMonday.setA1630(false);}
-                else if (monday.containsKey("17:00 PM") && monday.containsValue(true)) { doctorHourMonday.setA1700(false);}
-                else if (monday.containsKey("17:30 PM") && monday.containsValue(true)) { doctorHourMonday.setA1730(false);}
+            case ANGIOLOGY -> {
+                if (monday.containsKey("08:00 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM0800(false);
+                } else if (monday.containsKey("08:30 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM0830(false);
+                } else if (monday.containsKey("09:00 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM0900(false);
+                } else if (monday.containsKey("09:30 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM0930(false);
+                } else if (monday.containsKey("10:00 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM1000(false);
+                } else if (monday.containsKey("10:30 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM1030(false);
+                } else if (monday.containsKey("11:00 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM1100(false);
+                } else if (monday.containsKey("11:30 AM") && monday.containsValue(true)) {
+                    doctorHourMonday.setM1130(false);
+                } else if (monday.containsKey("14:00 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1400(false);
+                } else if (monday.containsKey("14:30 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1430(false);
+                } else if (monday.containsKey("15:00 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1500(false);
+                } else if (monday.containsKey("15:30 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1530(false);
+                } else if (monday.containsKey("16:00 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1600(false);
+                } else if (monday.containsKey("16:30 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1630(false);
+                } else if (monday.containsKey("17:00 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1700(false);
+                } else if (monday.containsKey("17:30 PM") && monday.containsValue(true)) {
+                    doctorHourMonday.setA1730(false);
+                }
             }
-            case "CARDIOLOGY" -> {
+            case CARDIOLOGY -> {
 
             }
         }
-
-
-
-        List<Boolean> testador = new ArrayList<>();
-
-        boolean itsOpen = false;
-        Integer somador = 0;
-
-        boolean isMonday = false;
-        boolean isTuesday = false;
-        boolean isWednesday = false;
-        boolean isThursday = false;
-        boolean isFriday = false;
-        boolean isSaturday = false;
-
-        if (doctorHourMonday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isMonday = true;
-            for (Iterator<Boolean> pega = testador.listIterator(); pega.hasNext(); ) {
-                somador++;
-            }
-        } else if (doctorHourTuesday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isTuesday = true;
-        } else if (doctorHourWednesday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isWednesday = true;
-        } else if (doctorHourThursday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isThursday = true;
-        } else if (doctorHourFriday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isFriday = true;
-        } else if (doctorHourSaturday.getDoctorEspeciality().equals(consult.getConsultEspeciality())) {
-            isSaturday = true;
-        }
-
-//
-//        if (isMonday) {
-//            for (DoctorHourMonday hourMonday : doctorHourMondayRepository.findAll()) {
-//                boolean a = consult.getConsultHourRequest().
-//            }
-
-//
-//        if(doctorHourMonday.toString().contains(consult.getConsultHourRequest() + "=" + "true")) {
-//            System.out.println("Marcação feita com sucesso!");
-//        }
-
-
-//        for (Iterator<DoctorHourMonday> runnerForVar = doctorHour.getDoctorHourMonday().iterator(); runnerForVar.hasNext();) {
-//            System.out.println("teste");
-//            }
-//        }
-
-
-//        for (DoctorScalesEspeciality nomes : DoctorScalesEspeciality.values()) {
-//            if ((nomes.getEspeciality() == consult.getConsultEspeciality()) &&
-//                    (nomes.getDay() == consult.getConsultDateRequest())) {
-//                if (dispDoc.equals(false)) {
-//                } else {
-//                    dispDoc.add(true);
-//                }
-//            }
-
-
-//    Create an arraylist with doctor hours/days
-//    public void createDoctorAgenda(Consult consult) {
-//
-//        for (DoctorScalesEspeciality runnerForVar : DoctorScalesEspeciality.values()) {
-//            if ((Objects.equals(runnerForVar.getEspeciality(), consult.getConsultEspeciality())) &&
-//                    (Objects.equals(runnerForVar.getDay(), consult.getConsultDateRequest()))) {
-//                hourDoc.add(runnerForVar.getHour());
-//                dayDoc.add(runnerForVar.getDay());
-//            }
-//        }
-//
-//
-//        for (DoctorScalesEspeciality nomes : DoctorScalesEspeciality.values()) {
-//            if ((nomes.getEspeciality() == consult.getConsultEspeciality()) &&
-//                    (nomes.getDay() == consult.getConsultDateRequest())) {
-//                if (dispDoc.equals(false)) {
-//                } else {
-//                    dispDoc.add(true);
-//                }
-//            }
-
     }
+
 }
 

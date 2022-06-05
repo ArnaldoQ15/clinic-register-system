@@ -32,7 +32,7 @@ public class Consult {
 
     @NotNull
     @Column(name = "consult_especiality")
-    private String consultEspeciality;
+    private DoctorEspeciality consultEspeciality;
 
     @NotNull
     @Column(name = "consult_date")
@@ -47,7 +47,7 @@ public class Consult {
     private OffsetDateTime registerDate;
 
 
-    public Consult(Pacient pacient, String consultEspeciality, String consultDateRequest, String consultHourRequest) {
+    public Consult(Pacient pacient, DoctorEspeciality consultEspeciality, String consultDateRequest, String consultHourRequest) {
         this.pacient = pacient;
         this.consultEspeciality = consultEspeciality;
         this.consultDateRequest = consultDateRequest;

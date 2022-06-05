@@ -15,16 +15,14 @@ public class ProntuaryService {
     private ProntuaryRepository prontuaryRepository;
 
 
-
-//    Find the pacient's prontuary
+    /**Find the pacient's prontuary.*/
     public PersonPacientProntuary searchByProntuaryId(Long personId) {
         return prontuaryRepository.findById(personId)
                 .orElseThrow(() -> new BusinessException("Prontuary not found."));
     }
 
 
-
-//    Update the pacient's prontuary
+    /**Update the pacient's prontuary.*/
     public PersonPacientProntuary updatePacientProntuary(PersonPacientProntuary personPacientProntuary) {
         personPacientProntuary.setLastRegisterDate(OffsetDateTime.now());
         return prontuaryRepository.save(personPacientProntuary);

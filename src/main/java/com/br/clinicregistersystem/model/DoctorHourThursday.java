@@ -24,7 +24,7 @@ public class DoctorHourThursday {
 
     @Column(name = "doctorEspeciality")
     @NotNull
-    private String doctorEspeciality;
+    private DoctorEspeciality doctorEspeciality;
 
     @Column
     @NotNull

@@ -6,11 +6,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PacientRepository extends JpaRepository<Pacient, Long> {
 
-    List<Pacient> findByPersonEmail(@Param("personEmail") String personEmail);
-    List<Pacient> findByPersonDocumentCpf(@Param("personDocumentCpf") Long personDocumentCpf);
+    Optional<Pacient> findByPersonEmail(@Param("personEmail") String personEmail);
+    Optional<Pacient> findByPersonDocumentCpf(@Param("personDocumentCpf") Long personDocumentCpf);
 
 }

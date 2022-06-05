@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
 import javax.validation.Valid;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -25,8 +24,7 @@ public class DoctorController {
     private DoctorHourService doctorHourService;
 
 
-
-//    (GET) Find all doctors on database
+    /**(GET) Find all doctors on database.*/
     @GetMapping
     public List<Doctor> searchAllDoctors() {
         return doctorRepository.findAll();
@@ -34,7 +32,7 @@ public class DoctorController {
 
 
 
-//    (GET) Find doctor by Person ID
+    /**(GET) Find doctor by Person ID.*/
     @GetMapping("/{personId}")
     public Doctor searchDoctorById(@PathVariable Long personId) {
         return doctorService.searchByPersonId(personId);
@@ -42,7 +40,7 @@ public class DoctorController {
 
 
 
-//    (POST) Add new doctor on database
+    /**(POST) Add new doctor on database.*/
     @Transactional
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
@@ -50,14 +48,13 @@ public class DoctorController {
                             DoctorHourWednesday doctorHourWednesday, DoctorHourThursday doctorHourThursday,
                             DoctorHourFriday doctorHourFriday, DoctorHourSaturday doctorHourSaturday) {
         doctor.setPersonLastRegisterDate(OffsetDateTime.now());
-        doctorHourService.createDoctorAgenda(doctor, doctorHourMonday, doctorHourTuesday, doctorHourWednesday,
-                doctorHourThursday, doctorHourFriday, doctorHourSaturday);
+        doctorService.validatePersonExists(doctor);
+        doctorHourService.createDoctorAgenda(doctor);
         return doctorService.saveDoctor(doctor);
     }
 
 
-
-//    (PUT) Update a doctor on database
+    /**(PUT) Update a doctor on database.*/
     @Transactional
     @PutMapping("/{personId}")
     public ResponseEntity<Doctor> updateDoctor(@Valid @PathVariable Long personId, @RequestBody Doctor doctor) {
@@ -71,7 +68,7 @@ public class DoctorController {
 
 
 
-//    (PUT) Active/inactive a doctor
+    /**(PUT) Active/inactive a doctor.*/
     @PutMapping("/{personId}/status")
     public ResponseEntity<Void> activeStatusDoctor (@Valid @PathVariable Long personId) {
         if (!doctorRepository.existsById(personId)) {
@@ -83,7 +80,7 @@ public class DoctorController {
 
 
 
-//    (PUT) Renew register of a doctor
+    /**(PUT) Renew register of a doctor.*/
     @PutMapping("/{personId}/renew-crm")
     public ResponseEntity<Void> renewDoctorCrm (@Valid @PathVariable Long personId) {
         if (!doctorRepository.existsById(personId)) {
