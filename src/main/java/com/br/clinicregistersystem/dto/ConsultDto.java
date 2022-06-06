@@ -19,8 +19,6 @@ public class ConsultDto {
     private Long consultId;
     private String pacientPersonName;
     private String doctorPersonName;
-    private Pacient pacient;
-    private Doctor doctor;
     private ConsultStatus status;
     private DoctorEspeciality consultEspeciality;
     private String consultDateRequest;

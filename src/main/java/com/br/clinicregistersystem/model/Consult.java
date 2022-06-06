@@ -28,6 +28,7 @@ public class Consult {
     private Doctor doctor;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Column
     private ConsultStatus status;
 
     @Column(name = "consult_especiality")

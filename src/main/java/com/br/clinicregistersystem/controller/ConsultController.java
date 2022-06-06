@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.controller;
 import com.br.clinicregistersystem.domain.repository.ConsultRepository;
 import com.br.clinicregistersystem.dto.ConsultDto;
 import com.br.clinicregistersystem.model.Consult;
+import com.br.clinicregistersystem.model.Pacient;
 import com.br.clinicregistersystem.service.ConsultService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,8 +32,8 @@ public class ConsultController {
 
     /**(GET) Find consults by Person ID.*/
     @GetMapping("/pacients/{personId}/consults")
-    public List<ConsultDto> searchConsultById(@PathVariable Long personId, Consult consult) {
-        List<ConsultDto> personConsults = consultService.searchByPersonId(consult, personId);
+    public List<ConsultDto> searchConsultById(@PathVariable Long personId) {
+        List<ConsultDto> personConsults = consultService.searchByPersonId(personId);
         return personConsults;
     }
 

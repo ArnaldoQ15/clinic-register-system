@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,10 +34,9 @@ public class ConsultService {
 
 
     /**Find a consult by person ID.*/
-    public List<ConsultDto> searchByPersonId(Consult consult, Long personId) {
-        Optional<Pacient> person = pacientRepository.findById(personId);
-        consult.setPacient(person.get());
-        consult.setPersonId(person.get().getPersonId());
+    public List<ConsultDto> searchByPersonId(Long personId) {
+//        List<Pacient> person = pacientRepository.findAll();
+
         List<Consult> consults = consultRepository.findByPersonId(personId);
         return consultDto.convertToDto(consults);
     }
@@ -49,6 +49,7 @@ public class ConsultService {
         consult.setStatus(ConsultStatus.PENDING);
         Optional<Pacient> person = pacientRepository.findById(personId);
         consult.setPacient(person.get());
+        consult.setPersonId(person.get().getPersonId());
         Doctor doutor = doctorRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
         consult.setDoctor(doutor);
         Consult map = modelMapper.map(consult, Consult.class);
