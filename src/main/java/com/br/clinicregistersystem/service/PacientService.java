@@ -1,58 +1,55 @@
 package com.br.clinicregistersystem.service;
 
-import com.br.clinicregistersystem.domain.repository.PacientRepository;
+import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.Pacient;
+import com.br.clinicregistersystem.model.PersonPacient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Optional;
 
 @AllArgsConstructor
 @Service
 public class PacientService {
 
-    private PacientRepository pacientRepository;
+    private PersonPacientRepository personPacientRepository;
 
 
     /**Find a pacient by Person ID.*/
-    public Pacient searchByPersonId(Long personId) {
-        return pacientRepository.findById(personId)
+    public PersonPacient searchByPersonId(Long personId) {
+        return personPacientRepository.findById(personId)
                 .orElseThrow(() -> new BusinessException("Pacient not found."));
     }
 
 
     /**Save pacient on repository.*/
     @Transactional
-    public Pacient savePacient (Pacient pacient) {
-        pacient.setPersonStatus(true);
-        addPacientAge(pacient);
-        pacient.getHealthInsurance().setLastRegister(OffsetDateTime.now());
-        pacient.getProntuary().setLastRegisterDate(OffsetDateTime.now());
-        return pacientRepository.save(pacient);
+    public PersonPacient savePacient (PersonPacient personPacient) {
+        personPacient.setPersonStatus(true);
+        addPacientAge(personPacient);
+        personPacient.getHealthInsurance().setLastRegister(OffsetDateTime.now());
+        personPacient.getProntuary().setLastRegisterDate(OffsetDateTime.now());
+        return personPacientRepository.save(personPacient);
     }
 
 
     /**Set pacient's age on database.*/
-    public void addPacientAge (Pacient pacient) {
-        Period periodAge = Period.between(pacient.getPersonBirthday(), LocalDate.now());
+    public void addPacientAge (PersonPacient personPacient) {
+        Period periodAge = Period.between(personPacient.getPersonBirthday(), LocalDate.now());
         Integer realPacientAge = Math.abs(periodAge.getYears());
-        pacient.setPersonAge(realPacientAge);
+        personPacient.setPersonAge(realPacientAge);
     }
 
 
     /**Update pacient's age method.*/
-    public void makeBirthday(Pacient pacient) {
-        Integer actualAge = pacient.getPersonAge();
-        int month = pacient.getPersonBirthday().getMonthValue();
-        int day = pacient.getPersonBirthday().getDayOfMonth();
+    public void makeBirthday(PersonPacient personPacient) {
+        Integer actualAge = personPacient.getPersonAge();
+        int month = personPacient.getPersonBirthday().getMonthValue();
+        int day = personPacient.getPersonBirthday().getDayOfMonth();
         int thatMonth = LocalDate.now().getMonthValue();
         int thatDay = LocalDate.now().getDayOfMonth();
 
@@ -60,39 +57,39 @@ public class PacientService {
             actualAge = actualAge + 1;
         }
 
-        pacient.setPersonAge(actualAge);
+        personPacient.setPersonAge(actualAge);
     }
 
 
     /**Validate if a person exists on database.*/
-    public void validatePersonExists(Pacient pacient) {
-        Optional<Pacient> personCpf = pacientRepository.findByPersonDocumentCpf(pacient.getPersonDocumentCpf());
+    public void validatePersonExists(PersonPacient personPacient) {
+        Optional<PersonPacient> personCpf = personPacientRepository.findByPersonDocumentCpf(personPacient.getPersonDocumentCpf());
         if (personCpf.isPresent())
             throw new BusinessException("There is already a pacient registered with this CPF.");
 
-        Optional<Pacient> personEmail = pacientRepository.findByPersonEmail(pacient.getPersonEmail());
+        Optional<PersonPacient> personEmail = personPacientRepository.findByPersonEmail(personPacient.getPersonEmail());
         if (personEmail.isPresent())
             throw new BusinessException("There is already a pacient registered with this e-mail.");
     }
 
 
     /**Update pacient method.*/
-    public Pacient updatePacients (Pacient pacient) {
-        pacient.setPersonStatus(true);
-        pacient.setPersonLastRegisterDate(OffsetDateTime.now());
+    public PersonPacient updatePacients (PersonPacient personPacient) {
+        personPacient.setPersonStatus(true);
+        personPacient.setPersonLastRegisterDate(OffsetDateTime.now());
 
-        validatePersonExists(pacient);
+        validatePersonExists(personPacient);
 
-        return pacientRepository.save(pacient);
+        return personPacientRepository.save(personPacient);
     }
 
 
     /**Inactive/active (if was inactive) a pacient by Person ID.*/
     @Transactional
     public void changeStatusPacient(Long personId) {
-        Pacient pacient = this.searchByPersonId(personId);
-        pacient.setPersonStatus(!pacient.getPersonStatus());
-        pacientRepository.save(pacient);
+        PersonPacient personPacient = this.searchByPersonId(personId);
+        personPacient.setPersonStatus(!personPacient.getPersonStatus());
+        personPacientRepository.save(personPacient);
     }
 
 }

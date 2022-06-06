@@ -3,253 +3,450 @@ package com.br.clinicregistersystem.service;
 import com.br.clinicregistersystem.domain.repository.*;
 import com.br.clinicregistersystem.model.*;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class DoctorHourService {
 
-    private DoctorHourMondayRepository doctorHourMondayRepository;
-    private DoctorHourTuesdayRepository doctorHourTuesdayRepository;
-    private DoctorHourWednesdayRepository doctorHourWednesdayRepository;
-    private DoctorHourThursdayRepository doctorHourThursdayRepository;
-    private DoctorHourFridayRepository doctorHourFridayRepository;
-    private DoctorHourSaturdayRepository doctorHourSaturdayRepository;
-
-
-    List<String> hourDoc = new ArrayList<String>();
-    List<String> dayDoc = new ArrayList<String>();
-    List<Boolean> dispDoc = new ArrayList<Boolean>();
-    List<String> allDocHours = new ArrayList<String>();
-    HashMap<String, Boolean> monday = new HashMap<>();
+    private PersonDoctorHourMondayRepository personDoctorHourMondayRepository;
+    private PersonDoctorHourTuesdayRepository personDoctorHourTuesdayRepository;
+    private PersonDoctorHourWednesdayRepository personDoctorHourWednesdayRepository;
+    private PersonDoctorHourThursdayRepository personDoctorHourThursdayRepository;
+    private PersonDoctorHourFridayRepository personDoctorHourFridayRepository;
+    private PersonDoctorHourSaturdayRepository personDoctorHourSaturdayRepository;
+    private ModelMapper modelMapper;
+    HashMap<String, Boolean> mondayHour = new HashMap<>();
+    HashMap<String, Boolean> tuesdayHour = new HashMap<>();
+    HashMap<String, Boolean> wednesdayHour = new HashMap<>();
+    HashMap<String, Boolean> thursdayHour = new HashMap<>();
+    HashMap<String, Boolean> fridayHour = new HashMap<>();
+    HashMap<String, Boolean> saturdayHour = new HashMap<>();
 
 
     /**Set doctor agenda list on database.*/
-    public void createDoctorAgenda(Doctor doctor) {
+    public void createDoctorAgenda(PersonDoctor personDoctor) {
 
-        DoctorHourMonday doctorHourMonday = new DoctorHourMonday();
-        DoctorHourTuesday doctorHourTuesday = new DoctorHourTuesday();
-        DoctorHourWednesday doctorHourWednesday = new DoctorHourWednesday();
-        DoctorHourThursday doctorHourThursday = new DoctorHourThursday();
-        DoctorHourFriday doctorHourFriday = new DoctorHourFriday();
-        DoctorHourSaturday doctorHourSaturday = new DoctorHourSaturday();
+        PersonDoctorHourMonday personDoctorHourMonday = new PersonDoctorHourMonday();
+        PersonDoctorHourTuesday personDoctorHourTuesday = new PersonDoctorHourTuesday();
+        PersonDoctorHourWednesday personDoctorHourWednesday = new PersonDoctorHourWednesday();
+        PersonDoctorHourThursday personDoctorHourThursday = new PersonDoctorHourThursday();
+        PersonDoctorHourFriday personDoctorHourFriday = new PersonDoctorHourFriday();
+        PersonDoctorHourSaturday personDoctorHourSaturday = new PersonDoctorHourSaturday();
 
-        Boolean que = monday.get("08:00 AM");
-
-        switch (doctor.getDoctorEspeciality()) {
+        switch (personDoctor.getMedicalEspeciality()) {
             case ANGIOLOGY -> {
-                doctorHourMonday.setDoctor(doctor);
-                doctorHourMonday.setDoctorName(doctor.getPersonName());
-                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourMonday.setM0800(true);
-                monday.put("08:00 AM", doctorHourMonday.getM0800());
-                doctorHourMonday.setM0830(true);
-                monday.put("08:30 AM", doctorHourMonday.getM0830());
-                doctorHourMonday.setM0900(true);
-                monday.put("09:00 AM", doctorHourMonday.getM0900());
-                doctorHourMonday.setM0930(true);
-                monday.put("09:30 AM", doctorHourMonday.getM0930());
-                doctorHourMonday.setM1000(true);
-                monday.put("10:00 AM", doctorHourMonday.getM1000());
-                doctorHourMonday.setM1030(true);
-                monday.put("10:30 AM", doctorHourMonday.getM1030());
-                doctorHourMonday.setM1100(true);
-                monday.put("11:00 AM", doctorHourMonday.getM1100());
-                doctorHourMonday.setM1130(true);
-                monday.put("11:30 AM", doctorHourMonday.getM1130());
-                doctorHourMonday.setA1400(true);
-                monday.put("14:00 PM", doctorHourMonday.getA1400());
-                doctorHourMonday.setA1430(true);
-                monday.put("14:30 PM", doctorHourMonday.getA1430());
-                doctorHourMonday.setA1500(true);
-                monday.put("15:00 PM", doctorHourMonday.getA1500());
-                doctorHourMonday.setA1530(true);
-                monday.put("15:30 PM", doctorHourMonday.getA1530());
-                doctorHourMonday.setA1600(true);
-                monday.put("16:00 PM", doctorHourMonday.getA1600());
-                doctorHourMonday.setA1630(true);
-                monday.put("16:30 PM", doctorHourMonday.getA1630());
-                doctorHourMonday.setA1700(true);
-                monday.put("17:00 PM", doctorHourMonday.getA1700());
-                doctorHourMonday.setA1730(true);
-                monday.put("17:30 PM", doctorHourMonday.getA1730());
-                doctorHourMondayRepository.save(doctorHourMonday);
+                personDoctorHourMonday.setPersonDoctor(personDoctor);
+                personDoctorHourMonday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourMonday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourMonday.setM0800(true);
+                mondayHour.put("08:00 AM", personDoctorHourMonday.getM0800());
+                personDoctorHourMonday.setM0830(true);
+                mondayHour.put("08:30 AM", personDoctorHourMonday.getM0830());
+                personDoctorHourMonday.setM0900(true);
+                mondayHour.put("09:00 AM", personDoctorHourMonday.getM0900());
+                personDoctorHourMonday.setM0930(true);
+                mondayHour.put("09:30 AM", personDoctorHourMonday.getM0930());
+                personDoctorHourMonday.setM1000(true);
+                mondayHour.put("10:00 AM", personDoctorHourMonday.getM1000());
+                personDoctorHourMonday.setM1030(true);
+                mondayHour.put("10:30 AM", personDoctorHourMonday.getM1030());
+                personDoctorHourMonday.setM1100(true);
+                mondayHour.put("11:00 AM", personDoctorHourMonday.getM1100());
+                personDoctorHourMonday.setM1130(true);
+                mondayHour.put("11:30 AM", personDoctorHourMonday.getM1130());
+                personDoctorHourMonday.setA1400(true);
+                mondayHour.put("14:00 PM", personDoctorHourMonday.getA1400());
+                personDoctorHourMonday.setA1430(true);
+                mondayHour.put("14:30 PM", personDoctorHourMonday.getA1430());
+                personDoctorHourMonday.setA1500(true);
+                mondayHour.put("15:00 PM", personDoctorHourMonday.getA1500());
+                personDoctorHourMonday.setA1530(true);
+                mondayHour.put("15:30 PM", personDoctorHourMonday.getA1530());
+                personDoctorHourMonday.setA1600(true);
+                mondayHour.put("16:00 PM", personDoctorHourMonday.getA1600());
+                personDoctorHourMonday.setA1630(true);
+                mondayHour.put("16:30 PM", personDoctorHourMonday.getA1630());
+                personDoctorHourMonday.setA1700(true);
+                mondayHour.put("17:00 PM", personDoctorHourMonday.getA1700());
+                personDoctorHourMonday.setA1730(true);
+                mondayHour.put("17:30 PM", personDoctorHourMonday.getA1730());
+                personDoctorHourMondayRepository.save(personDoctorHourMonday);
 
-
-                doctorHourSaturday.setDoctor(doctor);
-                doctorHourSaturday.setDoctorName(doctor.getPersonName());
-                doctorHourSaturday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourSaturday.setM0800(true);
-                doctorHourSaturday.setM0830(true);
-                doctorHourSaturday.setM0900(true);
-                doctorHourSaturday.setM0930(true);
-                doctorHourSaturday.setM1000(true);
-                doctorHourSaturday.setM1030(true);
-                doctorHourSaturday.setM1100(true);
-                doctorHourSaturday.setM1130(true);
-                doctorHourSaturdayRepository.save(doctorHourSaturday);
+                personDoctorHourSaturday.setPersonDoctor(personDoctor);
+                personDoctorHourSaturday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourSaturday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourSaturday.setM0800(true);
+                saturdayHour.put("08:00 AM", personDoctorHourSaturday.getM0800());
+                personDoctorHourSaturday.setM0830(true);
+                saturdayHour.put("08:30 AM", personDoctorHourSaturday.getM0830());
+                personDoctorHourSaturday.setM0900(true);
+                saturdayHour.put("09:00 AM", personDoctorHourSaturday.getM0900());
+                personDoctorHourSaturday.setM0930(true);
+                saturdayHour.put("09:30 AM", personDoctorHourSaturday.getM0930());
+                personDoctorHourSaturday.setM1000(true);
+                saturdayHour.put("10:00 AM", personDoctorHourSaturday.getM1000());
+                personDoctorHourSaturday.setM1030(true);
+                saturdayHour.put("10:30 AM", personDoctorHourSaturday.getM1030());
+                personDoctorHourSaturday.setM1100(true);
+                saturdayHour.put("11:00 AM", personDoctorHourSaturday.getM1100());
+                personDoctorHourSaturday.setM1130(true);
+                saturdayHour.put("11:30 AM", personDoctorHourSaturday.getM1130());
+                personDoctorHourSaturdayRepository.save(personDoctorHourSaturday);
             }
 
             case CARDIOLOGY -> {
-                doctorHourTuesday.setDoctor(doctor);
-                doctorHourTuesday.setDoctorName(doctor.getPersonName());
-                doctorHourTuesday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourTuesday.setM0800(true);
-                doctorHourTuesday.setM0830(true);
-                doctorHourTuesday.setM0900(true);
-                doctorHourTuesday.setM0930(true);
-                doctorHourTuesday.setM1000(true);
-                doctorHourTuesday.setM1030(true);
-                doctorHourTuesday.setM1100(true);
-                doctorHourTuesday.setM1130(true);
-                doctorHourTuesday.setA1400(true);
-                doctorHourTuesday.setA1430(true);
-                doctorHourTuesday.setA1500(true);
-                doctorHourTuesday.setA1530(true);
-                doctorHourTuesday.setA1600(true);
-                doctorHourTuesday.setA1630(true);
-                doctorHourTuesday.setA1700(true);
-                doctorHourTuesday.setA1730(true);
-                doctorHourTuesday.setN1800(true);
-                doctorHourTuesday.setN1830(true);
-                doctorHourTuesday.setN1900(true);
-                doctorHourTuesday.setN1930(true);
-                doctorHourTuesdayRepository.save(doctorHourTuesday);
+                personDoctorHourTuesday.setPersonDoctor(personDoctor);
+                personDoctorHourTuesday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourTuesday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourTuesday.setM0800(true);
+                tuesdayHour.put("08:00 AM", personDoctorHourTuesday.getM0800());
+                personDoctorHourTuesday.setM0830(true);
+                tuesdayHour.put("08:30 AM", personDoctorHourTuesday.getM0830());
+                personDoctorHourTuesday.setM0900(true);
+                tuesdayHour.put("09:00 AM", personDoctorHourTuesday.getM0900());
+                personDoctorHourTuesday.setM0930(true);
+                tuesdayHour.put("09:30 AM", personDoctorHourTuesday.getM0930());
+                personDoctorHourTuesday.setM1000(true);
+                tuesdayHour.put("10:00 AM", personDoctorHourTuesday.getM1000());
+                personDoctorHourTuesday.setM1030(true);
+                tuesdayHour.put("10:30 AM", personDoctorHourTuesday.getM1030());
+                personDoctorHourTuesday.setM1100(true);
+                tuesdayHour.put("11:00 AM", personDoctorHourTuesday.getM1100());
+                personDoctorHourTuesday.setM1130(true);
+                tuesdayHour.put("11:30 AM", personDoctorHourTuesday.getM1130());
+                personDoctorHourTuesday.setA1400(true);
+                tuesdayHour.put("14:00 PM", personDoctorHourTuesday.getA1400());
+                personDoctorHourTuesday.setA1430(true);
+                tuesdayHour.put("14:30 PM", personDoctorHourTuesday.getA1430());
+                personDoctorHourTuesday.setA1500(true);
+                tuesdayHour.put("15:00 PM", personDoctorHourTuesday.getA1500());
+                personDoctorHourTuesday.setA1530(true);
+                tuesdayHour.put("15:30 PM", personDoctorHourTuesday.getA1530());
+                personDoctorHourTuesday.setA1600(true);
+                tuesdayHour.put("16:00 PM", personDoctorHourTuesday.getA1600());
+                personDoctorHourTuesday.setA1630(true);
+                tuesdayHour.put("16:30 PM", personDoctorHourTuesday.getA1630());
+                personDoctorHourTuesday.setA1700(true);
+                tuesdayHour.put("17:00 PM", personDoctorHourTuesday.getA1700());
+                personDoctorHourTuesday.setA1730(true);
+                tuesdayHour.put("17:30 PM", personDoctorHourTuesday.getA1730());
+                personDoctorHourTuesday.setN1800(true);
+                tuesdayHour.put("18:00 PM", personDoctorHourTuesday.getN1800());
+                personDoctorHourTuesday.setN1830(true);
+                tuesdayHour.put("18:30 PM", personDoctorHourTuesday.getN1830());
+                personDoctorHourTuesday.setN1900(true);
+                tuesdayHour.put("19:00 PM", personDoctorHourTuesday.getN1900());
+                personDoctorHourTuesday.setN1930(true);
+                tuesdayHour.put("19:30 PM", personDoctorHourTuesday.getN1930());
+                personDoctorHourTuesdayRepository.save(personDoctorHourTuesday);
 
-                doctorHourWednesday.setDoctor(doctor);
-                doctorHourWednesday.setDoctorName(doctor.getPersonName());
-                doctorHourWednesday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourWednesday.setA1400(true);
-                doctorHourWednesday.setA1430(true);
-                doctorHourWednesday.setA1500(true);
-                doctorHourWednesday.setA1530(true);
-                doctorHourWednesday.setA1600(true);
-                doctorHourWednesday.setA1630(true);
-                doctorHourWednesday.setA1700(true);
-                doctorHourWednesday.setA1730(true);
-                doctorHourWednesdayRepository.save(doctorHourWednesday);
+                personDoctorHourWednesday.setPersonDoctor(personDoctor);
+                personDoctorHourWednesday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourWednesday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourWednesday.setA1400(true);
+                wednesdayHour.put("14:00 PM", personDoctorHourWednesday.getA1400());
+                personDoctorHourWednesday.setA1430(true);
+                wednesdayHour.put("14:30 PM", personDoctorHourWednesday.getA1430());
+                personDoctorHourWednesday.setA1500(true);
+                wednesdayHour.put("15:00 PM", personDoctorHourWednesday.getA1500());
+                personDoctorHourWednesday.setA1530(true);
+                wednesdayHour.put("15:30 PM", personDoctorHourWednesday.getA1530());
+                personDoctorHourWednesday.setA1600(true);
+                wednesdayHour.put("16:00 PM", personDoctorHourWednesday.getA1600());
+                personDoctorHourWednesday.setA1630(true);
+                wednesdayHour.put("16:30 PM", personDoctorHourWednesday.getA1630());
+                personDoctorHourWednesday.setA1700(true);
+                wednesdayHour.put("17:00 PM", personDoctorHourWednesday.getA1700());
+                personDoctorHourWednesday.setA1730(true);
+                wednesdayHour.put("17:00 PM", personDoctorHourWednesday.getA1730());
+                personDoctorHourWednesdayRepository.save(personDoctorHourWednesday);
             }
             case MEDICAL_CLINIC -> {
-                doctorHourMonday.setDoctor(doctor);
-                doctorHourMonday.setDoctorName(doctor.getPersonName());
-                doctorHourMonday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourMonday.setA1400(true);
-                doctorHourMonday.setA1430(true);
-                doctorHourMonday.setA1500(true);
-                doctorHourMonday.setA1530(true);
-                doctorHourMonday.setA1600(true);
-                doctorHourMonday.setA1630(true);
-                doctorHourMonday.setA1700(true);
-                doctorHourMonday.setA1730(true);
-                doctorHourMonday.setN1800(true);
-                doctorHourMonday.setN1830(true);
-                doctorHourMonday.setN1900(true);
-                doctorHourMonday.setN1930(true);
-                doctorHourMondayRepository.save(doctorHourMonday);
+                personDoctorHourMonday.setPersonDoctor(personDoctor);
+                personDoctorHourMonday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourMonday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourMonday.setA1400(true);
+                mondayHour.put("14:00 PM", personDoctorHourMonday.getA1400());
+                personDoctorHourMonday.setA1430(true);
+                mondayHour.put("14:30 PM", personDoctorHourMonday.getA1430());
+                personDoctorHourMonday.setA1500(true);
+                mondayHour.put("15:00 PM", personDoctorHourMonday.getA1500());
+                personDoctorHourMonday.setA1530(true);
+                mondayHour.put("15:30 PM", personDoctorHourMonday.getA1530());
+                personDoctorHourMonday.setA1600(true);
+                mondayHour.put("16:00 PM", personDoctorHourMonday.getA1600());
+                personDoctorHourMonday.setA1630(true);
+                mondayHour.put("16:30 PM", personDoctorHourMonday.getA1630());
+                personDoctorHourMonday.setA1700(true);
+                mondayHour.put("17:00 PM", personDoctorHourMonday.getA1700());
+                personDoctorHourMonday.setA1730(true);
+                mondayHour.put("17:30 PM", personDoctorHourMonday.getA1730());
+                personDoctorHourMonday.setN1800(true);
+                mondayHour.put("18:00 PM", personDoctorHourMonday.getN1800());
+                personDoctorHourMonday.setN1830(true);
+                mondayHour.put("18:30 PM", personDoctorHourMonday.getN1830());
+                personDoctorHourMonday.setN1900(true);
+                mondayHour.put("19:00 PM", personDoctorHourMonday.getN1900());
+                personDoctorHourMonday.setN1930(true);
+                mondayHour.put("19:30 PM", personDoctorHourMonday.getN1930());
+                personDoctorHourMondayRepository.save(personDoctorHourMonday);
 
-
-                doctorHourThursday.setDoctor(doctor);
-                doctorHourThursday.setDoctorName(doctor.getPersonName());
-                doctorHourThursday.setDoctorEspeciality(doctor.getDoctorEspeciality());
-                doctorHourThursday.setM0800(true);
-                doctorHourThursday.setM0830(true);
-                doctorHourThursday.setM0900(true);
-                doctorHourThursday.setM0930(true);
-                doctorHourThursday.setM1000(true);
-                doctorHourThursday.setM1030(true);
-                doctorHourThursday.setM1100(true);
-                doctorHourThursday.setM1130(true);
-                doctorHourThursday.setA1400(true);
-                doctorHourThursday.setA1430(true);
-                doctorHourThursday.setA1500(true);
-                doctorHourThursday.setA1530(true);
-                doctorHourThursday.setA1600(true);
-                doctorHourThursday.setA1630(true);
-                doctorHourThursday.setA1700(true);
-                doctorHourThursday.setA1730(true);
-                doctorHourThursday.setN1800(true);
-                doctorHourThursday.setN1830(true);
-                doctorHourThursday.setN1900(true);
-                doctorHourThursday.setN1930(true);
-                doctorHourThursdayRepository.save(doctorHourThursday);
+                personDoctorHourThursday.setPersonDoctor(personDoctor);
+                personDoctorHourThursday.setDoctorName(personDoctor.getPersonName());
+                personDoctorHourThursday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourThursday.setM0800(true);
+                thursdayHour.put("08:00 AM", personDoctorHourThursday.getM0800());
+                personDoctorHourThursday.setM0830(true);
+                thursdayHour.put("08:30 AM", personDoctorHourThursday.getM0830());
+                personDoctorHourThursday.setM0900(true);
+                thursdayHour.put("09:00 AM", personDoctorHourThursday.getM0900());
+                personDoctorHourThursday.setM0930(true);
+                thursdayHour.put("09:30 AM", personDoctorHourThursday.getM0930());
+                personDoctorHourThursday.setM1000(true);
+                thursdayHour.put("10:00 AM", personDoctorHourThursday.getM1000());
+                personDoctorHourThursday.setM1030(true);
+                thursdayHour.put("10:30 AM", personDoctorHourThursday.getM1030());
+                personDoctorHourThursday.setM1100(true);
+                thursdayHour.put("11:00 AM", personDoctorHourThursday.getM1100());
+                personDoctorHourThursday.setM1130(true);
+                thursdayHour.put("11:30 AM", personDoctorHourThursday.getM1130());
+                personDoctorHourThursday.setA1400(true);
+                thursdayHour.put("14:00 PM", personDoctorHourThursday.getA1400());
+                personDoctorHourThursday.setA1430(true);
+                thursdayHour.put("14:30 PM", personDoctorHourThursday.getA1430());
+                personDoctorHourThursday.setA1500(true);
+                thursdayHour.put("15:00 PM", personDoctorHourThursday.getA1500());
+                personDoctorHourThursday.setA1530(true);
+                thursdayHour.put("15:30 PM", personDoctorHourThursday.getA1530());
+                personDoctorHourThursday.setA1600(true);
+                thursdayHour.put("16:00 PM", personDoctorHourThursday.getA1600());
+                personDoctorHourThursday.setA1630(true);
+                thursdayHour.put("16:30 PM", personDoctorHourThursday.getA1630());
+                personDoctorHourThursday.setA1700(true);
+                thursdayHour.put("17:00 PM", personDoctorHourThursday.getA1700());
+                personDoctorHourThursday.setA1730(true);
+                thursdayHour.put("17:30 PM", personDoctorHourThursday.getA1730());
+                personDoctorHourThursday.setN1800(true);
+                thursdayHour.put("18:00 PM", personDoctorHourThursday.getN1800());
+                personDoctorHourThursday.setN1830(true);
+                thursdayHour.put("18:30 PM", personDoctorHourThursday.getN1830());
+                personDoctorHourThursday.setN1900(true);
+                thursdayHour.put("19:00 PM", personDoctorHourThursday.getN1900());
+                personDoctorHourThursday.setN1930(true);
+                thursdayHour.put("19:30 PM", personDoctorHourThursday.getN1930());
+                personDoctorHourThursdayRepository.save(personDoctorHourThursday);
             }
-            case DERMATOLOGY -> {
-            }
-            case SPEECH_THERAPY -> {
-            }
-            case GASTROENTEROLOGY -> {
-            }
-            case GYNECOLOGY -> {
-            }
-            case MASTOLOGY -> {
-            }
-            case NUTRITION -> {
-            }
-            case PEDIATRICS -> {
-            }
-            case PSYCHOLOGY -> {
-            }
-            case UROLOGY -> {
-            }
+//            case DERMATOLOGY -> {
+//            }
+//            case SPEECH_THERAPY -> {
+//            }
+//            case GASTROENTEROLOGY -> {
+//            }
+//            case GYNECOLOGY -> {
+//            }
+//            case MASTOLOGY -> {
+//            }
+//            case NUTRITION -> {
+//            }
+//            case PEDIATRICS -> {
+//            }
+//            case PSYCHOLOGY -> {
+//            }
+//            case UROLOGY -> {
+//            }
         }
     }
 
 
     /**Check all doctor hours before save the consult.*/
-    public void checkDoctorHours(Consult consult) {
+    public ResponseEntity<Consult> checkDoctorHours(Consult consult) {
 
-        DoctorHourMonday doctorHourMonday = doctorHourMondayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        DoctorHourTuesday doctorHourTuesday = doctorHourTuesdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        DoctorHourWednesday doctorHourWednesday = doctorHourWednesdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        DoctorHourThursday doctorHourThursday = doctorHourThursdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        DoctorHourFriday doctorHourFriday = doctorHourFridayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        DoctorHourSaturday doctorHourSaturday = doctorHourSaturdayRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
+        String hourRequested = consult.getConsultHourRequest();
+
+        PersonDoctorHourMonday personDoctorHourMonday = personDoctorHourMondayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourTuesday personDoctorHourTuesday = personDoctorHourTuesdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourWednesday personDoctorHourWednesday = personDoctorHourWednesdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourThursday personDoctorHourThursday = personDoctorHourThursdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourFriday personDoctorHourFriday = personDoctorHourFridayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourSaturday personDoctorHourSaturday = personDoctorHourSaturdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
 
         switch (consult.getConsultEspeciality()) {
             case ANGIOLOGY -> {
-                if (monday.containsKey("08:00 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM0800(false);
-                } else if (monday.containsKey("08:30 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM0830(false);
-                } else if (monday.containsKey("09:00 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM0900(false);
-                } else if (monday.containsKey("09:30 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM0930(false);
-                } else if (monday.containsKey("10:00 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM1000(false);
-                } else if (monday.containsKey("10:30 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM1030(false);
-                } else if (monday.containsKey("11:00 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM1100(false);
-                } else if (monday.containsKey("11:30 AM") && monday.containsValue(true)) {
-                    doctorHourMonday.setM1130(false);
-                } else if (monday.containsKey("14:00 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1400(false);
-                } else if (monday.containsKey("14:30 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1430(false);
-                } else if (monday.containsKey("15:00 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1500(false);
-                } else if (monday.containsKey("15:30 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1530(false);
-                } else if (monday.containsKey("16:00 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1600(false);
-                } else if (monday.containsKey("16:30 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1630(false);
-                } else if (monday.containsKey("17:00 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1700(false);
-                } else if (monday.containsKey("17:30 PM") && monday.containsValue(true)) {
-                    doctorHourMonday.setA1730(false);
+                if ((hourRequested.equals("08:00 AM")) && (mondayHour.getOrDefault("08:00 AM", true))) {
+                    personDoctorHourMonday.setM0800(false);
+                    mondayHour.replace("08:00 AM", personDoctorHourMonday.getM0800());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("08:30 AM")) && (mondayHour.getOrDefault("08:30 AM", true))) {
+                    personDoctorHourMonday.setM0830(false);
+                    mondayHour.replace("08:30 AM", personDoctorHourMonday.getM0830());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:00 AM")) && (mondayHour.getOrDefault("09:00 AM", true))) {
+                    personDoctorHourMonday.setM0900(false);
+                    mondayHour.replace("09:00 AM", personDoctorHourMonday.getM0900());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:30 AM")) && (mondayHour.getOrDefault("09:30 AM", true))) {
+                    personDoctorHourMonday.setM0930(false);
+                    mondayHour.replace("09:30 AM", personDoctorHourMonday.getM0930());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:00 AM")) && (mondayHour.getOrDefault("10:00 AM", true))) {
+                    personDoctorHourMonday.setM1000(false);
+                    mondayHour.replace("10:00 AM", personDoctorHourMonday.getM1000());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:30 AM")) && (mondayHour.getOrDefault("10:30 AM", true))) {
+                    personDoctorHourMonday.setM1030(false);
+                    mondayHour.replace("10:30 AM", personDoctorHourMonday.getM1030());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:00 AM")) && (mondayHour.getOrDefault("11:00 AM", true))) {
+                    personDoctorHourMonday.setM1100(false);
+                    mondayHour.replace("11:00 AM", personDoctorHourMonday.getM1100());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:30 AM")) && (mondayHour.getOrDefault("11:30 AM", true))) {
+                    personDoctorHourMonday.setM1130(false);
+                    mondayHour.replace("11:30 AM", personDoctorHourMonday.getM1130());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("14:00 PM")) && (mondayHour.getOrDefault("14:00 PM", true))) {
+                    personDoctorHourMonday.setA1400(false);
+                    mondayHour.replace("14:00 PM", personDoctorHourMonday.getA1400());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("14:30 PM")) && (mondayHour.getOrDefault("14:30 PM", true))) {
+                    personDoctorHourMonday.setA1430(false);
+                    mondayHour.replace("14:30 PM", personDoctorHourMonday.getA1430());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("15:00 PM")) && (mondayHour.getOrDefault("15:00 PM", true))) {
+                    personDoctorHourMonday.setA1500(false);
+                    mondayHour.replace("15:00 PM", personDoctorHourMonday.getA1500());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("15:30 PM")) && (mondayHour.getOrDefault("15:30 PM", true))) {
+                    personDoctorHourMonday.setA1530(false);
+                    mondayHour.replace("15:30 PM", personDoctorHourMonday.getA1530());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("16:00 PM")) && (mondayHour.getOrDefault("16:00 PM", true))) {
+                    personDoctorHourMonday.setA1600(false);
+                    mondayHour.replace("16:00 PM", personDoctorHourMonday.getA1600());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("16:30 PM")) && (mondayHour.getOrDefault("16:30 PM", true))) {
+                    personDoctorHourMonday.setA1630(false);
+                    mondayHour.replace("16:30 PM", personDoctorHourMonday.getA1630());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("17:00 PM")) && (mondayHour.getOrDefault("17:00 PM", true))) {
+                    personDoctorHourMonday.setA1700(false);
+                    mondayHour.replace("17:00 PM", personDoctorHourMonday.getA1700());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("17:30 PM")) && (mondayHour.getOrDefault("17:30 PM", true))) {
+                    personDoctorHourMonday.setA1730(false);
+                    mondayHour.replace("17:30 PM", personDoctorHourMonday.getA1730());
+                    return ResponseEntity.ok().build();
+                }
+
+                if ((hourRequested.equals("08:00 AM")) && (saturdayHour.getOrDefault("08:00 AM", true))) {
+                    personDoctorHourSaturday.setM0800(false);
+                    saturdayHour.replace("08:00 AM", personDoctorHourSaturday.getM0800());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("08:30 AM")) && (saturdayHour.getOrDefault("08:30 AM", true))) {
+                    personDoctorHourSaturday.setM0830(false);
+                    saturdayHour.replace("08:30 AM", personDoctorHourSaturday.getM0830());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:00 AM")) && (saturdayHour.getOrDefault("09:00 AM", true))) {
+                    personDoctorHourSaturday.setM0900(false);
+                    saturdayHour.replace("09:00 AM", personDoctorHourSaturday.getM0900());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:30 AM")) && (saturdayHour.getOrDefault("09:30 AM", true))) {
+                    personDoctorHourSaturday.setM0930(false);
+                    saturdayHour.replace("09:30 AM", personDoctorHourSaturday.getM0930());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:00 AM")) && (saturdayHour.getOrDefault("10:00 AM", true))) {
+                    personDoctorHourSaturday.setM1000(false);
+                    saturdayHour.replace("10:00 AM", personDoctorHourSaturday.getM1000());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:30 AM")) && (saturdayHour.getOrDefault("10:30 AM", true))) {
+                    personDoctorHourSaturday.setM1030(false);
+                    saturdayHour.replace("10:30 AM", personDoctorHourSaturday.getM1030());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:00 AM")) && (saturdayHour.getOrDefault("11:00 AM", true))) {
+                    personDoctorHourSaturday.setM1100(false);
+                    saturdayHour.replace("11:00 AM", personDoctorHourSaturday.getM1100());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:30 AM")) && (saturdayHour.getOrDefault("11:30 AM", true))) {
+                    personDoctorHourSaturday.setM1130(false);
+                    saturdayHour.replace("11:30 AM", personDoctorHourSaturday.getM1130());
+                    return ResponseEntity.ok().build();
+                }
+                return ResponseEntity.badRequest().build();
+            }
+
+            case CARDIOLOGY -> {
+                if ((hourRequested.equals("08:00 AM")) && (tuesdayHour.getOrDefault("08:00 AM", true))) {
+                    personDoctorHourTuesday.setM0800(false);
+                    tuesdayHour.replace("08:00 AM", personDoctorHourTuesday.getM0800());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("08:30 AM")) && (tuesdayHour.getOrDefault("08:30 AM", true))) {
+                    personDoctorHourTuesday.setM0830(false);
+                    tuesdayHour.replace("08:30 AM", personDoctorHourTuesday.getM0830());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:00 AM")) && (tuesdayHour.getOrDefault("09:00 AM", true))) {
+                    personDoctorHourTuesday.setM0900(false);
+                    tuesdayHour.replace("09:00 AM", personDoctorHourTuesday.getM0900());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("09:30 AM")) && (tuesdayHour.getOrDefault("09:30 AM", true))) {
+                    personDoctorHourTuesday.setM0930(false);
+                    tuesdayHour.replace("09:30 AM", personDoctorHourTuesday.getM0930());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:00 AM")) && (tuesdayHour.getOrDefault("10:00 AM", true))) {
+                    personDoctorHourTuesday.setM1000(false);
+                    tuesdayHour.replace("10:00 AM", personDoctorHourTuesday.getM1000());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("10:30 AM")) && (tuesdayHour.getOrDefault("10:30 AM", true))) {
+                    personDoctorHourTuesday.setM1030(false);
+                    tuesdayHour.replace("10:30 AM", personDoctorHourTuesday.getM1030());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:00 AM")) && (tuesdayHour.getOrDefault("11:00 AM", true))) {
+                    personDoctorHourTuesday.setM1100(false);
+                    tuesdayHour.replace("11:00 AM", personDoctorHourTuesday.getM1100());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("11:30 AM")) && (tuesdayHour.getOrDefault("11:30 AM", true))) {
+                    personDoctorHourTuesday.setM1130(false);
+                    tuesdayHour.replace("11:30 AM", personDoctorHourTuesday.getM1130());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("14:00 PM")) && (tuesdayHour.getOrDefault("14:00 PM", true))) {
+                    personDoctorHourTuesday.setA1400(false);
+                    tuesdayHour.replace("14:00 PM", personDoctorHourTuesday.getA1400());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("14:30 PM")) && (tuesdayHour.getOrDefault("14:30 PM", true))) {
+                    personDoctorHourTuesday.setA1430(false);
+                    tuesdayHour.replace("14:30 PM", personDoctorHourTuesday.getA1430());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("15:00 PM")) && (tuesdayHour.getOrDefault("15:00 PM", true))) {
+                    personDoctorHourTuesday.setA1500(false);
+                    tuesdayHour.replace("15:00 PM", personDoctorHourTuesday.getA1500());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("15:30 PM")) && (tuesdayHour.getOrDefault("15:30 PM", true))) {
+                    personDoctorHourTuesday.setA1530(false);
+                    tuesdayHour.replace("15:30 PM", personDoctorHourTuesday.getA1530());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("16:00 PM")) && (tuesdayHour.getOrDefault("16:00 PM", true))) {
+                    personDoctorHourTuesday.setA1600(false);
+                    tuesdayHour.replace("16:00 PM", personDoctorHourTuesday.getA1600());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("16:30 PM")) && (tuesdayHour.getOrDefault("16:30 PM", true))) {
+                    personDoctorHourTuesday.setA1630(false);
+                    tuesdayHour.replace("16:30 PM", personDoctorHourTuesday.getA1630());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("17:00 PM")) && (tuesdayHour.getOrDefault("17:00 PM", true))) {
+                    personDoctorHourTuesday.setA1700(false);
+                    tuesdayHour.replace("17:00 PM", personDoctorHourTuesday.getA1700());
+                    return ResponseEntity.ok().build();
+                } else if ((hourRequested.equals("17:30 PM")) && (tuesdayHour.getOrDefault("17:30 PM", true))) {
+                    personDoctorHourTuesday.setA1730(false);
+                    tuesdayHour.replace("17:30 PM", personDoctorHourTuesday.getA1730());
+                    return ResponseEntity.ok().build();
                 }
             }
-            case CARDIOLOGY -> {
-
-            }
         }
+        return null;
     }
-
 }
-

@@ -6,25 +6,25 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Entity(name = "doctorHourWednesday")
-public class DoctorHourWednesday {
+@Entity
+public class PersonDoctorHourFriday {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "doctorHourWednesdayId",unique=true, nullable=false)
-    private Long doctorHourWednesdayId;
+    @Column(unique=true, nullable=false)
+    private Long doctorHourFridayId;
 
-    @ManyToOne
-    private Doctor doctor;
+    @ManyToOne(cascade=CascadeType.ALL)
+    private PersonDoctor personDoctor;
 
-    @Column(name = "doctorName")
+    @Column
     @NotNull
     private String doctorName;
 
-    @Column(name = "doctorEspeciality")
+    @Column
     @NotNull
-    private DoctorEspeciality doctorEspeciality;
+    private MedicalEspeciality medicalEspeciality;
 
     @Column
     @NotNull
@@ -106,7 +106,7 @@ public class DoctorHourWednesday {
     @NotNull
     private Boolean n1930;
 
-    public DoctorHourWednesday() {
+    public PersonDoctorHourFriday() {
         this.m0800 = false;
         this.m0830 = false;
         this.m0900 = false;

@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.controller;
 
-import com.br.clinicregistersystem.domain.repository.HealthInsuranceRepository;
-import com.br.clinicregistersystem.model.PacientHealthInsurance;
+import com.br.clinicregistersystem.domain.repository.PersonPacientHealthInsuranceRepository;
+import com.br.clinicregistersystem.model.PersonPacientHealthInsurance;
 import com.br.clinicregistersystem.service.HealthInsuranceService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,31 +15,29 @@ import javax.validation.Valid;
 @RequestMapping("/pacients/{personId}/health-insurance")
 public class HealthInsuranceController {
 
-    private HealthInsuranceRepository healthInsuranceRepository;
+    private PersonPacientHealthInsuranceRepository personPacientHealthInsuranceRepository;
     private HealthInsuranceService healthInsuranceService;
 
 
-
-//    (PUT) Find health insurance by person ID
+    /**(PUT) Find health insurance by person ID.*/
     @GetMapping
-    public PacientHealthInsurance searchHealthInsurance(@PathVariable Long personId) {
+    public PersonPacientHealthInsurance searchHealthInsurance(@PathVariable Long personId) {
         return healthInsuranceService.pacientHealthInsurance(personId);
     }
 
 
-
-//    (PUT) Update the pacient's health insurance
+    /**(PUT) Update the pacient's health insurance.*/
     @Transactional
     @PutMapping
-    public ResponseEntity<PacientHealthInsurance> updateHealthInsurance (@Valid @PathVariable Long personId,
-                                                                         @RequestBody PacientHealthInsurance pacientHealthInsurance) {
-        if (!healthInsuranceRepository.existsById(personId)) {
+    public ResponseEntity<PersonPacientHealthInsurance> updateHealthInsurance (@Valid @PathVariable Long personId,
+                                                                               @RequestBody PersonPacientHealthInsurance personPacientHealthInsurance) {
+        if (!personPacientHealthInsuranceRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
 
-        pacientHealthInsurance.setPacientHealthInsuranceId(personId);
-        pacientHealthInsurance = healthInsuranceService.updateHealthInsurance(pacientHealthInsurance);
-        return ResponseEntity.ok(pacientHealthInsurance);
+        personPacientHealthInsurance.setPacientHealthInsuranceId(personId);
+        personPacientHealthInsurance = healthInsuranceService.updateHealthInsurance(personPacientHealthInsurance);
+        return ResponseEntity.ok(personPacientHealthInsurance);
     }
 
 }

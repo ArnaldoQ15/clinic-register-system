@@ -6,28 +6,25 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Entity(name = "doctorHourMonday")
-public class DoctorHourMonday {
+@Entity
+public class PersonDoctorHourWednesday {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "doctorHourMondayId",unique=true, nullable=false)
-    private Long doctorHourMondayId;
+    @Column(unique=true, nullable=false)
+    private Long doctorHourWednesdayId;
 
     @ManyToOne(cascade=CascadeType.ALL)
-    private Doctor doctor;
+    private PersonDoctor personDoctor;
 
-    @Column(name = "doctorName")
+    @Column
     @NotNull
     private String doctorName;
 
-    @Column(name = "doctorEspeciality")
+    @Column
     @NotNull
-    private DoctorEspeciality doctorEspeciality;
-
-    @Column(name = "all_doctor_hours_monday")
-    private String todasHorasDoutor;
+    private MedicalEspeciality medicalEspeciality;
 
     @Column
     @NotNull
@@ -109,7 +106,7 @@ public class DoctorHourMonday {
     @NotNull
     private Boolean n1930;
 
-    public DoctorHourMonday() {
+    public PersonDoctorHourWednesday() {
         this.m0800 = false;
         this.m0830 = false;
         this.m0900 = false;
@@ -132,29 +129,4 @@ public class DoctorHourMonday {
         this.n1930 = false;
     }
 
-    @Override
-    public String toString() {
-        return "DoctorHourMonday{" +
-                "m0800=" + m0800 +
-                ", m0830=" + m0830 +
-                ", m0900=" + m0900 +
-                ", m0930=" + m0930 +
-                ", m1000=" + m1000 +
-                ", m1030=" + m1030 +
-                ", m1100=" + m1100 +
-                ", m1130=" + m1130 +
-                ", a1400=" + a1400 +
-                ", a1430=" + a1430 +
-                ", a1500=" + a1500 +
-                ", a1530=" + a1530 +
-                ", a1600=" + a1600 +
-                ", a1630=" + a1630 +
-                ", a1700=" + a1700 +
-                ", a1730=" + a1730 +
-                ", n1800=" + n1800 +
-                ", n1830=" + n1830 +
-                ", n1900=" + n1900 +
-                ", n1930=" + n1930 +
-                '}';
-    }
 }

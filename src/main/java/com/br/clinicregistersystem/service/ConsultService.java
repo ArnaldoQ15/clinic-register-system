@@ -1,44 +1,44 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.ConsultRepository;
-import com.br.clinicregistersystem.domain.repository.DoctorRepository;
-import com.br.clinicregistersystem.domain.repository.PacientRepository;
+import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
+import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.dto.ConsultDto;
-import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.*;
+import com.br.clinicregistersystem.model.Consult;
+import com.br.clinicregistersystem.model.ConsultStatus;
+import com.br.clinicregistersystem.model.PersonDoctor;
+import com.br.clinicregistersystem.model.PersonPacient;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class ConsultService {
 
     private ConsultRepository consultRepository;
-    private DoctorRepository doctorRepository;
+    private PersonDoctorRepository personDoctorRepository;
     private DoctorHourService doctorHourService;
-    private ConsultDto consultDto;
 
     @Autowired
     private final ModelMapper modelMapper;
-
     @Autowired
-    private PacientRepository pacientRepository;
+    private PersonPacientRepository personPacientRepository;
 
 
     /**Find a consult by person ID.*/
     public List<ConsultDto> searchByPersonId(Long personId) {
-//        List<Pacient> person = pacientRepository.findAll();
-
         List<Consult> consults = consultRepository.findByPersonId(personId);
-        return consultDto.convertToDto(consults);
+        return convertToDto(consults);
     }
 
 
@@ -47,15 +47,32 @@ public class ConsultService {
     public Consult saveConsult (Consult consult, Long personId) {
         consult.setRegisterDate(OffsetDateTime.now());
         consult.setStatus(ConsultStatus.PENDING);
-        Optional<Pacient> person = pacientRepository.findById(personId);
-        consult.setPacient(person.get());
+        Optional<PersonPacient> person = personPacientRepository.findById(personId);
+        consult.setPersonPacient(person.get());
         consult.setPersonId(person.get().getPersonId());
-        Doctor doutor = doctorRepository.findByDoctorEspeciality(consult.getConsultEspeciality());
-        consult.setDoctor(doutor);
+        PersonDoctor doutor = personDoctorRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        consult.setPersonDoctor(doutor);
         Consult map = modelMapper.map(consult, Consult.class);
-        doctorHourService.checkDoctorHours(map);
-        return consultRepository.save(consult);
+        ResponseEntity<Consult> statusCode = doctorHourService.checkDoctorHours(map);
+        return canMarkConsult(consult, statusCode);
     }
 
+
+    /**Method of check the doctor agenda.*/
+    @Nullable
+    private Consult canMarkConsult(Consult consult, ResponseEntity<Consult> statusCode) {
+        if (statusCode.getStatusCodeValue() == 200) {
+            return consultRepository.save(consult);
+        } else {
+            ResponseEntity.badRequest().build();
+            return null;
+        }
+    }
+
+
+    /**Convert entity list to Dto list.*/
+    public List<ConsultDto> convertToDto(List<Consult> consult) {
+        return consult.stream().map(ConsultDto::new).collect(Collectors.toList());
+    }
 
 }

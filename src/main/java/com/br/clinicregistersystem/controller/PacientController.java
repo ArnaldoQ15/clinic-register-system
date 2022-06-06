@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.controller;
 
-import com.br.clinicregistersystem.domain.repository.PacientRepository;
-import com.br.clinicregistersystem.model.Pacient;
+import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
+import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.service.PacientService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,20 +17,20 @@ import java.util.List;
 @RequestMapping("/pacients")
 public class PacientController {
 
-    private PacientRepository pacientRepository;
+    private PersonPacientRepository personPacientRepository;
     private PacientService pacientService;
 
 
     /**(GET) Find all pacients on database.*/
     @GetMapping
-    public List<Pacient> pacientList() {
-        return pacientRepository.findAll();
+    public List<PersonPacient> pacientList() {
+        return personPacientRepository.findAll();
     }
 
 
     /**(GET) Find pacient by Person ID.*/
     @GetMapping("/{personId}")
-    public Pacient searchPersonId(@PathVariable Long personId) {
+    public PersonPacient searchPersonId(@PathVariable Long personId) {
         return pacientService.searchByPersonId(personId);
     }
 
@@ -38,33 +38,31 @@ public class PacientController {
     /**(POST) Add new pacient on database.*/
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Pacient addPacient (@Valid @RequestBody Pacient pacient) {
-        pacient.setPersonLastRegisterDate(OffsetDateTime.now());
-        pacientService.validatePersonExists(pacient);
-        return pacientService.savePacient(pacient);
+    public PersonPacient addPacient (@Valid @RequestBody PersonPacient personPacient) {
+        personPacient.setPersonLastRegisterDate(OffsetDateTime.now());
+        pacientService.validatePersonExists(personPacient);
+        return pacientService.savePacient(personPacient);
     }
 
 
     /**(PUT) Update a pacient on database.*/
     @PutMapping("/{personId}")
-    public ResponseEntity<Pacient> updatePacient (@Valid @PathVariable Long personId, @RequestBody Pacient pacient) {
-        if (!pacientRepository.existsById(personId)) {
+    public ResponseEntity<PersonPacient> updatePacient (@Valid @PathVariable Long personId, @RequestBody PersonPacient personPacient) {
+        if (!personPacientRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
-
-        pacient.setPersonId(personId);
-        pacient = pacientService.updatePacients(pacient);
-        return ResponseEntity.ok(pacient);
+        personPacient.setPersonId(personId);
+        personPacient = pacientService.updatePacients(personPacient);
+        return ResponseEntity.ok(personPacient);
     }
 
 
     /**(PUT) Active/inactive a pacient.*/
     @PutMapping("/{personId}/status")
     public ResponseEntity<Void> activeStatusPacient (@Valid @PathVariable Long personId) {
-        if (!pacientRepository.existsById(personId)) {
+        if (!personPacientRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
-
         pacientService.changeStatusPacient(personId);
         return ResponseEntity.noContent().build();
     }

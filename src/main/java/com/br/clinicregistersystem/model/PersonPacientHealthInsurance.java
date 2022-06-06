@@ -5,37 +5,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
-public class PersonAddress {
+public class PersonPacientHealthInsurance {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long addressId;
+    @Column
+    private Long pacientHealthInsuranceId;
 
     @Column
-    private String street;
+    private PersonPacientHealthInsuranceName name;
 
     @Column
-    private String number;
+    private Long number;
 
     @Column
-    private String district;
+    private PersonPacientHealthInsuranceCoverage coverage;
 
     @Column
-    private String complement;
-
-    @Column
-    private FederativeUnits state;
-
-    @Column
-    private String city;
-
-    @Column
-    private Integer postalCode;
+    private OffsetDateTime lastRegister;
 
 }

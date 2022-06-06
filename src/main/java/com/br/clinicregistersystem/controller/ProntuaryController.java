@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.controller;
 
 import com.br.clinicregistersystem.domain.repository.ProntuaryRepository;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
+import com.br.clinicregistersystem.model.PacientProntuary;
 import com.br.clinicregistersystem.service.ProntuaryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,27 +19,24 @@ public class ProntuaryController {
     private ProntuaryService prontuaryService;
 
 
-
-//    (PUT) Find prontuary by person ID
+    /**(PUT) Find prontuary by person ID.*/
     @GetMapping
-    public PersonPacientProntuary searchProntuary(@PathVariable Long personId) {
+    public PacientProntuary searchProntuary(@PathVariable Long personId) {
         return prontuaryService.searchByProntuaryId(personId);
     }
 
 
-
-//    (PUT) Update the pacient's prontuary
+    /**(PUT) Update the pacient's prontuary.*/
     @Transactional
     @PutMapping
-    public ResponseEntity<PersonPacientProntuary> updateProntuary (@Valid @PathVariable Long personId,
-                                                                   @RequestBody PersonPacientProntuary personPacientProntuary) {
+    public ResponseEntity<PacientProntuary> updateProntuary (@Valid @PathVariable Long personId,
+                                                             @RequestBody PacientProntuary pacientProntuary) {
         if (!prontuaryRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
-
-        personPacientProntuary.setProntuaryId(personId);
-        personPacientProntuary = prontuaryService.updatePacientProntuary(personPacientProntuary);
-        return ResponseEntity.ok(personPacientProntuary);
+        pacientProntuary.setProntuaryId(personId);
+        pacientProntuary = prontuaryService.updatePacientProntuary(pacientProntuary);
+        return ResponseEntity.ok(pacientProntuary);
     }
 
 }

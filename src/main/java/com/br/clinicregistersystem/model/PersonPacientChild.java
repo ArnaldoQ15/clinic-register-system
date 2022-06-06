@@ -10,32 +10,23 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Entity
-public class PersonAddress {
+public class PersonPacientChild {
 
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long addressId;
+    private Long childId;
 
     @Column
-    private String street;
+    private String childName;
 
     @Column
-    private String number;
+    private Integer childAge;
 
     @Column
-    private String district;
+    private PersonSex childSex;
 
     @Column
-    private String complement;
-
-    @Column
-    private FederativeUnits state;
-
-    @Column
-    private String city;
-
-    @Column
-    private Integer postalCode;
+    private Boolean printedTerm = false;
 
 }

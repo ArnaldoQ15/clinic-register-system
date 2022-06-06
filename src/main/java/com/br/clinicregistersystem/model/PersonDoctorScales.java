@@ -3,7 +3,7 @@ package com.br.clinicregistersystem.model;
 import lombok.Getter;
 
 @Getter
-public enum DoctorScalesEspeciality {
+public enum PersonDoctorScales {
 
     /* Convention:
     *
@@ -226,13 +226,11 @@ public enum DoctorScalesEspeciality {
     GFM1130("11:30 AM", "Monday", "Gastroenterology");
 
 
-
     private final String hour;
     private final String day;
     private final String especiality;
 
-
-    DoctorScalesEspeciality(String hour, String day, String especiality) {
+    PersonDoctorScales(String hour, String day, String especiality) {
         this.hour = hour;
         this.day = day;
         this.especiality = especiality;
@@ -240,8 +238,8 @@ public enum DoctorScalesEspeciality {
 
 }
 
-
 /*
+----------------- ALL HOURS -----------------
     M0800("08:00 AM", "Monday", "angiology"),
     M0830("08:30 AM", "Monday", "angiology"),
     M0900("09:00 AM", "Monday", "angiology"),

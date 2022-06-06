@@ -66,17 +66,4 @@ public abstract class Person {
     @Column
     protected Boolean personStatus = true;
 
-    public Person(String personName, String personEmail, PersonSex personSex,
-                  List<PersonPhone> personPhone, LocalDate personBirthday, String personDocumentCpf, String personDocumentRg,
-                  List<PersonAddress> personAddresses) {
-        this.personName = personName;
-        this.personEmail = personEmail;
-        this.personSex = personSex;
-        this.personPhones = personPhone;
-        this.personBirthday = personBirthday;
-        this.personDocumentCpf = personDocumentCpf;
-        this.personDocumentRg = personDocumentRg;
-        this.personAddresses = personAddresses;
-    }
-
 }

@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 
 @NoArgsConstructor
@@ -13,45 +12,33 @@ import java.time.OffsetDateTime;
 @Entity
 public class Consult {
 
-
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consultId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Pacient pacient;
+    private PersonPacient personPacient;
 
     private Long personId;
 
     @OneToOne(cascade = CascadeType.PERSIST)
-    private Doctor doctor;
+    private PersonDoctor personDoctor;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Column
     private ConsultStatus status;
 
-    @Column(name = "consult_especiality")
-    private DoctorEspeciality consultEspeciality;
+    @Column
+    private MedicalEspeciality consultEspeciality;
 
-    @Column(name = "consult_date")
+    @Column
     private String consultDateRequest;
 
-    @Column(name = "consult_hour")
+    @Column
     private String consultHourRequest;
 
-    @Column(name = "consult_register_date")
+    @Column
     private OffsetDateTime registerDate;
-
-//    public void setPersonId(Long personId) {
-//        this.personId = pacient.getPersonId();
-//    }
-
-    //    public Consult(Pacient pacient, DoctorEspeciality consultEspeciality, String consultDateRequest, String consultHourRequest) {
-//        this.pacient = pacient;
-//        this.consultEspeciality = consultEspeciality;
-//        this.consultDateRequest = consultDateRequest;
-//        this.consultHourRequest = consultHourRequest;
-//    }
 
 }

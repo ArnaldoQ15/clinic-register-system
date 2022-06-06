@@ -1,9 +1,9 @@
 package com.br.clinicregistersystem.controller;
 
-import com.br.clinicregistersystem.domain.repository.DoctorRepository;
+import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
 import com.br.clinicregistersystem.dto.DoctorDto;
 import com.br.clinicregistersystem.dto.DoctorInformationDto;
-import com.br.clinicregistersystem.model.*;
+import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.service.DoctorHourService;
 import com.br.clinicregistersystem.service.DoctorService;
 import lombok.AllArgsConstructor;
@@ -21,67 +21,64 @@ import java.util.List;
 @RequestMapping("/doctors")
 public class DoctorController {
 
-    private DoctorRepository doctorRepository;
+    private PersonDoctorRepository personDoctorRepository;
     private DoctorService doctorService;
     private DoctorHourService doctorHourService;
     private DoctorInformationDto doctorInformationDto;
-    private DoctorDto doctorDto;
 
 
     /**(GET) Find all doctors on database.*/
     @GetMapping
     public List<DoctorDto> searchAllDoctors() {
-        List<Doctor> doctors = doctorRepository.findAll();
-        return doctorDto.convertToDto(doctors);
+        List<PersonDoctor> personDoctors = personDoctorRepository.findAll();
+        return doctorService.convertListToDto(personDoctors);
     }
 
 
     /**(GET) Find all doctor professional information.*/
     @GetMapping("/info")
     public List<DoctorInformationDto> searchAllDoctorInformations() {
-        List<Doctor> doctors = doctorRepository.findAll();
-        return doctorInformationDto.convertToDto(doctors);
+        List<PersonDoctor> personDoctors = personDoctorRepository.findAll();
+        return doctorService.convertToDto(personDoctors);
     }
 
 
     /**(GET) Find doctor by Person ID.*/
     @GetMapping("/{personId}")
-    public Doctor searchDoctorById(@PathVariable Long personId) {
+    public PersonDoctor searchDoctorById(@PathVariable Long personId) {
         return doctorService.searchByPersonId(personId);
     }
-
 
 
     /**(POST) Add new doctor on database.*/
     @Transactional
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor addDoctor(@Valid @RequestBody Doctor doctor) {
-        doctor.setPersonLastRegisterDate(OffsetDateTime.now());
-        doctorService.validatePersonExists(doctor);
-        doctorHourService.createDoctorAgenda(doctor);
-        return doctorService.saveDoctor(doctor);
+    public DoctorDto addDoctor(@Valid @RequestBody PersonDoctor personDoctor) {
+        personDoctor.setPersonLastRegisterDate(OffsetDateTime.now());
+        doctorService.validatePersonExists(personDoctor);
+        doctorHourService.createDoctorAgenda(personDoctor);
+        return doctorService.saveDoctor(personDoctor);
     }
 
 
     /**(PUT) Update a doctor on database.*/
     @Transactional
     @PutMapping("/{personId}")
-    public ResponseEntity<Doctor> updateDoctor(@Valid @PathVariable Long personId, @RequestBody Doctor doctor) {
-        if (!doctorRepository.existsById(personId)) {
+    public ResponseEntity<PersonDoctor> updateDoctor(@Valid @PathVariable Long personId, @RequestBody PersonDoctor personDoctor) {
+        if (!personDoctorRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
-        doctor.setPersonId(personId);
-        doctor = doctorService.updateDoctor(doctor);
-        return ResponseEntity.ok(doctor);
+        personDoctor.setPersonId(personId);
+        personDoctor = doctorService.updateDoctor(personDoctor);
+        return ResponseEntity.ok(personDoctor);
     }
-
 
 
     /**(PUT) Active/inactive a doctor.*/
     @PutMapping("/{personId}/status")
     public ResponseEntity<Void> activeStatusDoctor (@Valid @PathVariable Long personId) {
-        if (!doctorRepository.existsById(personId)) {
+        if (!personDoctorRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
         doctorService.changeStatusDoctor(personId);
@@ -89,11 +86,10 @@ public class DoctorController {
     }
 
 
-
     /**(PUT) Renew register of a doctor.*/
     @PutMapping("/{personId}/renew-crm")
     public ResponseEntity<Void> renewDoctorCrm (@Valid @PathVariable Long personId) {
-        if (!doctorRepository.existsById(personId)) {
+        if (!personDoctorRepository.existsById(personId)) {
             return ResponseEntity.notFound().build();
         }
         doctorService.renewValidity(personId);

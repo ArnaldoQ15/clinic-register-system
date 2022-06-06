@@ -3,7 +3,6 @@ package com.br.clinicregistersystem.controller;
 import com.br.clinicregistersystem.domain.repository.ConsultRepository;
 import com.br.clinicregistersystem.dto.ConsultDto;
 import com.br.clinicregistersystem.model.Consult;
-import com.br.clinicregistersystem.model.Pacient;
 import com.br.clinicregistersystem.service.ConsultService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class ConsultController {
     @GetMapping("/consults")
     public List<ConsultDto> searchAllConsults() {
         List<Consult> consults = consultRepository.findAll();
-        return consultDto.convertToDto(consults);
+        return consultService.convertToDto(consults);
     }
 
 

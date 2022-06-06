@@ -2,7 +2,7 @@ package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.ProntuaryRepository;
 import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
+import com.br.clinicregistersystem.model.PacientProntuary;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +16,16 @@ public class ProntuaryService {
 
 
     /**Find the pacient's prontuary.*/
-    public PersonPacientProntuary searchByProntuaryId(Long personId) {
+    public PacientProntuary searchByProntuaryId(Long personId) {
         return prontuaryRepository.findById(personId)
                 .orElseThrow(() -> new BusinessException("Prontuary not found."));
     }
 
 
     /**Update the pacient's prontuary.*/
-    public PersonPacientProntuary updatePacientProntuary(PersonPacientProntuary personPacientProntuary) {
-        personPacientProntuary.setLastRegisterDate(OffsetDateTime.now());
-        return prontuaryRepository.save(personPacientProntuary);
+    public PacientProntuary updatePacientProntuary(PacientProntuary pacientProntuary) {
+        pacientProntuary.setLastRegisterDate(OffsetDateTime.now());
+        return prontuaryRepository.save(pacientProntuary);
     }
 
 }
