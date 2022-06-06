@@ -6,32 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="1c7ccc98-ba7a-4e3d-a457-4d558b458a7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PacientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PacientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourFridayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourFridayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourMondayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourMondayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourSaturdayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourSaturdayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourThursdayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourThursdayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourTuesdayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourTuesdayRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourWednesdayRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorHourWednesdayRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/ConsultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/ConsultRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/DoctorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PacientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PacientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourFriday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourFriday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourMonday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourMonday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourSaturday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourSaturday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourThursday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourThursday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourTuesday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourTuesday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourWednesday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DoctorHourWednesday.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Pacient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/AwaitingConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/AwaitingConsultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorHourService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/HealthInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/HealthInsuranceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PacientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ProntuaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ProntuaryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +158,7 @@
       <workItem from="1653955822588" duration="7853000" />
       <workItem from="1654100368580" duration="25165000" />
       <workItem from="1654145556390" duration="76657000" />
-      <workItem from="1654383208060" duration="8144000" />
+      <workItem from="1654383208060" duration="25459000" />
     </task>
     <servers />
   </component>
@@ -188,18 +181,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="364" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="378" />
+          <line>37</line>
+          <option name="timeStamp" value="433" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="379" />
+          <line>39</line>
+          <option name="timeStamp" value="434" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -20,7 +20,6 @@ public class PersonPacientProntuary {
     @Column(name = "prontuary_first_time")
     private Boolean firstTime;
 
-    @NotBlank
     @Column(name = "prontuary_symptoms")
     private String symptoms;
 

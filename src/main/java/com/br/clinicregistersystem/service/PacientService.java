@@ -7,7 +7,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -28,9 +33,34 @@ public class PacientService {
     @Transactional
     public Pacient savePacient (Pacient pacient) {
         pacient.setPersonStatus(true);
+        addPacientAge(pacient);
         pacient.getHealthInsurance().setLastRegister(OffsetDateTime.now());
         pacient.getProntuary().setLastRegisterDate(OffsetDateTime.now());
         return pacientRepository.save(pacient);
+    }
+
+
+    /**Set pacient's age on database.*/
+    public void addPacientAge (Pacient pacient) {
+        Period periodAge = Period.between(pacient.getPersonBirthday(), LocalDate.now());
+        Integer realPacientAge = Math.abs(periodAge.getYears());
+        pacient.setPersonAge(realPacientAge);
+    }
+
+
+    /**Update pacient's age method.*/
+    public void makeBirthday(Pacient pacient) {
+        Integer actualAge = pacient.getPersonAge();
+        int month = pacient.getPersonBirthday().getMonthValue();
+        int day = pacient.getPersonBirthday().getDayOfMonth();
+        int thatMonth = LocalDate.now().getMonthValue();
+        int thatDay = LocalDate.now().getDayOfMonth();
+
+        if ((day == thatDay) && (month == thatMonth)) {
+            actualAge = actualAge + 1;
+        }
+
+        pacient.setPersonAge(actualAge);
     }
 
 
@@ -46,6 +76,7 @@ public class PacientService {
     }
 
 
+    /**Update pacient method.*/
     public Pacient updatePacients (Pacient pacient) {
         pacient.setPersonStatus(true);
         pacient.setPersonLastRegisterDate(OffsetDateTime.now());

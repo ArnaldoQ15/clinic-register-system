@@ -10,48 +10,47 @@ import java.time.OffsetDateTime;
 
 @NoArgsConstructor
 @Data
-@Entity(name = "consult")
+@Entity
 public class Consult {
 
 
-    @NotNull
     @Id
-    @Column(name = "consult_id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long consultId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Pacient pacient;
 
+    private Long personId;
+
     @OneToOne(cascade = CascadeType.PERSIST)
     private Doctor doctor;
 
-    @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private ConsultStatus status;
 
-    @NotNull
     @Column(name = "consult_especiality")
     private DoctorEspeciality consultEspeciality;
 
-    @NotNull
     @Column(name = "consult_date")
     private String consultDateRequest;
 
-    @NotNull
     @Column(name = "consult_hour")
     private String consultHourRequest;
 
-    @NotNull
     @Column(name = "consult_register_date")
     private OffsetDateTime registerDate;
 
+//    public void setPersonId(Long personId) {
+//        this.personId = pacient.getPersonId();
+//    }
 
-    public Consult(Pacient pacient, DoctorEspeciality consultEspeciality, String consultDateRequest, String consultHourRequest) {
-        this.pacient = pacient;
-        this.consultEspeciality = consultEspeciality;
-        this.consultDateRequest = consultDateRequest;
-        this.consultHourRequest = consultHourRequest;
-    }
+    //    public Consult(Pacient pacient, DoctorEspeciality consultEspeciality, String consultDateRequest, String consultHourRequest) {
+//        this.pacient = pacient;
+//        this.consultEspeciality = consultEspeciality;
+//        this.consultDateRequest = consultDateRequest;
+//        this.consultHourRequest = consultHourRequest;
+//    }
 
 }

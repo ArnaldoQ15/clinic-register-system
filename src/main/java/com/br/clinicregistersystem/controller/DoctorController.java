@@ -1,6 +1,8 @@
 package com.br.clinicregistersystem.controller;
 
 import com.br.clinicregistersystem.domain.repository.DoctorRepository;
+import com.br.clinicregistersystem.dto.DoctorDto;
+import com.br.clinicregistersystem.dto.DoctorInformationDto;
 import com.br.clinicregistersystem.model.*;
 import com.br.clinicregistersystem.service.DoctorHourService;
 import com.br.clinicregistersystem.service.DoctorService;
@@ -22,14 +24,24 @@ public class DoctorController {
     private DoctorRepository doctorRepository;
     private DoctorService doctorService;
     private DoctorHourService doctorHourService;
+    private DoctorInformationDto doctorInformationDto;
+    private DoctorDto doctorDto;
 
 
     /**(GET) Find all doctors on database.*/
     @GetMapping
-    public List<Doctor> searchAllDoctors() {
-        return doctorRepository.findAll();
+    public List<DoctorDto> searchAllDoctors() {
+        List<Doctor> doctors = doctorRepository.findAll();
+        return doctorDto.convertToDto(doctors);
     }
 
+
+    /**(GET) Find all doctor professional information.*/
+    @GetMapping("/info")
+    public List<DoctorInformationDto> searchAllDoctorInformations() {
+        List<Doctor> doctors = doctorRepository.findAll();
+        return doctorInformationDto.convertToDto(doctors);
+    }
 
 
     /**(GET) Find doctor by Person ID.*/
@@ -44,9 +56,7 @@ public class DoctorController {
     @Transactional
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Doctor addDoctor(@Valid @RequestBody Doctor doctor, DoctorHourMonday doctorHourMonday, DoctorHourTuesday doctorHourTuesday,
-                            DoctorHourWednesday doctorHourWednesday, DoctorHourThursday doctorHourThursday,
-                            DoctorHourFriday doctorHourFriday, DoctorHourSaturday doctorHourSaturday) {
+    public Doctor addDoctor(@Valid @RequestBody Doctor doctor) {
         doctor.setPersonLastRegisterDate(OffsetDateTime.now());
         doctorService.validatePersonExists(doctor);
         doctorHourService.createDoctorAgenda(doctor);

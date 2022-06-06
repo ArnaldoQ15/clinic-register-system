@@ -2,9 +2,8 @@ package com.br.clinicregistersystem.controller;
 
 import com.br.clinicregistersystem.domain.repository.ConsultRepository;
 import com.br.clinicregistersystem.dto.ConsultDto;
-import com.br.clinicregistersystem.model.*;
+import com.br.clinicregistersystem.model.Consult;
 import com.br.clinicregistersystem.service.ConsultService;
-import com.br.clinicregistersystem.service.DoctorHourService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,21 +18,22 @@ public class ConsultController {
 
     private ConsultRepository consultRepository;
     private ConsultService consultService;
+    private ConsultDto consultDto;
 
 
-
-//    (GET) Find all consults
+    /**(GET) Find all consults.*/
     @GetMapping("/consults")
-    public List<Consult> searchAllConsults() {
-        return consultRepository.findAll();
+    public List<ConsultDto> searchAllConsults() {
+        List<Consult> consults = consultRepository.findAll();
+        return consultDto.convertToDto(consults);
     }
-
 
 
     /**(GET) Find consults by Person ID.*/
     @GetMapping("/pacients/{personId}/consults")
-    public Consult searchConsultById(@PathVariable Long personId) {
-        return consultService.searchByPersonId(personId);
+    public List<ConsultDto> searchConsultById(@PathVariable Long personId, Consult consult) {
+        List<ConsultDto> personConsults = consultService.searchByPersonId(consult, personId);
+        return personConsults;
     }
 
 
@@ -42,7 +42,6 @@ public class ConsultController {
     @PostMapping("/pacients/{personId}/consults/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Consult addConsult(@RequestBody Consult consult, @Valid @PathVariable Long personId) {
-
         return consultService.saveConsult(consult, personId);
     }
 

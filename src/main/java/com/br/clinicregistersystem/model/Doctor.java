@@ -15,28 +15,24 @@ import java.util.List;
 @Entity(name = "personDoctor")
 public class Doctor extends Person {
 
-    @NotNull
     @Column(name = "professional_register_number")
     private Integer professionalRegisterNumber;
 
-    @NotBlank
     @Column(name = "professional_register_state")
     private FederativeUnits professionalRegisterState;
 
-    @NotNull
     @Column(name = "professional_register_validity")
     private LocalDate professionalRegisterValidity;
 
-    @NotBlank
     @Column(name = "doctor_especiality")
     private DoctorEspeciality doctorEspeciality;
 
 
-    public Doctor(String personName, Integer personAge, String personEmail, PersonSex personSex,
-                  List<PersonPhone> personPhone, LocalDate personBirthday, Long personDocumentCpf,
-                  Long personDocumentRg, List<PersonAddress> personAddresses, Boolean personStatus, Integer professionalRegisterNumber,
+    public Doctor(String personName, String personEmail, PersonSex personSex,
+                  List<PersonPhone> personPhone, LocalDate personBirthday, String personDocumentCpf,
+                  String personDocumentRg, List<PersonAddress> personAddresses, Integer professionalRegisterNumber,
                   FederativeUnits professionalRegisterState, LocalDate professionalRegisterValidity, DoctorEspeciality doctorEspeciality) {
-        super(personName, personAge, personEmail, personSex, personPhone, personBirthday, personDocumentCpf, personDocumentRg, personAddresses, personStatus);
+        super(personName, personEmail, personSex, personPhone, personBirthday, personDocumentCpf, personDocumentRg, personAddresses);
         this.professionalRegisterNumber = professionalRegisterNumber;
         this.professionalRegisterState = professionalRegisterState;
         this.professionalRegisterValidity = professionalRegisterValidity;

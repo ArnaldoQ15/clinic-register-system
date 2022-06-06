@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     Optional<Doctor> findByPersonEmail(@Param("personEmail") String personEmail);
-    Optional<Doctor> findByPersonDocumentCpf(@Param("personDocumentCpf") Long personDocumentCpf);
+    Optional<Doctor> findByPersonDocumentCpf(@Param("personDocumentCpf") String personDocumentCpf);
     Doctor findByDoctorEspeciality (@Param("doctorEspeciality") DoctorEspeciality doctorEspeciality);
 
 }

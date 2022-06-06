@@ -24,29 +24,13 @@ public class Pacient extends Person {
     private PacientHealthInsurance healthInsurance;
 
     @OneToOne(cascade=CascadeType.PERSIST)
-    @NotBlank
     private PersonPacientProntuary prontuary;
 
-    public Pacient(String personName, Integer personAge, String personEmail, PersonSex personSex, List<PersonPhone> personPhones, LocalDate personBirthday, Long personDocumentCpf, Long personDocumentRg, List<PersonAddress> personAddresses, Boolean personStatus, PacientChild pacientChild, PacientHealthInsurance healthInsurance, PersonPacientProntuary prontuary) {
-        super(personName, personAge, personEmail, personSex, personPhones, personBirthday, personDocumentCpf, personDocumentRg, personAddresses, personStatus);
+    public Pacient(String personName, String personEmail, PersonSex personSex, List<PersonPhone> personPhones, LocalDate personBirthday, String personDocumentCpf, String personDocumentRg, List<PersonAddress> personAddresses, PacientChild pacientChild, PacientHealthInsurance healthInsurance, PersonPacientProntuary prontuary) {
+        super(personName, personEmail, personSex, personPhones, personBirthday, personDocumentCpf, personDocumentRg, personAddresses);
         this.pacientChild = pacientChild;
         this.healthInsurance = healthInsurance;
         this.prontuary = prontuary;
-    }
-
-
-    public void makeBirthday(LocalDate personBirthday) {
-        Integer actualAge = getPersonAge();
-        int month = personBirthday.getMonthValue();
-        int day = personBirthday.getDayOfMonth();
-        int thatMonth = LocalDate.now().getMonthValue();
-        int thatDay = LocalDate.now().getDayOfMonth();
-
-        if ((day == thatDay) && (month == thatMonth)) {
-            actualAge = actualAge + 1;
-        }
-
-        this.setPersonAge(actualAge);
     }
 
 }

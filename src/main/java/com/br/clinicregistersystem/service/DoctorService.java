@@ -3,12 +3,14 @@ package com.br.clinicregistersystem.service;
 import com.br.clinicregistersystem.domain.repository.DoctorRepository;
 import com.br.clinicregistersystem.exception.BusinessException;
 import com.br.clinicregistersystem.model.Doctor;
+import com.br.clinicregistersystem.model.Pacient;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.Period;
 import java.util.Optional;
 
 @Service
@@ -29,7 +31,16 @@ public class DoctorService {
     @Transactional
     public Doctor saveDoctor(Doctor doctor) {
         doctor.setPersonStatus(true);
+        addDoctorAge(doctor);
         return doctorRepository.save(doctor);
+    }
+
+
+    /**Set doctor's age on database.*/
+    public void addDoctorAge (Doctor doctor) {
+        Period periodAge = Period.between(doctor.getPersonBirthday(), LocalDate.now());
+        Integer realPacientAge = Math.abs(periodAge.getYears());
+        doctor.setPersonAge(realPacientAge);
     }
 
 

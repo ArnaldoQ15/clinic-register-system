@@ -1,12 +1,13 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.*;
-import com.br.clinicregistersystem.dto.ConsultDto;
 import com.br.clinicregistersystem.model.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -196,6 +197,7 @@ public class DoctorHourService {
             }
         }
     }
+
 
     /**Check all doctor hours before save the consult.*/
     public void checkDoctorHours(Consult consult) {

@@ -15,15 +15,12 @@ public class PersonPhone {
 
     @Id
     @Column(name = "phone_id")
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long phoneId;
 
-    @NotBlank
     @Column(name = "phone_type")
     private PersonPhoneType type;
 
-    @NotNull
     @Column(name = "phone_number")
     private Long number;
 

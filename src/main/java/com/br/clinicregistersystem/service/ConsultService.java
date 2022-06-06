@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +23,7 @@ public class ConsultService {
     private ConsultRepository consultRepository;
     private DoctorRepository doctorRepository;
     private DoctorHourService doctorHourService;
+    private ConsultDto consultDto;
 
     @Autowired
     private final ModelMapper modelMapper;
@@ -30,18 +32,15 @@ public class ConsultService {
     private PacientRepository pacientRepository;
 
 
-//    Find a consult by person ID
-    public Consult searchByPersonId(Long personId) {
-        return consultRepository.findById(personId)
-                .orElseThrow(() -> new BusinessException("No consult found."));
+    /**Find a consult by person ID.*/
+    public List<ConsultDto> searchByPersonId(Consult consult, Long personId) {
+        Optional<Pacient> person = pacientRepository.findById(personId);
+        consult.setPacient(person.get());
+        consult.setPersonId(person.get().getPersonId());
+        List<Consult> consults = consultRepository.findByPersonId(personId);
+        return consultDto.convertToDto(consults);
     }
 
-//    public Doctor returnADoc(Doctor doctor, Consult consult) {
-//        if (doctorRepository.findByDoctorEspeciality(doctor.getDoctorEspeciality().getDescription()).contains(consult.getConsultEspeciality())) {
-//            consult.setDoctor(doctor);
-//        }
-//        return doctor;
-//    }
 
     /**Save a consult on database.*/
     @Transactional
