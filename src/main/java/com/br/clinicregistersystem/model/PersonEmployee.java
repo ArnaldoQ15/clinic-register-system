@@ -7,25 +7,26 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
-import java.time.LocalDate;
+import javax.validation.constraints.Email;
 
-@PrimaryKeyJoinColumn(name = "personId")
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
+@PrimaryKeyJoinColumn(name = "personId")
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class PersonDoctor extends PersonEmployee {
+public class PersonEmployee extends Person {
 
     @Column
-    private Integer professionalRegisterNumber;
+    private Long funcionaryId;
 
     @Column
-    private FederativeUnits professionalRegisterState;
+    private PersonEmployeeRole role;
 
     @Column
-    private LocalDate professionalRegisterValidity;
+    private String admissionDate;
 
     @Column
-    private MedicalEspeciality medicalEspeciality;
+    @Email
+    private String institucionalEmail;
 
 }
