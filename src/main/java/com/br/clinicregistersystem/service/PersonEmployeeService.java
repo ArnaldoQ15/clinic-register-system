@@ -12,6 +12,8 @@ public class PersonEmployeeService {
     private PersonEmployeeRepository personEmployeeRepository;
 
     /**Save a employee on database.*/
-    public PersonEmployee
+    public PersonEmployee persistEmployee(PersonEmployeeDto dto) {
+
+    }
 
 }
