@@ -1,25 +1,46 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.*;
+import com.br.clinicregistersystem.dto.PersonDoctorInDto;
+import com.br.clinicregistersystem.exception.BusinessException;
 import com.br.clinicregistersystem.model.*;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class DoctorHourService {
+public class PersonAgendaService {
 
+    @Autowired
     private PersonDoctorHourMondayRepository personDoctorHourMondayRepository;
+
+    @Autowired
     private PersonDoctorHourTuesdayRepository personDoctorHourTuesdayRepository;
+
+    @Autowired
     private PersonDoctorHourWednesdayRepository personDoctorHourWednesdayRepository;
+
+    @Autowired
     private PersonDoctorHourThursdayRepository personDoctorHourThursdayRepository;
+
+    @Autowired
     private PersonDoctorHourFridayRepository personDoctorHourFridayRepository;
+
+    @Autowired
     private PersonDoctorHourSaturdayRepository personDoctorHourSaturdayRepository;
+
+    @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private PersonDoctorRepository doctorRepository;
+
     HashMap<String, Boolean> mondayHour = new HashMap<>();
     HashMap<String, Boolean> tuesdayHour = new HashMap<>();
     HashMap<String, Boolean> wednesdayHour = new HashMap<>();
@@ -29,7 +50,7 @@ public class DoctorHourService {
 
 
     /**Set doctor agenda list on database.*/
-    public void createDoctorAgenda(PersonDoctor personDoctor) {
+    public void createDoctorAgenda(PersonDoctorInDto dto) {
 
         PersonDoctorHourMonday personDoctorHourMonday = new PersonDoctorHourMonday();
         PersonDoctorHourTuesday personDoctorHourTuesday = new PersonDoctorHourTuesday();
@@ -38,11 +59,17 @@ public class DoctorHourService {
         PersonDoctorHourFriday personDoctorHourFriday = new PersonDoctorHourFriday();
         PersonDoctorHourSaturday personDoctorHourSaturday = new PersonDoctorHourSaturday();
 
-        switch (personDoctor.getMedicalEspeciality()) {
+        Optional<PersonDoctor> doctorOptional = doctorRepository.findByMedicalEspeciality(dto.getMedicalEspeciality());
+        if (doctorOptional.isEmpty())
+            throw new BusinessException("Doctor not found.");
+
+        PersonDoctor doctor = doctorOptional.get();
+
+        switch (dto.getMedicalEspeciality()) {
             case ANGIOLOGY -> {
-                personDoctorHourMonday.setPersonDoctor(personDoctor);
-                personDoctorHourMonday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourMonday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourMonday.setPersonDoctor(doctor);
+                personDoctorHourMonday.setDoctorName(doctor.getPersonName());
+                personDoctorHourMonday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourMonday.setM0800(true);
                 mondayHour.put("08:00 AM", personDoctorHourMonday.getM0800());
                 personDoctorHourMonday.setM0830(true);
@@ -77,9 +104,9 @@ public class DoctorHourService {
                 mondayHour.put("17:30 PM", personDoctorHourMonday.getA1730());
                 personDoctorHourMondayRepository.save(personDoctorHourMonday);
 
-                personDoctorHourSaturday.setPersonDoctor(personDoctor);
-                personDoctorHourSaturday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourSaturday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourSaturday.setPersonDoctor(doctor);
+                personDoctorHourSaturday.setDoctorName(doctor.getPersonName());
+                personDoctorHourSaturday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourSaturday.setM0800(true);
                 saturdayHour.put("08:00 AM", personDoctorHourSaturday.getM0800());
                 personDoctorHourSaturday.setM0830(true);
@@ -100,9 +127,9 @@ public class DoctorHourService {
             }
 
             case CARDIOLOGY -> {
-                personDoctorHourTuesday.setPersonDoctor(personDoctor);
-                personDoctorHourTuesday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourTuesday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourTuesday.setPersonDoctor(doctor);
+                personDoctorHourTuesday.setDoctorName(doctor.getPersonName());
+                personDoctorHourTuesday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourTuesday.setM0800(true);
                 tuesdayHour.put("08:00 AM", personDoctorHourTuesday.getM0800());
                 personDoctorHourTuesday.setM0830(true);
@@ -145,9 +172,9 @@ public class DoctorHourService {
                 tuesdayHour.put("19:30 PM", personDoctorHourTuesday.getN1930());
                 personDoctorHourTuesdayRepository.save(personDoctorHourTuesday);
 
-                personDoctorHourWednesday.setPersonDoctor(personDoctor);
-                personDoctorHourWednesday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourWednesday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourWednesday.setPersonDoctor(doctor);
+                personDoctorHourWednesday.setDoctorName(doctor.getPersonName());
+                personDoctorHourWednesday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourWednesday.setA1400(true);
                 wednesdayHour.put("14:00 PM", personDoctorHourWednesday.getA1400());
                 personDoctorHourWednesday.setA1430(true);
@@ -167,9 +194,9 @@ public class DoctorHourService {
                 personDoctorHourWednesdayRepository.save(personDoctorHourWednesday);
             }
             case MEDICAL_CLINIC -> {
-                personDoctorHourMonday.setPersonDoctor(personDoctor);
-                personDoctorHourMonday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourMonday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourMonday.setPersonDoctor(doctor);
+                personDoctorHourMonday.setDoctorName(doctor.getPersonName());
+                personDoctorHourMonday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourMonday.setA1400(true);
                 mondayHour.put("14:00 PM", personDoctorHourMonday.getA1400());
                 personDoctorHourMonday.setA1430(true);
@@ -196,9 +223,9 @@ public class DoctorHourService {
                 mondayHour.put("19:30 PM", personDoctorHourMonday.getN1930());
                 personDoctorHourMondayRepository.save(personDoctorHourMonday);
 
-                personDoctorHourThursday.setPersonDoctor(personDoctor);
-                personDoctorHourThursday.setDoctorName(personDoctor.getPersonName());
-                personDoctorHourThursday.setMedicalEspeciality(personDoctor.getMedicalEspeciality());
+                personDoctorHourThursday.setPersonDoctor(doctor);
+                personDoctorHourThursday.setDoctorName(doctor.getPersonName());
+                personDoctorHourThursday.setMedicalEspeciality(doctor.getMedicalEspeciality());
                 personDoctorHourThursday.setM0800(true);
                 thursdayHour.put("08:00 AM", personDoctorHourThursday.getM0800());
                 personDoctorHourThursday.setM0830(true);

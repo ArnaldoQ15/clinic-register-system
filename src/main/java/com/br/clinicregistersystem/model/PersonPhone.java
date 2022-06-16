@@ -1,5 +1,6 @@
 package com.br.clinicregistersystem.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,29 +8,24 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-@Entity(name = "personPhone")
+@Entity
 public class PersonPhone {
 
     @Id
-    @Column(name = "phone_id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long phoneId;
 
-    @Column(name = "phone_type")
+    @Column
     private PersonPhoneType type;
 
-    @Column(name = "phone_number")
+    @Column
     private Long number;
 
-    @Column(name = "phone_name")
+    @Column
     @Size(max = 80)
-    protected String personPhoneName;
-
-    public PersonPhone(PersonPhoneType type, Long number, String personPhoneName) {
-        this.type = type;
-        this.number = number;
-        this.personPhoneName = personPhoneName;
-    }
+    private String personPhoneName;
 
 }

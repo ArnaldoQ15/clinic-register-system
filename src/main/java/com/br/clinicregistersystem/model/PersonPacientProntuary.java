@@ -12,32 +12,31 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @Data
 @Entity
-public class PersonPacientHealthInsurance {
+public class PersonPacientProntuary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long pacientHealthInsuranceId;
+    private Long prontuaryId;
 
     @Column
-    @Enumerated(EnumType.STRING)
-    private PersonPacientHealthInsuranceName name;
+    private Boolean firstTime;
 
     @Column
-    private Long number;
-
-    @Column
-    @Enumerated(EnumType.STRING)
-    private PersonPacientHealthInsuranceCoverage coverage;
+    private String symptoms;
 
     @Column
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private OffsetDateTime personRegisterDate;
+    private OffsetDateTime registerDate;
 
     @Column
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private OffsetDateTime personLastUpdate;
+    private OffsetDateTime lastUpdate;
 
     private Long personId;
+
+    @ManyToOne
+    @JoinColumn(name = "pacientId")
+    private PersonPacient pacient;
 
 }

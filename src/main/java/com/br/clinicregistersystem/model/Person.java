@@ -42,6 +42,7 @@ public abstract class Person {
     protected String personEmail;
 
     @Column
+    @Enumerated(EnumType.STRING)
     protected PersonSex personSex;
 
     @OneToMany(mappedBy = "phoneId", cascade = CascadeType.ALL)
@@ -61,9 +62,12 @@ public abstract class Person {
     protected List<PersonAddress> personAddresses = new ArrayList<>();
 
     @Column
-    protected OffsetDateTime personLastRegisterDate;
+    protected OffsetDateTime personRegisterDate;
 
     @Column
-    protected Boolean personStatus = true;
+    protected OffsetDateTime personLastUpdate;
+
+    @Column
+    protected Boolean personStatus;
 
 }

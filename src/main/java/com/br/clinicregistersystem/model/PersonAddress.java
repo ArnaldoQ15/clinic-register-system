@@ -38,4 +38,8 @@ public class PersonAddress {
     @Column
     private Integer postalCode;
 
+//    @ManyToMany
+//    @JoinColumn(name = "fkPersonId")
+//    private Person person;
+
 }

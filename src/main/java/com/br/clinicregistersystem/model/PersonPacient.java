@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @PrimaryKeyJoinColumn(name = "personId")
 @NoArgsConstructor
@@ -22,7 +21,7 @@ public class PersonPacient extends Person {
     @OneToOne(cascade=CascadeType.PERSIST)
     private PersonPacientHealthInsurance healthInsurance;
 
-    @OneToOne(cascade=CascadeType.PERSIST)
-    private PacientProntuary prontuary;
+    @OneToMany(mappedBy = "prontuaryId", cascade = CascadeType.PERSIST)
+    private List<PersonPacientProntuary> prontuaries = new ArrayList<>();
 
 }

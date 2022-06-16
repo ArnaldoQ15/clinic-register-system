@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ConsultController {
 
-    private ConsultRepository consultRepository;
+    private ConsultRepository repository;
     private ConsultService consultService;
     private ConsultDto consultDto;
 
@@ -24,7 +24,7 @@ public class ConsultController {
     /**(GET) Find all consults.*/
     @GetMapping("/consults")
     public List<ConsultDto> searchAllConsults() {
-        List<Consult> consults = consultRepository.findAll();
+        List<Consult> consults = repository.findAll();
         return consultService.convertToDto(consults);
     }
 

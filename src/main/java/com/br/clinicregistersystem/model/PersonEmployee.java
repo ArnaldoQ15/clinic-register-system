@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Data
@@ -20,6 +18,7 @@ public class PersonEmployee extends Person {
     private Long funcionaryId;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private PersonEmployeeRole role;
 
     @Column

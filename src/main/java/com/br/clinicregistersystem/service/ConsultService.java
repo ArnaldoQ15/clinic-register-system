@@ -6,7 +6,6 @@ import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.dto.ConsultDto;
 import com.br.clinicregistersystem.model.Consult;
 import com.br.clinicregistersystem.model.ConsultStatus;
-import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.model.PersonPacient;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -25,9 +24,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ConsultService {
 
-    private ConsultRepository consultRepository;
+    private ConsultRepository repository;
     private PersonDoctorRepository personDoctorRepository;
-    private DoctorHourService doctorHourService;
+    private PersonAgendaService personAgendaService;
 
     @Autowired
     private final ModelMapper modelMapper;
@@ -37,7 +36,7 @@ public class ConsultService {
 
     /**Find a consult by person ID.*/
     public List<ConsultDto> searchByPersonId(Long personId) {
-        List<Consult> consults = consultRepository.findByPersonId(personId);
+        List<Consult> consults = repository.findByPersonId(personId);
         return convertToDto(consults);
     }
 
@@ -50,10 +49,10 @@ public class ConsultService {
         Optional<PersonPacient> person = personPacientRepository.findById(personId);
         consult.setPersonPacient(person.get());
         consult.setPersonId(person.get().getPersonId());
-        PersonDoctor doutor = personDoctorRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        consult.setPersonDoctor(doutor);
+//        PersonDoctor doutor = personDoctorRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+//        consult.setPersonDoctor(doutor);
         Consult map = modelMapper.map(consult, Consult.class);
-        ResponseEntity<Consult> statusCode = doctorHourService.checkDoctorHours(map);
+        ResponseEntity<Consult> statusCode = personAgendaService.checkDoctorHours(map);
         return canMarkConsult(consult, statusCode);
     }
 
@@ -62,7 +61,7 @@ public class ConsultService {
     @Nullable
     private Consult canMarkConsult(Consult consult, ResponseEntity<Consult> statusCode) {
         if (statusCode.getStatusCodeValue() == 200) {
-            return consultRepository.save(consult);
+            return repository.save(consult);
         } else {
             ResponseEntity.badRequest().build();
             return null;
