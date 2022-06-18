@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class PersonAddressInDto {
 
+    private Long addressId;
     private String street;
     private String number;
     private String district;

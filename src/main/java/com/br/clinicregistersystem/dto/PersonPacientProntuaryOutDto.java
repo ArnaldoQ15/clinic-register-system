@@ -12,7 +12,6 @@ import java.time.OffsetDateTime;
 public class PersonPacientProntuaryOutDto {
 
     private String pacientName;
-    private Long prontuaryId;
     private Boolean firstTime;
     private String symptoms;
     private OffsetDateTime registerDate;

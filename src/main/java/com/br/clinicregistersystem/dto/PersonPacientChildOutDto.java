@@ -13,6 +13,7 @@ import java.time.OffsetDateTime;
 public class PersonPacientChildOutDto {
 
     private String responsable;
+    private Long responsablePersonId;
     private String childName;
     private Integer childAge;
     private PersonSex childSex;

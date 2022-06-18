@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.service;
 import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
 import com.br.clinicregistersystem.dto.*;
 import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonAddress;
 import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.model.PersonPhone;
@@ -33,6 +34,9 @@ public class PersonDoctorService {
 
     @Autowired
     private PersonAgendaService personAgendaService;
+
+    @Autowired
+    private PersonService personService;
 
 
     /**Find all doctors on Database.*/
@@ -67,12 +71,13 @@ public class PersonDoctorService {
         List<PersonPhoneOutDto> phoneOutDtos = new ArrayList<>();
 
         PersonDoctorOutDto doctorOutDto = modelMapper.map(doctor, PersonDoctorOutDto.class);
+
         doctorOutDto.getPersonAddresses().forEach(personAddress -> addressOutDtos.add(modelMapper.map(personAddress,
                 PersonAddressOutDto.class)));
+        doctorOutDto.setPersonAddresses(addressOutDtos);
+
         doctorOutDto.getPersonPhones().forEach(personPhone -> phoneOutDtos.add(modelMapper.map(personPhone,
                 PersonPhoneOutDto.class)));
-
-        doctorOutDto.setPersonAddresses(addressOutDtos);
         doctorOutDto.setPersonPhones(phoneOutDtos);
 
         return doctorOutDto;
@@ -82,53 +87,34 @@ public class PersonDoctorService {
     /**Save doctor on database.*/
     @Transactional
     public ResponseEntity<PersonDoctorOutDto> persist(PersonDoctorInDto dto) {
-        validateCpfExists(dto);
-        validateEmailExists(dto);
+        personService.validateCpfExists(dto.getPersonDocumentCpf());
+        personService.validateEmailExists(dto.getPersonEmail());
 
         PersonDoctor entityNew = new PersonDoctor();
         BeanUtils.copyProperties(dto, entityNew);
 
         entityNew.setPersonRegisterDate(OffsetDateTime.now());
-        insertDoctorAge(entityNew);
+        entityNew.setPersonAge(personService.insertAge(entityNew.getPersonBirthday()));
 
         List<PersonAddress> personAddresses = new ArrayList<>();
-        List<PersonPhone> personPhones = new ArrayList<>();
-
         dto.getPersonAddresses().forEach(personAddress -> personAddresses.add(modelMapper.map(personAddress, PersonAddress.class)));
-        dto.getPersonPhones().forEach(personPhone -> personPhones.add(modelMapper.map(personPhone, PersonPhone.class)));
-
+        personAddresses.forEach(personAddress -> personAddress.setPerson(modelMapper.map(entityNew, Person.class)));
         entityNew.setPersonAddresses(personAddresses);
-        entityNew.setPersonPhones(personPhones);
 
+        List<PersonPhone> personPhones = new ArrayList<>();
+        dto.getPersonPhones().forEach(personPhone -> {
+            PersonPhone phone = new PersonPhone();
+            BeanUtils.copyProperties(personPhone, phone);
+            phone.setPerson(modelMapper.map(entityNew, Person.class));
+            personPhones.add(phone);
+        });
+
+        entityNew.setPersonPhones(personPhones);
         entityNew.setPersonStatus(true);
 
         repository.save(entityNew);
         personAgendaService.createDoctorAgenda(dto);
         return ResponseEntity.ok().build();
-    }
-
-
-    /**Set doctor's age on database.*/
-    public void insertDoctorAge(PersonDoctor doctor) {
-        Period periodAge = Period.between(doctor.getPersonBirthday(), LocalDate.now());
-        Integer realDoctorAge = Math.abs(periodAge.getYears());
-        doctor.setPersonAge(realDoctorAge);
-    }
-
-
-    /**Validate if a doctor cpf exists on database.*/
-    public void validateCpfExists(PersonDoctorInDto dto) {
-        Optional<PersonDoctor> personCpf = repository.findByPersonDocumentCpf(dto.getPersonDocumentCpf());
-        if (personCpf.isPresent())
-            throw new BusinessException("There is already a doctor registered with this CPF.");
-    }
-
-
-    /**Validate if a doctor e-mail exists on database.*/
-    private void validateEmailExists(PersonDoctorInDto dto) {
-        Optional<PersonDoctor> personEmail = repository.findByPersonEmail(dto.getPersonEmail());
-        if (personEmail.isPresent() && !personEmail.get().getPersonDocumentCpf().equals(dto.getPersonDocumentCpf()))
-            throw new BusinessException("There is already a doctor registered with this e-mail.");
     }
 
 
@@ -140,7 +126,7 @@ public class PersonDoctorService {
             throw new BusinessException("Doctor not found.");
 
         if (Boolean.TRUE.equals(repository.existsByPersonEmail(dto.getPersonEmail())))
-            validateEmailExists(dto);
+            personService.validateEmailExists(dto.getPersonEmail());
 
         PersonDoctor entityNew = new PersonDoctor();
         BeanUtils.copyProperties(doctor.get(), entityNew);
@@ -163,24 +149,23 @@ public class PersonDoctorService {
     }
 
 
-    /**Inactive/active a doctor by Person ID.*/
+    /**Inactive a doctor by Person ID.*/
     @Transactional
-    public void delete(Long personId) {
+    public ResponseEntity<Void> delete(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isPresent()) {
             doctor.get().setPersonStatus(false);
             repository.save(doctor.get());
-
+            return ResponseEntity.noContent().build();
         } else {
             throw new BusinessException("Doctor not found.");
         }
-
     }
 
 
     /**Renew professional register of doctor.*/
     @Transactional
-    public void renewValidity(Long personId) {
+    public ResponseEntity<Void> renewValidity(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
             throw new BusinessException("Doctor not found.");
@@ -197,9 +182,10 @@ public class PersonDoctorService {
             yearVal = yearVal + 1;
             holderDate = LocalDate.of(yearVal, monVal, dayVal);
         }
-
         doctor.get().setProfessionalRegisterValidity(holderDate);
+
         repository.save(doctor.get());
+        return ResponseEntity.ok().build();
     }
 
 
@@ -207,7 +193,6 @@ public class PersonDoctorService {
     public List<PersonDoctorInformationDto> convertToInfo() {
         List<PersonDoctor> doctorList = repository.findAll();
         List<PersonDoctorInformationDto> doctorFinalList = new ArrayList<>();
-
         doctorList.forEach(personDoctor -> doctorFinalList.add(modelMapper.map(personDoctor, PersonDoctorInformationDto.class)));
         return doctorFinalList;
     }

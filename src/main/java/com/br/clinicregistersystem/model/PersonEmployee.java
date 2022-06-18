@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 @Data
 @PrimaryKeyJoinColumn(name = "personId")
@@ -15,14 +17,14 @@ import javax.validation.constraints.Email;
 public class PersonEmployee extends Person {
 
     @Column
-    private Long funcionaryId;
-
-    @Column
     @Enumerated(EnumType.STRING)
     private PersonEmployeeRole role;
 
     @Column
-    private String admissionDate;
+    private LocalDate admissionDate;
+
+    @Column
+    private LocalDate shutdownDate;
 
     @Column
     @Email

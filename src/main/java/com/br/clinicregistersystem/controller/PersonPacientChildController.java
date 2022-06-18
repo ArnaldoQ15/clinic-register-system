@@ -32,8 +32,7 @@ public class PersonPacientChildController {
     @PutMapping
     public ResponseEntity<PersonPacientChildOutDto> update(@Valid @PathVariable Long personId,
                                                            @RequestBody PersonPacientChildInDto dto) {
-        service.update(dto);
-        return ResponseEntity.ok().build();
+        return service.update(dto);
     }
 
 }

@@ -6,6 +6,7 @@ import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryOutDto;
 import com.br.clinicregistersystem.exception.BusinessException;
 import com.br.clinicregistersystem.model.PersonPacient;
+import com.br.clinicregistersystem.model.PersonPacientChild;
 import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -14,7 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,17 +36,36 @@ public class PersonProntuaryService {
     private ModelMapper modelMapper;
 
 
+    /**Add new pacient's prontuary.*/
+    public ResponseEntity<PersonPacientProntuaryOutDto> persist(Long personId, PersonPacientProntuaryInDto dto) {
+        Optional<PersonPacient> pacient = pacientRepository.findById(personId);
+        if (pacient.isPresent()) {
+            PersonPacientProntuary entityNew = modelMapper.map(dto, PersonPacientProntuary.class);
+            entityNew.setRegisterDate(OffsetDateTime.now());
+            entityNew.setPacient(pacient.get());
+
+            repository.save(entityNew);
+
+            pacient.get().getProntuaries().add(entityNew);
+            pacientRepository.saveAndFlush(pacient.get());
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }
+        throw new BusinessException("Pacient not found.");
+    }
+
+
     /**Find the pacient's prontuary.*/
     public List<PersonPacientProntuaryOutDto> findAllById(Long personId) {
         List<PersonPacientProntuary> prontuaries = repository.findByPersonId(personId);
-        if (prontuaries.isEmpty())
-            throw new BusinessException("Prontuary not found.");
+        if (!prontuaries.isEmpty()) {
+            List<PersonPacientProntuaryOutDto> prontuaryOutDtoList = new ArrayList<>();
 
-        List<PersonPacientProntuaryOutDto> prontuaryOutDtoList = new ArrayList<>();
-        prontuaries.forEach(personPacientProntuary -> prontuaryOutDtoList.add(modelMapper.map(personPacientProntuary,
-                PersonPacientProntuaryOutDto.class)));
+            prontuaries.forEach(personPacientProntuary -> prontuaryOutDtoList.add(modelMapper.
+                    map(personPacientProntuary, PersonPacientProntuaryOutDto.class)));
 
-        return prontuaryOutDtoList;
+            return prontuaryOutDtoList;
+        }
+        throw new BusinessException("Prontuary not found.");
     }
 
 
@@ -58,26 +80,6 @@ public class PersonProntuaryService {
         repository.save(prontuaryOptional.get());
 
         return ResponseEntity.ok().build();
-    }
-
-
-    /**Add new pacient's prontuary.*/
-    public ResponseEntity<PersonPacientProntuaryOutDto> persist(Long personId, PersonPacientProntuaryInDto dto) {
-        Optional<PersonPacient> pacient = pacientRepository.findById(personId);
-        if (pacient.isEmpty())
-            throw new BusinessException("Pacient not found.");
-
-        PersonPacientProntuary entityNew = new PersonPacientProntuary();
-
-//        entityNew.setPacient(pacient.get());
-        entityNew.setFirstTime(false);
-        entityNew.setSymptoms(dto.getSymptoms());
-        entityNew.setPersonId(pacient.get().getPersonId());
-        entityNew.setRegisterDate(OffsetDateTime.now());
-
-        repository.save(entityNew);
-
-        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }

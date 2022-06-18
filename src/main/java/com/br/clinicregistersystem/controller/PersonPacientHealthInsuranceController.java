@@ -20,7 +20,7 @@ public class PersonPacientHealthInsuranceController {
     private PersonPacientHealthInsuranceService service;
 
 
-    /**(PUT) Find health insurance by person ID.*/
+    /**(GET) Find health insurance by person ID.*/
     @GetMapping
     public PersonPacientHealthInsuranceOutDto findId(@PathVariable Long personId) {
         return service.findId(personId);
@@ -32,8 +32,7 @@ public class PersonPacientHealthInsuranceController {
     @PutMapping
     public ResponseEntity<PersonPacientHealthInsuranceOutDto> update(@Valid @PathVariable Long personId,
                                                                      @RequestBody PersonPacientHealthInsuranceInDto dto) {
-        service.update(personId, dto);
-        return ResponseEntity.ok().build();
+        return service.update(personId, dto);
     }
 
 }

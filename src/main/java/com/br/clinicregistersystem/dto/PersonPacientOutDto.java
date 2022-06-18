@@ -1,8 +1,5 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.PersonPacientChild;
-import com.br.clinicregistersystem.model.PersonPacientHealthInsurance;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import com.br.clinicregistersystem.model.PersonSex;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,8 +21,8 @@ public class PersonPacientOutDto {
     private LocalDate personBirthday;
     private List<PersonAddressOutDto> personAddresses = new ArrayList<>();
     private Boolean personStatus;
-    private PersonPacientChild pacientChild;
-    private PersonPacientHealthInsurance healthInsurance;
-    private PersonPacientProntuary prontuary;
+    private List<PersonPacientChildOutDto> pacientChildren;
+    private PersonPacientHealthInsuranceOutDto healthInsurance;
+    private List<PersonPacientProntuaryOutDto> prontuaries;
 
 }

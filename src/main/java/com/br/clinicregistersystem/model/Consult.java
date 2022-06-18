@@ -27,9 +27,11 @@ public class Consult {
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @Column
+    @Enumerated(EnumType.STRING)
     private ConsultStatus status;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private MedicalEspeciality consultEspeciality;
 
     @Column

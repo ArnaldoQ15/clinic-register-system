@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +20,7 @@ public class PersonPacientHealthInsurance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long pacientHealthInsuranceId;
+    private Long healthInsuranceId;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -38,6 +41,7 @@ public class PersonPacientHealthInsurance {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private OffsetDateTime personLastUpdate;
 
-    private Long personId;
+//    @OneToMany(mappedBy = "personId", cascade = CascadeType.ALL)
+//    private List<PersonPacient> pacient = new ArrayList<>();
 
 }

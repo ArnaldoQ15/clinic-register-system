@@ -13,7 +13,6 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 public class PersonPacientHealthInsuranceOutDto {
 
-    private Long pacientHealthInsuranceId;
     private PersonPacientHealthInsuranceName name;
     private Long number;
     private PersonPacientHealthInsuranceCoverage coverage;

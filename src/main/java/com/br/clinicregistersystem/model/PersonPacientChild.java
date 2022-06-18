@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,6 +20,12 @@ public class PersonPacientChild {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long childId;
+
+    @Column
+    private String responsable;
+
+    @Column
+    private Long responsablePersonId;
 
     @Column
     private String childName;
@@ -44,6 +51,9 @@ public class PersonPacientChild {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private OffsetDateTime lastUpdate;
 
-    private Long personId;
+    @ManyToOne
+    @JoinColumn(name = "personId")
+    @ToString.Exclude
+    private PersonPacient pacient;
 
 }

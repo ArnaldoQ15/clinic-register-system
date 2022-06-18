@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PersonPhoneInDto {
 
+    private Long phoneId;
     private PersonPhoneType type;
     private Long number;
     private String personPhoneName;

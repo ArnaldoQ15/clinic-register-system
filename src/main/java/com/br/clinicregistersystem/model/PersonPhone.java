@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -19,6 +20,7 @@ public class PersonPhone {
     private Long phoneId;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private PersonPhoneType type;
 
     @Column
@@ -27,5 +29,10 @@ public class PersonPhone {
     @Column
     @Size(max = 80)
     private String personPhoneName;
+
+    @ManyToOne
+    @JoinColumn(name = "personId")
+    @ToString.Exclude
+    private Person person;
 
 }

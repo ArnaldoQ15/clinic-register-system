@@ -24,6 +24,7 @@ public class PersonDoctorHourWednesday {
 
     @Column
     @NotNull
+    @Enumerated(EnumType.STRING)
     private MedicalEspeciality medicalEspeciality;
 
     @Column

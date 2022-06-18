@@ -40,8 +40,7 @@ public class PersonPacientController {
     /**(POST) Add new pacient on database.*/
     @PostMapping("/new")
     public ResponseEntity<PersonPacientOutDto> persist(@Valid @RequestBody PersonPacientInDto dto) {
-        service.persist(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return service.persist(dto);
     }
 
 
@@ -49,16 +48,14 @@ public class PersonPacientController {
     @Transactional
     @PutMapping("/{personId}")
     public ResponseEntity<PersonPacient> updatePacient (@Valid @PathVariable Long personId, @RequestBody PersonPacientInDto dto) {
-        service.update(personId, dto);
-        return ResponseEntity.ok().build();
+        return service.update(personId, dto);
     }
 
 
     /**(DELETE) Active/inactive a pacient.*/
     @PutMapping("/{personId}/status")
     public ResponseEntity<Void> delete(@Valid @PathVariable Long personId) {
-        service.delete(personId);
-        return ResponseEntity.noContent().build();
+        return service.delete(personId);
     }
 
 }
