@@ -1,9 +1,11 @@
 package com.br.clinicregistersystem.model;
 
+import lombok.Getter;
+
+@Getter
 public enum PersonEmployeeRole {
 
     CLINIC_DIRECTOR,
-    DOCTOR,
     FINANCE_SECRETARY,
     GENERAL_SERVICES,
     GUARD,

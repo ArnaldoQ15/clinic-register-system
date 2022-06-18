@@ -8,10 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface PersonPacientRepository extends JpaRepository<PersonPacient, Long> {
-
-    Optional<PersonPacient> findByPersonEmail(String personEmail);
-    Optional<PersonPacient> findByPersonDocumentCpf(String personDocumentCpf);
-
-    Boolean existsByPersonEmail (String personEmail);
-
 }

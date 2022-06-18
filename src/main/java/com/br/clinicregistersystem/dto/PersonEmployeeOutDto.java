@@ -1,16 +1,29 @@
 package com.br.clinicregistersystem.dto;
 
 import com.br.clinicregistersystem.model.PersonEmployeeRole;
+import com.br.clinicregistersystem.model.PersonSex;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonEmployeeOutDto {
 
-    private String name;
+    private String personName;
+    private String personEmail;
+    private PersonSex personSex;
+    private List<PersonPhoneOutDto> personPhones = new ArrayList<>();
+    private LocalDate personBirthday;
+    private List<PersonAddressOutDto> personAddresses = new ArrayList<>();
+    private Boolean personStatus;
     private PersonEmployeeRole role;
     private LocalDate admissionDate;
     private LocalDate shutdownDate;

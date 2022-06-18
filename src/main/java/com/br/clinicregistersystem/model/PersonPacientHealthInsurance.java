@@ -41,7 +41,4 @@ public class PersonPacientHealthInsurance {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private OffsetDateTime personLastUpdate;
 
-//    @OneToMany(mappedBy = "personId", cascade = CascadeType.ALL)
-//    private List<PersonPacient> pacient = new ArrayList<>();
-
 }

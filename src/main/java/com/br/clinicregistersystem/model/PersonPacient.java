@@ -1,19 +1,17 @@
 package com.br.clinicregistersystem.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @PrimaryKeyJoinColumn(name = "personId")
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonPacient extends Person {
 
     @OneToMany(mappedBy = "childId", cascade = CascadeType.ALL)

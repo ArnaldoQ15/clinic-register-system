@@ -1,12 +1,14 @@
 package com.br.clinicregistersystem.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
@@ -20,9 +22,7 @@ public class Consult {
     @ManyToOne(cascade = CascadeType.ALL)
     private PersonPacient personPacient;
 
-    private Long personId;
-
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     private PersonDoctor personDoctor;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -42,5 +42,8 @@ public class Consult {
 
     @Column
     private OffsetDateTime registerDate;
+
+    @Column
+    private OffsetDateTime lastStatusUpdate;
 
 }

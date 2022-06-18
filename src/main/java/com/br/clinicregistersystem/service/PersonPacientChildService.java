@@ -3,10 +3,14 @@ package com.br.clinicregistersystem.service;
 import com.br.clinicregistersystem.domain.repository.PersonPacientChildRepository;
 import com.br.clinicregistersystem.dto.PersonPacientChildInDto;
 import com.br.clinicregistersystem.dto.PersonPacientChildOutDto;
+import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
 import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.model.PersonPacientChild;
+import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -62,4 +66,14 @@ public class PersonPacientChildService {
         return ResponseEntity.ok().build();
     }
 
+
+    public PersonPacientChild convertToEntity(PersonPacientChildInDto dto, PersonPacient pacient) {
+        PersonPacientChild child = new PersonPacientChild();
+        BeanUtils.copyProperties(dto, child);
+        child.setResponsable(pacient.getPersonName());
+        child.setRegisterDate(OffsetDateTime.now());
+        child.setChildAge(personService.insertAge(child.getChildBirthday()));
+        child.setPacient(pacient);
+        return child;
+    }
 }

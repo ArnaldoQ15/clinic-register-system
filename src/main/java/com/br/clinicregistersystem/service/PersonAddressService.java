@@ -70,4 +70,12 @@ public class PersonAddressService {
         throw new BusinessException("Person not found.");
     }
 
+
+    public List<PersonAddress> convertListToEntity(List<PersonAddressInDto> dto, Person person) {
+        List<PersonAddress> personAddresses = new ArrayList<>();
+        dto.forEach(personAddress -> personAddresses.add(modelMapper.map(personAddress, PersonAddress.class)));
+        personAddresses.forEach(personAddress -> personAddress.setPerson(person));
+        return personAddresses;
+    }
+
 }

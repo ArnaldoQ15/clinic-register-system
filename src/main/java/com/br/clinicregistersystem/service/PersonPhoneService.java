@@ -1,18 +1,15 @@
 package com.br.clinicregistersystem.service;
 
-import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.domain.repository.PersonPhoneRepository;
 import com.br.clinicregistersystem.domain.repository.PersonRepository;
-import com.br.clinicregistersystem.dto.PersonAddressInDto;
-import com.br.clinicregistersystem.dto.PersonAddressOutDto;
 import com.br.clinicregistersystem.dto.PersonPhoneInDto;
 import com.br.clinicregistersystem.dto.PersonPhoneOutDto;
 import com.br.clinicregistersystem.exception.BusinessException;
 import com.br.clinicregistersystem.model.Person;
-import com.br.clinicregistersystem.model.PersonAddress;
 import com.br.clinicregistersystem.model.PersonPhone;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -73,6 +70,18 @@ public class PersonPhoneService {
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
         throw new BusinessException("Person not found.");
+    }
+
+
+    public List<PersonPhone> convertListToEntity(List<PersonPhoneInDto> dto, Person person) {
+        List<PersonPhone> personPhones = new ArrayList<>();
+        dto.forEach(personPhone -> {
+            PersonPhone phone = new PersonPhone();
+            BeanUtils.copyProperties(personPhone, phone);
+            phone.setPerson(person);
+            personPhones.add(phone);
+        });
+        return personPhones;
     }
 
 }

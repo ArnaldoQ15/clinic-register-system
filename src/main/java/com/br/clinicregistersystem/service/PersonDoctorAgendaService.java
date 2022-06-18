@@ -1,6 +1,7 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.*;
+import com.br.clinicregistersystem.dto.ConsultInDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInDto;
 import com.br.clinicregistersystem.exception.BusinessException;
 import com.br.clinicregistersystem.model.*;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class PersonAgendaService {
+public class PersonDoctorAgendaService {
 
     @Autowired
     private PersonDoctorHourMondayRepository personDoctorHourMondayRepository;
@@ -291,18 +292,18 @@ public class PersonAgendaService {
 
 
     /**Check all doctor hours before save the consult.*/
-    public ResponseEntity<Consult> checkDoctorHours(Consult consult) {
+    public ResponseEntity<ConsultInDto> checkDoctorHours(ConsultInDto dto) {
 
-        String hourRequested = consult.getConsultHourRequest();
+        String hourRequested = dto.getConsultHourRequest();
 
-        PersonDoctorHourMonday personDoctorHourMonday = personDoctorHourMondayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        PersonDoctorHourTuesday personDoctorHourTuesday = personDoctorHourTuesdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        PersonDoctorHourWednesday personDoctorHourWednesday = personDoctorHourWednesdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        PersonDoctorHourThursday personDoctorHourThursday = personDoctorHourThursdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        PersonDoctorHourFriday personDoctorHourFriday = personDoctorHourFridayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
-        PersonDoctorHourSaturday personDoctorHourSaturday = personDoctorHourSaturdayRepository.findByMedicalEspeciality(consult.getConsultEspeciality());
+        PersonDoctorHourMonday personDoctorHourMonday = personDoctorHourMondayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        PersonDoctorHourTuesday personDoctorHourTuesday = personDoctorHourTuesdayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        PersonDoctorHourWednesday personDoctorHourWednesday = personDoctorHourWednesdayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        PersonDoctorHourThursday personDoctorHourThursday = personDoctorHourThursdayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        PersonDoctorHourFriday personDoctorHourFriday = personDoctorHourFridayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        PersonDoctorHourSaturday personDoctorHourSaturday = personDoctorHourSaturdayRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
 
-        switch (consult.getConsultEspeciality()) {
+        switch (dto.getConsultEspeciality()) {
             case ANGIOLOGY -> {
                 if ((hourRequested.equals("08:00 AM")) && (mondayHour.getOrDefault("08:00 AM", true))) {
                     personDoctorHourMonday.setM0800(false);
@@ -474,6 +475,6 @@ public class PersonAgendaService {
                 }
             }
         }
-        return null;
+        return ResponseEntity.badRequest().build();
     }
 }

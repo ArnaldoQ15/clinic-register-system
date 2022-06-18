@@ -25,9 +25,6 @@ public class PersonPacientChild {
     private String responsable;
 
     @Column
-    private Long responsablePersonId;
-
-    @Column
     private String childName;
 
     @Column

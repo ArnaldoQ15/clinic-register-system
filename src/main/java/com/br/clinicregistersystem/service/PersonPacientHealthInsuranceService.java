@@ -1,9 +1,12 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.PersonPacientHealthInsuranceRepository;
+import com.br.clinicregistersystem.dto.PersonPacientChildInDto;
 import com.br.clinicregistersystem.dto.PersonPacientHealthInsuranceInDto;
 import com.br.clinicregistersystem.dto.PersonPacientHealthInsuranceOutDto;
 import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.model.PersonPacient;
+import com.br.clinicregistersystem.model.PersonPacientChild;
 import com.br.clinicregistersystem.model.PersonPacientHealthInsurance;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -50,4 +53,10 @@ public class PersonPacientHealthInsuranceService {
         return ResponseEntity.ok().build();
     }
 
+
+    public PersonPacientHealthInsurance convertToEntity(PersonPacientHealthInsuranceInDto dto) {
+        PersonPacientHealthInsurance healthInsurance = modelMapper.map(dto, PersonPacientHealthInsurance.class);
+        healthInsurance.setPersonRegisterDate(OffsetDateTime.now());
+        return healthInsurance;
+    }
 }

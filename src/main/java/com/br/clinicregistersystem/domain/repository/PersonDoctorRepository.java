@@ -10,10 +10,6 @@ import java.util.Optional;
 @Repository
 public interface PersonDoctorRepository extends JpaRepository<PersonDoctor, Long> {
 
-    Optional<PersonDoctor> findByPersonEmail(String personEmail);
-    Optional<PersonDoctor> findByPersonDocumentCpf(String personDocumentCpf);
     Optional<PersonDoctor> findByMedicalEspeciality (MedicalEspeciality medicalEspeciality);
-
-    Boolean existsByPersonEmail (String personEmail);
 
 }

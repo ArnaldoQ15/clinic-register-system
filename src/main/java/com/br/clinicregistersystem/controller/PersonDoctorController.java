@@ -3,6 +3,7 @@ package com.br.clinicregistersystem.controller;
 import com.br.clinicregistersystem.dto.PersonDoctorInDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInformationDto;
 import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
+import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.service.PersonDoctorService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class PersonDoctorController {
     /**(POST) Add new doctor on database.*/
     @Transactional
     @PostMapping("/persist")
-    public ResponseEntity<PersonDoctorOutDto> persist(@Valid @RequestBody PersonDoctorInDto dto) {
+    public ResponseEntity<PersonDoctorOutDto> persist(@RequestBody PersonDoctorInDto dto) {
         return service.persist(dto);
     }
 
@@ -54,7 +55,7 @@ public class PersonDoctorController {
     /**(PUT) Update a doctor on database.*/
     @Transactional
     @PutMapping("/{personId}")
-    public ResponseEntity<PersonDoctorOutDto> updateDoctor(@Valid @PathVariable Long personId, @RequestBody PersonDoctorInDto dto) {
+    public ResponseEntity<PersonDoctor> update(@Valid @PathVariable Long personId, @RequestBody PersonDoctorInDto dto) {
         return service.update(personId, dto);
     }
 
@@ -68,7 +69,7 @@ public class PersonDoctorController {
 
     /**(PUT) Renew register of a doctor.*/
     @PutMapping("/{personId}/renew-crm")
-    public ResponseEntity<Void> renewDoctorCrm (@Valid @PathVariable Long personId) {
+    public ResponseEntity<Void> renewCrm(@Valid @PathVariable Long personId) {
         return service.renewValidity(personId);
     }
 

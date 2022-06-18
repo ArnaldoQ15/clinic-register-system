@@ -1,6 +1,7 @@
 package com.br.clinicregistersystem.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,11 +10,12 @@ import javax.validation.constraints.Email;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
-@Data
 @PrimaryKeyJoinColumn(name = "personId")
+@Data
+@Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class PersonEmployee extends Person {
 
     @Column

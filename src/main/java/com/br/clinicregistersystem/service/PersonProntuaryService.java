@@ -4,10 +4,9 @@ import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.domain.repository.PersonProntuaryRepository;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryOutDto;
+import com.br.clinicregistersystem.dto.PersonPhoneInDto;
 import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.PersonPacient;
-import com.br.clinicregistersystem.model.PersonPacientChild;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
+import com.br.clinicregistersystem.model.*;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +79,14 @@ public class PersonProntuaryService {
         repository.save(prontuaryOptional.get());
 
         return ResponseEntity.ok().build();
+    }
+
+
+    public PersonPacientProntuary convertToEntity(PersonPacientProntuaryInDto dto, PersonPacient pacient) {
+        PersonPacientProntuary prontuary = modelMapper.map(dto, PersonPacientProntuary.class);
+        prontuary.setRegisterDate(OffsetDateTime.now());
+        prontuary.setPacient(pacient);
+        return prontuary;
     }
 
 }
