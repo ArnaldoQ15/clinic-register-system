@@ -4,10 +4,9 @@ import com.br.clinicregistersystem.domain.repository.PersonAddressRepository;
 import com.br.clinicregistersystem.domain.repository.PersonRepository;
 import com.br.clinicregistersystem.dto.PersonAddressInDto;
 import com.br.clinicregistersystem.dto.PersonAddressOutDto;
-import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonAddress;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class PersonAddressService {
 
     @Autowired
@@ -55,7 +53,7 @@ public class PersonAddressService {
             repository.saveAndFlush(personAddress);
             return ResponseEntity.ok().build();
         }
-        throw new BusinessException("Address not found.");
+        throw new NotFoundException("Address not found.");
     }
 
     public ResponseEntity<PersonAddressOutDto> persist(Long personId, PersonAddressInDto dto) {
@@ -67,7 +65,7 @@ public class PersonAddressService {
             personRepository.saveAndFlush(person.get());
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
-        throw new BusinessException("Person not found.");
+        throw new NotFoundException("User not found.");
     }
 
 

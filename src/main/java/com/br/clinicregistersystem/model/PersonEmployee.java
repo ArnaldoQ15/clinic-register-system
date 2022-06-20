@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 @PrimaryKeyJoinColumn(name = "personId")
-@Data
-@Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
+@Entity
 public class PersonEmployee extends Person {
 
     @Column

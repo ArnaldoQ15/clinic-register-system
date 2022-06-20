@@ -3,27 +3,21 @@ package com.br.clinicregistersystem.service;
 import com.br.clinicregistersystem.domain.repository.PersonPacientChildRepository;
 import com.br.clinicregistersystem.dto.PersonPacientChildInDto;
 import com.br.clinicregistersystem.dto.PersonPacientChildOutDto;
-import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
-import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.model.PersonPacientChild;
-import com.br.clinicregistersystem.model.PersonPacientProntuary;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class PersonPacientChildService {
 
     @Autowired
@@ -40,7 +34,7 @@ public class PersonPacientChildService {
     public List<PersonPacientChildOutDto> findAllById(Long personId) {
         List<PersonPacientChild> children = repository.findByPersonId(personId);
         if (children.isEmpty())
-            throw new BusinessException("Child not found.");
+            throw new NotFoundException("Child not found.");
 
         List<PersonPacientChildOutDto> childrenOutDtoList = new ArrayList<>();
         children.forEach(personPacientChild -> childrenOutDtoList.add(modelMapper.map(personPacientChild,
@@ -54,7 +48,7 @@ public class PersonPacientChildService {
     public ResponseEntity<PersonPacientChildOutDto> update(PersonPacientChildInDto dto) {
         Optional<PersonPacientChild> childOptional = repository.findById(dto.getChildId());
         if (childOptional.isEmpty())
-            throw new BusinessException("Child not found.");
+            throw new NotFoundException("Child not found.");
 
         childOptional.get().setLastUpdate(OffsetDateTime.now());
         childOptional.get().setChildName(dto.getChildName());

@@ -1,8 +1,7 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.PersonRepository;
-import com.br.clinicregistersystem.exception.BusinessException;
-import lombok.AllArgsConstructor;
+import com.br.clinicregistersystem.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +9,6 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Service
-@AllArgsConstructor
 public class PersonService {
 
     @Autowired
@@ -20,14 +18,14 @@ public class PersonService {
     /**Validate if a person CPF exists on database.*/
     public void validateCpfExists(String cpf) {
         if (Boolean.TRUE.equals(repository.existsByPersonDocumentCpf(cpf)))
-            throw new BusinessException("There is already a person registered with this CPF.");
+            throw new BadRequestException("A user with this CPF already exists.");
     }
 
 
     /**Validate if a person e-mail exists on database.*/
     public void validateEmailExists(String email) {
         if (Boolean.TRUE.equals(repository.existsByPersonEmail(email)))
-            throw new BusinessException("There is already a person registered with this e-mail.");
+            throw new BadRequestException("A user with this e-mail already exists.");
     }
 
 
@@ -43,7 +41,7 @@ public class PersonService {
         if ((birthday.getMonthValue() == LocalDate.now().getMonthValue()) &&
                 (birthday.getDayOfMonth() == LocalDate.now().getDayOfMonth()))
             return age + 1;
-        throw new BusinessException("Today isn't your birthday :'(");
+        throw new BadRequestException("Today is not your birthday :'(");
     }
 
 }

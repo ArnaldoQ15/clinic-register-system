@@ -2,6 +2,7 @@ package com.br.clinicregistersystem.dto;
 
 import com.br.clinicregistersystem.model.PersonSex;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,9 +10,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonPacientOutDto {
 
     private String personName;

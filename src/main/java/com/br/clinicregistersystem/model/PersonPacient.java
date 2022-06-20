@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @PrimaryKeyJoinColumn(name = "personId")
-@Data
-@Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
+@Entity
 public class PersonPacient extends Person {
 
     @OneToMany(mappedBy = "childId", cascade = CascadeType.ALL)

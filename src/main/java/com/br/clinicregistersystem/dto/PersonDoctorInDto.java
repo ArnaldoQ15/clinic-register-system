@@ -12,10 +12,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonDoctorInDto {
 
     public Long personId;

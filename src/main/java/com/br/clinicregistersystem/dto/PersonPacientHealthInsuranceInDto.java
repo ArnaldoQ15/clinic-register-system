@@ -3,12 +3,14 @@ package com.br.clinicregistersystem.dto;
 import com.br.clinicregistersystem.model.PersonPacientHealthInsuranceCoverage;
 import com.br.clinicregistersystem.model.PersonPacientHealthInsuranceName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonPacientHealthInsuranceInDto {
 
     private Long pacientHealthInsuranceId;

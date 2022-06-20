@@ -1,11 +1,13 @@
 package com.br.clinicregistersystem.controller;
 
+import com.br.clinicregistersystem.dto.PersonDoctorAgendaDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInformationDto;
 import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
+import com.br.clinicregistersystem.model.DayWeek;
 import com.br.clinicregistersystem.model.PersonDoctor;
+import com.br.clinicregistersystem.service.PersonDoctorAgendaService;
 import com.br.clinicregistersystem.service.PersonDoctorService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,32 +17,49 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("/doctors")
 public class PersonDoctorController {
 
     @Autowired
     private PersonDoctorService service;
 
+    @Autowired
+    private PersonDoctorAgendaService personDoctorAgendaService;
+
 
     /**(GET) Find all doctors on database.*/
     @GetMapping
-    public List<PersonDoctorOutDto> findAll() {
-        return service.findAll();
+    public ResponseEntity<List<PersonDoctorOutDto>> findAll() {
+        return ResponseEntity.ok().body(service.findAll());
     }
 
 
     /**(GET) Find all doctor professional information.*/
     @GetMapping("/info")
-    public List<PersonDoctorInformationDto> findAllDoctorInformation() {
-        return service.convertToInfo();
+    public ResponseEntity<List<PersonDoctorInformationDto>> findAllDoctorInformation() {
+        return ResponseEntity.ok().body(service.convertToInfo());
     }
 
 
     /**(GET) Find doctor by Person ID.*/
     @GetMapping("/{personId}")
-    public PersonDoctorOutDto findId(@PathVariable @Valid Long personId) {
-        return service.findId(personId);
+    public ResponseEntity<PersonDoctorOutDto> findId(@PathVariable @Valid Long personId) {
+        return ResponseEntity.ok().body(service.findId(personId));
+    }
+
+
+    /**(GET) Find all doctor agenda by Person ID.*/
+    @GetMapping("/{personId}/agenda")
+    public ResponseEntity<List<PersonDoctorAgendaDto>> findAgendaById(@Valid @PathVariable Long personId) {
+        return ResponseEntity.ok().body(personDoctorAgendaService.findId(personId));
+    }
+
+
+    /**(GET) Find a doctor agenda day by Person ID.*/
+    @GetMapping("/{personId}/agenda/{dayWeek}")
+    public ResponseEntity<PersonDoctorAgendaDto> findAgendaDayById(@Valid @PathVariable Long personId,
+                                                                   @PathVariable DayWeek dayWeek) {
+        return ResponseEntity.ok().body(personDoctorAgendaService.findAgendaDayById(personId, dayWeek));
     }
 
 
@@ -60,17 +79,19 @@ public class PersonDoctorController {
     }
 
 
-    /**(DELETE) Active/inactive a doctor.*/
-    @DeleteMapping("/{personId}/delete")
-    public ResponseEntity<Void> delete(@Valid @PathVariable Long personId) {
-        return service.delete(personId);
-    }
-
-
     /**(PUT) Renew register of a doctor.*/
     @PutMapping("/{personId}/renew-crm")
     public ResponseEntity<Void> renewCrm(@Valid @PathVariable Long personId) {
-        return service.renewValidity(personId);
+        service.renewValidity(personId);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    /**(DELETE) Active/inactive a doctor.*/
+    @DeleteMapping("/{personId}/delete")
+    public ResponseEntity<Void> delete(@Valid @PathVariable Long personId) {
+        service.delete(personId);
+        return ResponseEntity.noContent().build();
     }
 
 }

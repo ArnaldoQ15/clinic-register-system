@@ -1,6 +1,5 @@
 package com.br.clinicregistersystem.domain.repository;
 
-import com.br.clinicregistersystem.model.PersonAddress;
 import com.br.clinicregistersystem.model.PersonPhone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

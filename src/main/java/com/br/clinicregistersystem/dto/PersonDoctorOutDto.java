@@ -4,19 +4,19 @@ import com.br.clinicregistersystem.model.FederativeUnits;
 import com.br.clinicregistersystem.model.MedicalEspeciality;
 import com.br.clinicregistersystem.model.PersonSex;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@Component
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonDoctorOutDto {
 
     private String personName;

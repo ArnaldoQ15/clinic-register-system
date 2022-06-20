@@ -5,18 +5,16 @@ import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
 import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.dto.ConsultInDto;
 import com.br.clinicregistersystem.dto.ConsultOutDto;
-import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.exception.BadRequestException;
+import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Consult;
-import com.br.clinicregistersystem.model.ConsultStatus;
 import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.model.PersonPacient;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -28,7 +26,6 @@ import java.util.Optional;
 import static com.br.clinicregistersystem.model.ConsultStatus.*;
 
 @Service
-@AllArgsConstructor
 public class ConsultService {
 
     @Autowired
@@ -38,13 +35,13 @@ public class ConsultService {
     private PersonDoctorRepository doctorRepository;
 
     @Autowired
-    private PersonDoctorAgendaService personDoctorAgendaService;
-
-    @Autowired
-    private final ModelMapper modelMapper;
-
-    @Autowired
     private PersonPacientRepository pacientRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @Autowired
+    private PersonDoctorAgendaService personDoctorAgendaService;
 
 
     /**Find all consults on database.*/
@@ -72,11 +69,11 @@ public class ConsultService {
     public ResponseEntity<Consult> persist(ConsultInDto dto, Long personId) {
         Optional<PersonPacient> pacient = pacientRepository.findById(personId);
         if (pacient.isEmpty())
-            throw new BusinessException("Pacient not found.");
+            throw new NotFoundException("Pacient not found.");
 
-        Optional<PersonDoctor> doctor = doctorRepository.findByMedicalEspeciality(dto.getConsultEspeciality());
+        Optional<PersonDoctor> doctor = doctorRepository.findByMedicalEspeciality(dto.getMedicalEspeciality());
         if (doctor.isEmpty())
-            throw new BusinessException("No doctor available.");
+            throw new NotFoundException("No doctor available.");
 
         Consult entityNew = new Consult();
         BeanUtils.copyProperties(dto, entityNew);
@@ -84,13 +81,49 @@ public class ConsultService {
         entityNew.setPersonPacient(pacient.get());
         entityNew.setPersonDoctor(doctor.get());
 
-        if (personDoctorAgendaService.checkDoctorHours(dto).getStatusCodeValue() == 200) {
+        if (personDoctorAgendaService.validateConsultAvailable(dto, doctor.get().getPersonId()).getStatusCodeValue() == 200) {
             entityNew.setRegisterDate(OffsetDateTime.now());
-            entityNew.setStatus(PENDING);
+            entityNew.setStatus(PENDING_AUTHORIZATION);
             repository.save(entityNew);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
-        throw new BusinessException("Date/hour requested not available.");
+        throw new BadRequestException("Date/hour requested not available.");
+    }
+
+
+    public void deleteByPacient(Long consultId) {
+        Optional<Consult> consult = repository.findById(consultId);
+        if (consult.isEmpty())
+            throw new NotFoundException("Consult not found.");
+
+        if (consult.get().getStatus().equals(PENDING_AUTHORIZATION) || consult.get().getStatus().equals(PENDING_PAYMENT)
+                || consult.get().getStatus().equals(APPROVED)) {
+            consult.get().setStatus(CANCELED_BY_PACIENT);
+            consult.get().setLastStatusUpdate(OffsetDateTime.now());
+        }
+
+        else if (consult.get().getStatus().equals(FINISHED) || consult.get().getStatus().equals(CANCELED_BY_PACIENT)
+                || consult.get().getStatus().equals(CANCELED_BY_CLINIC)) {
+            throw new BadRequestException("Unable to cancel.");
+        }
+    }
+
+
+    public void deleteByClinic(Long consultId) {
+        Optional<Consult> consult = repository.findById(consultId);
+        if (consult.isEmpty())
+            throw new NotFoundException("Consult not found.");
+
+        if (consult.get().getStatus().equals(PENDING_AUTHORIZATION) || consult.get().getStatus().equals(PENDING_PAYMENT)
+                || consult.get().getStatus().equals(APPROVED)) {
+            consult.get().setStatus(CANCELED_BY_CLINIC);
+            consult.get().setLastStatusUpdate(OffsetDateTime.now());
+        }
+
+        else if (consult.get().getStatus().equals(FINISHED) || consult.get().getStatus().equals(CANCELED_BY_PACIENT)
+                || consult.get().getStatus().equals(CANCELED_BY_CLINIC)) {
+            throw new BadRequestException("Unable to cancel.");
+        }
     }
 
 }

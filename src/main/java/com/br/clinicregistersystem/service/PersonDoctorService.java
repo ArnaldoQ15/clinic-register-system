@@ -1,10 +1,12 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
-import com.br.clinicregistersystem.dto.*;
-import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.*;
-import lombok.AllArgsConstructor;
+import com.br.clinicregistersystem.dto.PersonDoctorInDto;
+import com.br.clinicregistersystem.dto.PersonDoctorInformationDto;
+import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
+import com.br.clinicregistersystem.exception.NotFoundException;
+import com.br.clinicregistersystem.model.Person;
+import com.br.clinicregistersystem.model.PersonDoctor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class PersonDoctorService {
 
     @Autowired
@@ -30,9 +31,6 @@ public class PersonDoctorService {
     private ModelMapper modelMapper;
 
     @Autowired
-    private PersonDoctorAgendaService personDoctorAgendaService;
-
-    @Autowired
     private PersonService personService;
 
     @Autowired
@@ -40,6 +38,9 @@ public class PersonDoctorService {
 
     @Autowired
     private PersonPhoneService personPhoneService;
+
+    @Autowired
+    private PersonDoctorAgendaService personDoctorAgendaService;
 
 
     /**Find all doctors on Database.*/
@@ -60,7 +61,7 @@ public class PersonDoctorService {
     public PersonDoctorOutDto findId(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new BusinessException("Doctor not found.");
+            throw new NotFoundException("Doctor not found.");
 
         return modelMapper.map(doctor.get(), PersonDoctorOutDto.class);
     }
@@ -84,8 +85,11 @@ public class PersonDoctorService {
         entityNew.setPersonRegisterDate(OffsetDateTime.now());
         entityNew.setPersonStatus(true);
 
-        repository.save(entityNew);
-        personDoctorAgendaService.createDoctorAgenda(dto);
+        entityNew.setAgenda(personDoctorAgendaService.createAgenda(entityNew));
+
+        repository.saveAndFlush(entityNew);
+
+
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -95,7 +99,7 @@ public class PersonDoctorService {
     public ResponseEntity<PersonDoctor> update(Long personId, PersonDoctorInDto dto) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new BusinessException("Doctor not found.");
+            throw new NotFoundException("Doctor not found.");
 
         PersonDoctor entityNew = new PersonDoctor();
         BeanUtils.copyProperties(doctor.get(), entityNew);
@@ -118,25 +122,24 @@ public class PersonDoctorService {
 
     /**Inactive a doctor by Person ID.*/
     @Transactional
-    public ResponseEntity<Void> delete(Long personId) {
+    public void delete(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isPresent()) {
             doctor.get().setPersonStatus(false);
             doctor.get().setPersonLastUpdate(OffsetDateTime.now());
             repository.save(doctor.get());
-            return ResponseEntity.noContent().build();
         } else {
-            throw new BusinessException("Doctor not found.");
+            throw new NotFoundException("Doctor not found.");
         }
     }
 
 
     /**Renew professional register of doctor.*/
     @Transactional
-    public ResponseEntity<Void> renewValidity(Long personId) {
+    public void renewValidity(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new BusinessException("Doctor not found.");
+            throw new NotFoundException("Doctor not found.");
 
         int dayVal = doctor.get().getProfessionalRegisterValidity().getDayOfMonth();
         int monVal = doctor.get().getProfessionalRegisterValidity().getMonthValue();
@@ -153,7 +156,6 @@ public class PersonDoctorService {
         doctor.get().setProfessionalRegisterValidity(holderDate);
 
         repository.save(doctor.get());
-        return ResponseEntity.ok().build();
     }
 
 

@@ -2,6 +2,7 @@ package com.br.clinicregistersystem.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Entity
 public class Consult {
 
@@ -32,13 +34,15 @@ public class Consult {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private MedicalEspeciality consultEspeciality;
+    private MedicalEspeciality medicalEspeciality;
 
     @Column
-    private String consultDateRequest;
+    @Enumerated(EnumType.STRING)
+    private DayWeek dayRequest;
 
     @Column
-    private String consultHourRequest;
+    @Enumerated(EnumType.STRING)
+    private DayHour hourRequest;
 
     @Column
     private OffsetDateTime registerDate;

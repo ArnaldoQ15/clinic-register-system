@@ -4,10 +4,9 @@ import com.br.clinicregistersystem.domain.repository.PersonPhoneRepository;
 import com.br.clinicregistersystem.domain.repository.PersonRepository;
 import com.br.clinicregistersystem.dto.PersonPhoneInDto;
 import com.br.clinicregistersystem.dto.PersonPhoneOutDto;
-import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonPhone;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class PersonPhoneService {
 
     @Autowired
@@ -53,7 +51,7 @@ public class PersonPhoneService {
             repository.saveAndFlush(personPhone);
             return ResponseEntity.ok().build();
         }
-        throw new BusinessException("Phone not found.");
+        throw new NotFoundException("Phone not found.");
     }
 
     public ResponseEntity<PersonPhoneOutDto> persist(Long personId, PersonPhoneInDto dto) {
@@ -69,7 +67,7 @@ public class PersonPhoneService {
             personRepository.saveAndFlush(person.get());
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
-        throw new BusinessException("Person not found.");
+        throw new NotFoundException("User not found.");
     }
 
 

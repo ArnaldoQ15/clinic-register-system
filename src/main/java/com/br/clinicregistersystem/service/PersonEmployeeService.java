@@ -1,23 +1,19 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.PersonEmployeeRepository;
-import com.br.clinicregistersystem.dto.*;
-import com.br.clinicregistersystem.exception.BusinessException;
+import com.br.clinicregistersystem.dto.PersonEmployeeInDto;
+import com.br.clinicregistersystem.dto.PersonEmployeeOutDto;
+import com.br.clinicregistersystem.exception.BadRequestException;
+import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
-import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.model.PersonEmployee;
-import com.br.clinicregistersystem.model.PersonPacient;
-import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -25,7 +21,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@AllArgsConstructor
 @Service
 public class PersonEmployeeService {
 
@@ -63,7 +58,7 @@ public class PersonEmployeeService {
     public PersonEmployeeOutDto findId(Long personId) {
         Optional<PersonEmployee> employee = repository.findById(personId);
         if (employee.isEmpty())
-            throw new BusinessException("Employee not found.");
+            throw new NotFoundException("Employee not found.");
 
         return modelMapper.map(employee.get(), PersonEmployeeOutDto.class);
     }
@@ -96,7 +91,7 @@ public class PersonEmployeeService {
     public ResponseEntity<PersonEmployee> update(Long personId, PersonEmployeeInDto dto) {
         Optional<PersonEmployee> employee = repository.findById(personId);
         if (employee.isEmpty())
-            throw new BusinessException("Employee not found.");
+            throw new NotFoundException("Employee not found.");
 
         PersonEmployee entityNew = new PersonEmployee();
         BeanUtils.copyProperties(employee.get(), entityNew);
@@ -108,7 +103,7 @@ public class PersonEmployeeService {
 
         if (Objects.nonNull(dto.getInstitucionalEmail()) && !employee.get().getInstitucionalEmail().equals(dto.getInstitucionalEmail())
                 && Boolean.TRUE.equals(repository.existsByInstitucionalEmail(dto.getInstitucionalEmail())))
-            throw new BusinessException("There is already an institutional email registered with the given address.");
+            throw new BadRequestException("There is already an institutional email registered with the given address.");
 
         entityNew.setInstitucionalEmail(dto.getInstitucionalEmail());
         entityNew.setPersonName(dto.getPersonName());
@@ -131,7 +126,7 @@ public class PersonEmployeeService {
             repository.save(employee.get());
             return ResponseEntity.noContent().build();
         } else {
-            throw new BusinessException("Employee not found.");
+            throw new NotFoundException("Employee not found.");
         }
     }
 

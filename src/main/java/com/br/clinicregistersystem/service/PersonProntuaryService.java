@@ -4,24 +4,20 @@ import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
 import com.br.clinicregistersystem.domain.repository.PersonProntuaryRepository;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryOutDto;
-import com.br.clinicregistersystem.dto.PersonPhoneInDto;
-import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.*;
-import lombok.AllArgsConstructor;
+import com.br.clinicregistersystem.exception.NotFoundException;
+import com.br.clinicregistersystem.model.PersonPacient;
+import com.br.clinicregistersystem.model.PersonPacientProntuary;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@AllArgsConstructor
 @Service
 public class PersonProntuaryService {
 
@@ -49,7 +45,7 @@ public class PersonProntuaryService {
             pacientRepository.saveAndFlush(pacient.get());
             return ResponseEntity.status(HttpStatus.CREATED).build();
         }
-        throw new BusinessException("Pacient not found.");
+        throw new NotFoundException("Pacient not found.");
     }
 
 
@@ -64,7 +60,7 @@ public class PersonProntuaryService {
 
             return prontuaryOutDtoList;
         }
-        throw new BusinessException("Prontuary not found.");
+        throw new NotFoundException("Prontuary not found.");
     }
 
 
@@ -72,7 +68,7 @@ public class PersonProntuaryService {
     public ResponseEntity<PersonPacientProntuaryOutDto> update(PersonPacientProntuaryInDto dto) {
         Optional<PersonPacientProntuary> prontuaryOptional = repository.findById(dto.getProntuaryId());
         if (prontuaryOptional.isEmpty())
-            throw new BusinessException("Prontuary not found.");
+            throw new NotFoundException("Prontuary not found.");
 
         prontuaryOptional.get().setLastUpdate(OffsetDateTime.now());
         prontuaryOptional.get().setSymptoms(dto.getSymptoms());

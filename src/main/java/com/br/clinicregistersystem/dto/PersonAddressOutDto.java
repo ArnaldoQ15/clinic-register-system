@@ -1,7 +1,6 @@
 package com.br.clinicregistersystem.dto;
 
 import com.br.clinicregistersystem.model.FederativeUnits;
-import com.br.clinicregistersystem.model.Person;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +8,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Data
+@Builder
 public class PersonAddressOutDto {
 
     private String street;

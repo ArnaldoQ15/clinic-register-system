@@ -2,12 +2,12 @@ package com.br.clinicregistersystem.exception;
 
 import java.io.Serial;
 
-public class BusinessException extends RuntimeException {
+public class ForbiddenException extends RuntimeException {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public BusinessException(String message) {
+    public ForbiddenException(String message) {
         super(message);
     }
 

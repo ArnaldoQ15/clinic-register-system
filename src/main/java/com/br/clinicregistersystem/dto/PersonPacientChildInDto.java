@@ -2,14 +2,16 @@ package com.br.clinicregistersystem.dto;
 
 import com.br.clinicregistersystem.model.PersonSex;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonPacientChildInDto {
 
     private Long childId;

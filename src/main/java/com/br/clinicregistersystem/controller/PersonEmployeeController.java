@@ -1,13 +1,9 @@
 package com.br.clinicregistersystem.controller;
 
-import com.br.clinicregistersystem.dto.PersonDoctorInDto;
-import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
 import com.br.clinicregistersystem.dto.PersonEmployeeInDto;
 import com.br.clinicregistersystem.dto.PersonEmployeeOutDto;
-import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.model.PersonEmployee;
 import com.br.clinicregistersystem.service.PersonEmployeeService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +13,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("/admin")
 public class PersonEmployeeController {
 
@@ -27,8 +22,14 @@ public class PersonEmployeeController {
 
     /**(GET) Find all employees on database.*/
     @GetMapping
-    public List<PersonEmployeeOutDto> findAll() {
-        return service.findAll();
+    public ResponseEntity<List<PersonEmployeeOutDto>> findAll() {
+        return ResponseEntity.ok().body(service.findAll());
+    }
+
+    /**(GET) Find employee by Person ID.*/
+    @GetMapping("/{personId}")
+    public ResponseEntity<PersonEmployeeOutDto> findId(@PathVariable @Valid Long personId) {
+        return ResponseEntity.ok().body(service.findId(personId));
     }
 
 
@@ -36,13 +37,6 @@ public class PersonEmployeeController {
     @PostMapping("/new")
     public ResponseEntity<PersonEmployee> persist(@RequestBody PersonEmployeeInDto dto) {
         return service.persist(dto);
-    }
-
-
-    /**(GET) Find employee by Person ID.*/
-    @GetMapping("/{personId}")
-    public PersonEmployeeOutDto findId(@PathVariable @Valid Long personId) {
-        return service.findId(personId);
     }
 
 

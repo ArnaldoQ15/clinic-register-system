@@ -6,14 +6,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @PrimaryKeyJoinColumn(name = "personId")
-@Data
-@Entity
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
+@Entity
 public class PersonDoctor extends Person {
 
     @Column
@@ -28,6 +31,10 @@ public class PersonDoctor extends Person {
 
     @Column
     @Enumerated(EnumType.STRING)
+    @NotNull
     private MedicalEspeciality medicalEspeciality;
+
+    @OneToMany(mappedBy = "agendaId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<PersonDoctorAgenda> agenda = new ArrayList<>();
 
 }

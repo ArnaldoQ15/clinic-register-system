@@ -3,17 +3,17 @@ package com.br.clinicregistersystem.dto;
 import com.br.clinicregistersystem.model.FederativeUnits;
 import com.br.clinicregistersystem.model.MedicalEspeciality;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
-@Component
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
 public class PersonDoctorInformationDto {
 
     private String personName;

@@ -2,12 +2,12 @@ package com.br.clinicregistersystem.exception;
 
 import java.io.Serial;
 
-public class EntityNotFoundException extends BusinessException {
+public class NotFoundException extends RuntimeException {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public EntityNotFoundException(String message) {
+    public NotFoundException(String message) {
         super(message);
     }
 

@@ -3,7 +3,6 @@ package com.br.clinicregistersystem.controller;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryInDto;
 import com.br.clinicregistersystem.dto.PersonPacientProntuaryOutDto;
 import com.br.clinicregistersystem.service.PersonProntuaryService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pacients/{personId}/prontuary")
-@AllArgsConstructor
 public class PersonPacientProntuaryController {
 
     @Autowired
@@ -24,8 +22,8 @@ public class PersonPacientProntuaryController {
 
     /**(GET) Find prontuary by person ID.*/
     @GetMapping
-    public List<PersonPacientProntuaryOutDto> findAllById(@PathVariable Long personId) {
-        return service.findAllById(personId);
+    public ResponseEntity<List<PersonPacientProntuaryOutDto>> findAllById(@PathVariable Long personId) {
+        return ResponseEntity.ok().body(service.findAllById(personId));
     }
 
 

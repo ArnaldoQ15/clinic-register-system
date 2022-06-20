@@ -1,11 +1,11 @@
 package com.br.clinicregistersystem.service;
 
 import com.br.clinicregistersystem.domain.repository.PersonPacientRepository;
-import com.br.clinicregistersystem.domain.repository.PersonRepository;
-import com.br.clinicregistersystem.dto.*;
-import com.br.clinicregistersystem.exception.BusinessException;
-import com.br.clinicregistersystem.model.*;
-import lombok.AllArgsConstructor;
+import com.br.clinicregistersystem.dto.PersonPacientInDto;
+import com.br.clinicregistersystem.dto.PersonPacientOutDto;
+import com.br.clinicregistersystem.exception.NotFoundException;
+import com.br.clinicregistersystem.model.Person;
+import com.br.clinicregistersystem.model.PersonPacient;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@AllArgsConstructor
 @Service
 public class PersonPacientService {
 
     @Autowired
     private PersonPacientRepository repository;
-
-    @Autowired
-    private PersonRepository personRepository;
 
     @Autowired
     private PersonService personService;
@@ -69,7 +65,7 @@ public class PersonPacientService {
     public PersonPacientOutDto findId(Long personId) {
         Optional<PersonPacient> pacient = repository.findById(personId);
         if (pacient.isEmpty())
-            throw new BusinessException("Pacient not found.");
+            throw new NotFoundException("Pacient not found.");
 
         return modelMapper.map(pacient.get(), PersonPacientOutDto.class);
     }
@@ -105,7 +101,7 @@ public class PersonPacientService {
     public ResponseEntity<PersonPacient> update(Long personId, PersonPacientInDto dto) {
         Optional<PersonPacient> pacient = repository.findById(personId);
         if (pacient.isEmpty())
-            throw new BusinessException("Pacient not found.");
+            throw new NotFoundException("Pacient not found.");
 
         PersonPacient entityNew = new PersonPacient();
         BeanUtils.copyProperties(pacient.get(), entityNew);
@@ -136,7 +132,7 @@ public class PersonPacientService {
             repository.save(pacient.get());
             return ResponseEntity.noContent().build();
         } else {
-            throw new BusinessException("Pacient not found.");
+            throw new NotFoundException("Pacient not found.");
         }
     }
 

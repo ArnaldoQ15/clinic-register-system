@@ -4,7 +4,6 @@ import com.br.clinicregistersystem.dto.PersonPacientInDto;
 import com.br.clinicregistersystem.dto.PersonPacientOutDto;
 import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.service.PersonPacientService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("/pacients")
 public class PersonPacientController {
 
@@ -24,15 +22,15 @@ public class PersonPacientController {
 
     /**(GET) Find all pacients on database.*/
     @GetMapping
-    public List<PersonPacientOutDto> findAllPacients() {
-        return service.findAll();
+    public ResponseEntity<List<PersonPacientOutDto>> findAllPacients() {
+        return ResponseEntity.ok().body(service.findAll());
     }
 
 
     /**(GET) Find pacient by Person ID.*/
     @GetMapping("/{personId}")
-    public PersonPacientOutDto findId(@PathVariable Long personId) {
-        return service.findId(personId);
+    public ResponseEntity<PersonPacientOutDto> findId(@PathVariable Long personId) {
+        return ResponseEntity.ok().body(service.findId(personId));
     }
 
 

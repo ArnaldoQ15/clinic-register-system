@@ -3,7 +3,6 @@ package com.br.clinicregistersystem.controller;
 import com.br.clinicregistersystem.dto.PersonAddressInDto;
 import com.br.clinicregistersystem.dto.PersonAddressOutDto;
 import com.br.clinicregistersystem.service.PersonAddressService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/persons/{personId}/address")
-@AllArgsConstructor
 public class PersonAddressController {
 
     @Autowired
@@ -23,16 +21,8 @@ public class PersonAddressController {
 
     /**(GET) Find all addresses by person ID.*/
     @GetMapping
-    public List<PersonAddressOutDto> findAllById(@Valid @PathVariable Long personId) {
-        return service.findAllById(personId);
-    }
-
-
-    /**(PUT) Update a address on database.*/
-    @PutMapping
-    @Transactional
-    public ResponseEntity<PersonAddressOutDto> update(@Valid @PathVariable Long personId, @RequestBody PersonAddressInDto dto) {
-        return service.update(personId, dto);
+    public ResponseEntity<List<PersonAddressOutDto>> findAllById(@Valid @PathVariable Long personId) {
+        return ResponseEntity.ok().body(service.findAllById(personId));
     }
 
 
@@ -41,6 +31,14 @@ public class PersonAddressController {
     @Transactional
     public ResponseEntity<PersonAddressOutDto> persist(@Valid @PathVariable Long personId, @RequestBody PersonAddressInDto dto) {
         return service.persist(personId, dto);
+    }
+
+
+    /**(PUT) Update a address on database.*/
+    @PutMapping
+    @Transactional
+    public ResponseEntity<PersonAddressOutDto> update(@Valid @PathVariable Long personId, @RequestBody PersonAddressInDto dto) {
+        return service.update(personId, dto);
     }
 
 }

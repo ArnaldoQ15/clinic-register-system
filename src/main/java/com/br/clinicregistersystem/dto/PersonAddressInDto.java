@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Data
+@Builder
 public class PersonAddressInDto {
 
     private Long addressId;

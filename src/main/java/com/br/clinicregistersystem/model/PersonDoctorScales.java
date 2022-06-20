@@ -32,8 +32,8 @@ public enum PersonDoctorScales {
     AMA1630("16:30 PM", "Monday", "Angiology"),
     AMA1700("17:00 PM", "Monday", "Angiology"),
     AMA1730("17:30 PM", "Monday", "Angiology"),
-    ASSM0800("08:00 AM", "Saturday", "Angiology"),
-    ASSM0830("08:30 AM", "Saturday", "Angiology"),
+    ASM0800("08:00 AM", "Saturday", "Angiology"),
+    ASM0830("08:30 AM", "Saturday", "Angiology"),
     ASM0900("09:00 AM", "Saturday", "Angiology"),
     ASM0930("09:30 AM", "Saturday", "Angiology"),
     ASM1000("10:00 AM", "Saturday", "Angiology"),
@@ -235,7 +235,6 @@ public enum PersonDoctorScales {
         this.day = day;
         this.especiality = especiality;
     }
-
 }
 
 /*
