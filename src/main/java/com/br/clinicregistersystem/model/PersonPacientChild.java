@@ -1,5 +1,6 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.PersonSex;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 

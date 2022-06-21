@@ -6,6 +6,7 @@ import com.br.clinicregistersystem.dto.PersonPacientOutDto;
 import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonPacient;
+import com.br.clinicregistersystem.util.statics.ExceptionMessage;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,7 @@ public class PersonPacientService {
     public PersonPacientOutDto findId(Long personId) {
         Optional<PersonPacient> pacient = repository.findById(personId);
         if (pacient.isEmpty())
-            throw new NotFoundException("Pacient not found.");
+            throw new NotFoundException(ExceptionMessage.PACIENT_NOT_FOUND);
 
         return modelMapper.map(pacient.get(), PersonPacientOutDto.class);
     }
@@ -89,10 +90,11 @@ public class PersonPacientService {
         entityNew.getPacientChildren().add(personPacientChildService.convertToEntity(dto.getPacientChildren(), entityNew));
         entityNew.setHealthInsurance(personPacientHealthInsuranceService.convertToEntity(dto.getHealthInsurance()));
 
+        entityNew.setPacientName(dto.getPersonName());
         entityNew.setPersonRegisterDate(OffsetDateTime.now());
         entityNew.setPersonStatus(true);
 
-        repository.save(entityNew);
+        repository.saveAndFlush(entityNew);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -101,7 +103,7 @@ public class PersonPacientService {
     public ResponseEntity<PersonPacient> update(Long personId, PersonPacientInDto dto) {
         Optional<PersonPacient> pacient = repository.findById(personId);
         if (pacient.isEmpty())
-            throw new NotFoundException("Pacient not found.");
+            throw new NotFoundException(ExceptionMessage.PACIENT_NOT_FOUND);
 
         PersonPacient entityNew = new PersonPacient();
         BeanUtils.copyProperties(pacient.get(), entityNew);
@@ -112,6 +114,7 @@ public class PersonPacientService {
         }
 
         entityNew.setPersonName(dto.getPersonName());
+        entityNew.setPacientName(dto.getPersonName());
         entityNew.setPersonStatus(dto.getPersonStatus());
         entityNew.setPersonSex(dto.getPersonSex());
         entityNew.setPersonBirthday(dto.getPersonBirthday());
@@ -132,7 +135,7 @@ public class PersonPacientService {
             repository.save(pacient.get());
             return ResponseEntity.noContent().build();
         } else {
-            throw new NotFoundException("Pacient not found.");
+            throw new NotFoundException(ExceptionMessage.PACIENT_NOT_FOUND);
         }
     }
 

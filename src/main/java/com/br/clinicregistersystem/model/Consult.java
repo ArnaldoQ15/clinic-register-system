@@ -1,5 +1,9 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.ConsultStatus;
+import com.br.clinicregistersystem.util.enums.DayHour;
+import com.br.clinicregistersystem.util.enums.DayWeek;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

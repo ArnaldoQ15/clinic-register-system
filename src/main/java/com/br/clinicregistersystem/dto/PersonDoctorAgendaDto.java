@@ -1,11 +1,13 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.DayWeek;
-import com.br.clinicregistersystem.model.MedicalEspeciality;
+import com.br.clinicregistersystem.util.enums.DayWeek;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +19,7 @@ public class PersonDoctorAgendaDto {
     private MedicalEspeciality medicalEspeciality;
     private DayWeek dayWeek;
     private Boolean dataStatus;
+    private OffsetDateTime lastUpdate;
     private Boolean morning0800;
     private Boolean morning0830;
     private Boolean morning0900;

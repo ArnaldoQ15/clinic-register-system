@@ -1,4 +1,4 @@
-package com.br.clinicregistersystem.model;
+package com.br.clinicregistersystem.util.enums;
 
 import lombok.Getter;
 

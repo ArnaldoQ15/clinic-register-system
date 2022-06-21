@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.PersonEmployeeRole;
-import com.br.clinicregistersystem.model.PersonSex;
+import com.br.clinicregistersystem.util.enums.PersonEmployeeRole;
+import com.br.clinicregistersystem.util.enums.PersonSex;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

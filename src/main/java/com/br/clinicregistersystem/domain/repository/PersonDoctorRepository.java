@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.domain.repository;
 
-import com.br.clinicregistersystem.model.MedicalEspeciality;
 import com.br.clinicregistersystem.model.PersonDoctor;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

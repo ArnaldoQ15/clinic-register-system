@@ -1,10 +1,12 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.FederativeUnits;
+import com.br.clinicregistersystem.util.enums.FederativeUnits;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +21,8 @@ public class PersonAddressOutDto {
     private FederativeUnits state;
     private String city;
     private Integer postalCode;
+    private OffsetDateTime registerDate;
+    private OffsetDateTime lastUpdate;
+    private Boolean addressStatus;
 
 }

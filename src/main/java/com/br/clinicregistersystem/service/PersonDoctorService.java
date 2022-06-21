@@ -7,6 +7,7 @@ import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
 import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonDoctor;
+import com.br.clinicregistersystem.util.statics.ExceptionMessage;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,7 @@ public class PersonDoctorService {
     public PersonDoctorOutDto findId(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new NotFoundException("Doctor not found.");
+            throw new NotFoundException(ExceptionMessage.DOCTOR_NOT_FOUND);
 
         return modelMapper.map(doctor.get(), PersonDoctorOutDto.class);
     }
@@ -82,14 +83,13 @@ public class PersonDoctorService {
         entityNew.setPersonPhones(personPhoneService.convertListToEntity(dto.getPersonPhones(),
                 modelMapper.map(entityNew, Person.class)));
 
+        entityNew.setDoctorName(dto.getPersonName());
         entityNew.setPersonRegisterDate(OffsetDateTime.now());
         entityNew.setPersonStatus(true);
 
         entityNew.setAgenda(personDoctorAgendaService.createAgenda(entityNew));
 
         repository.saveAndFlush(entityNew);
-
-
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -99,7 +99,7 @@ public class PersonDoctorService {
     public ResponseEntity<PersonDoctor> update(Long personId, PersonDoctorInDto dto) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new NotFoundException("Doctor not found.");
+            throw new NotFoundException(ExceptionMessage.DOCTOR_NOT_FOUND);
 
         PersonDoctor entityNew = new PersonDoctor();
         BeanUtils.copyProperties(doctor.get(), entityNew);
@@ -110,6 +110,7 @@ public class PersonDoctorService {
         }
 
         entityNew.setPersonName(dto.getPersonName());
+        entityNew.setDoctorName(dto.getPersonName());
         entityNew.setPersonStatus(dto.getPersonStatus());
         entityNew.setPersonSex(dto.getPersonSex());
         entityNew.setPersonBirthday(dto.getPersonBirthday());
@@ -129,7 +130,7 @@ public class PersonDoctorService {
             doctor.get().setPersonLastUpdate(OffsetDateTime.now());
             repository.save(doctor.get());
         } else {
-            throw new NotFoundException("Doctor not found.");
+            throw new NotFoundException(ExceptionMessage.DOCTOR_NOT_FOUND);
         }
     }
 
@@ -139,7 +140,7 @@ public class PersonDoctorService {
     public void renewValidity(Long personId) {
         Optional<PersonDoctor> doctor = repository.findById(personId);
         if (doctor.isEmpty())
-            throw new NotFoundException("Doctor not found.");
+            throw new NotFoundException(ExceptionMessage.DOCTOR_NOT_FOUND);
 
         int dayVal = doctor.get().getProfessionalRegisterValidity().getDayOfMonth();
         int monVal = doctor.get().getProfessionalRegisterValidity().getMonthValue();
@@ -154,7 +155,6 @@ public class PersonDoctorService {
             holderDate = LocalDate.of(yearVal, monVal, dayVal);
         }
         doctor.get().setProfessionalRegisterValidity(holderDate);
-
         repository.save(doctor.get());
     }
 

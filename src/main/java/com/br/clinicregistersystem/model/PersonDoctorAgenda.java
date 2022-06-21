@@ -1,8 +1,11 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.DayWeek;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +19,13 @@ public class PersonDoctorAgenda {
     @Column
     private Long agendaId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "personId")
     @ToString.Exclude
     private PersonDoctor personDoctor;
+
+    @Column
+    private String doctorName;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -28,6 +34,9 @@ public class PersonDoctorAgenda {
     @Column
     @Enumerated(EnumType.STRING)
     private DayWeek dayWeek;
+
+    @Column
+    private OffsetDateTime lastUpdate;
 
     @Column
     private Boolean dataStatus = false;

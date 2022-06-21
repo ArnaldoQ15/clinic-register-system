@@ -1,6 +1,6 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.PersonPhoneType;
+import com.br.clinicregistersystem.util.enums.PersonPhoneType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +16,6 @@ public class PersonPhoneInDto {
     private PersonPhoneType type;
     private Long number;
     private String personPhoneName;
+    private Boolean phoneStatus;
 
 }

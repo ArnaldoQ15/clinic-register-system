@@ -34,6 +34,7 @@ public class PersonEmployeeController {
 
 
     /**(POST) Add new employee on database.*/
+    @Transactional
     @PostMapping("/new")
     public ResponseEntity<PersonEmployee> persist(@RequestBody PersonEmployeeInDto dto) {
         return service.persist(dto);

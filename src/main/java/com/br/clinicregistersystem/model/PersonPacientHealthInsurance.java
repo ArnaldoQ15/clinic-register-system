@@ -1,5 +1,7 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.PersonPacientHealthInsuranceCoverage;
+import com.br.clinicregistersystem.util.enums.PersonPacientHealthInsuranceName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

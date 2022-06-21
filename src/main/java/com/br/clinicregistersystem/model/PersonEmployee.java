@@ -1,5 +1,6 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.PersonEmployeeRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,9 @@ import java.time.LocalDate;
 @Builder
 @Entity
 public class PersonEmployee extends Person {
+
+    @Column
+    private String employeeName;
 
     @Column
     @Enumerated(EnumType.STRING)

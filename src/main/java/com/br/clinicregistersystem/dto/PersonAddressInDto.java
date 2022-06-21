@@ -1,6 +1,6 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.FederativeUnits;
+import com.br.clinicregistersystem.util.enums.FederativeUnits;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +20,6 @@ public class PersonAddressInDto {
     private FederativeUnits state;
     private String city;
     private Integer postalCode;
+    private Boolean addressStatus;
 
 }

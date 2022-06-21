@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.PersonPacientHealthInsuranceCoverage;
-import com.br.clinicregistersystem.model.PersonPacientHealthInsuranceName;
+import com.br.clinicregistersystem.util.enums.PersonPacientHealthInsuranceCoverage;
+import com.br.clinicregistersystem.util.enums.PersonPacientHealthInsuranceName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

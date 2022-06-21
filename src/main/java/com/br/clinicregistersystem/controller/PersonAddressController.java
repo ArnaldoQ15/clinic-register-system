@@ -27,18 +27,26 @@ public class PersonAddressController {
 
 
     /**(POST) Insert a new address on person.*/
-    @PostMapping("/new")
     @Transactional
+    @PostMapping("/new")
     public ResponseEntity<PersonAddressOutDto> persist(@Valid @PathVariable Long personId, @RequestBody PersonAddressInDto dto) {
         return service.persist(personId, dto);
     }
 
 
     /**(PUT) Update a address on database.*/
-    @PutMapping
     @Transactional
+    @PutMapping
     public ResponseEntity<PersonAddressOutDto> update(@Valid @PathVariable Long personId, @RequestBody PersonAddressInDto dto) {
         return service.update(personId, dto);
+    }
+
+
+    /**(DELETE) Delete a address on database.*/
+    @Transactional
+    @DeleteMapping("/delete/{addressId}")
+    public ResponseEntity<Void> delete(@Valid @PathVariable Long addressId, @Valid @PathVariable Long personId) {
+        return service.delete(addressId, personId);
     }
 
 }

@@ -4,10 +4,10 @@ import com.br.clinicregistersystem.dto.PersonDoctorAgendaDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInDto;
 import com.br.clinicregistersystem.dto.PersonDoctorInformationDto;
 import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
-import com.br.clinicregistersystem.model.DayWeek;
 import com.br.clinicregistersystem.model.PersonDoctor;
 import com.br.clinicregistersystem.service.PersonDoctorAgendaService;
 import com.br.clinicregistersystem.service.PersonDoctorService;
+import com.br.clinicregistersystem.util.enums.DayWeek;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,6 +80,7 @@ public class PersonDoctorController {
 
 
     /**(PUT) Renew register of a doctor.*/
+    @Transactional
     @PutMapping("/{personId}/renew-crm")
     public ResponseEntity<Void> renewCrm(@Valid @PathVariable Long personId) {
         service.renewValidity(personId);
@@ -88,6 +89,7 @@ public class PersonDoctorController {
 
 
     /**(DELETE) Active/inactive a doctor.*/
+    @Transactional
     @DeleteMapping("/{personId}/delete")
     public ResponseEntity<Void> delete(@Valid @PathVariable Long personId) {
         service.delete(personId);

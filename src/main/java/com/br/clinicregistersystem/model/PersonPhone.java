@@ -1,9 +1,11 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.PersonPhoneType;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,5 +34,14 @@ public class PersonPhone {
     @JoinColumn(name = "personId")
     @ToString.Exclude
     private Person person;
+
+    @Column
+    private OffsetDateTime registerDate;
+
+    @Column
+    private OffsetDateTime lastUpdate;
+
+    @Column
+    private Boolean phoneStatus;
 
 }

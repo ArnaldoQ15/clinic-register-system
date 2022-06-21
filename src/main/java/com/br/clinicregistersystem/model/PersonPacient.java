@@ -19,9 +19,13 @@ public class PersonPacient extends Person {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JoinColumn(name = "healthInsuranceId")
     private PersonPacientHealthInsurance healthInsurance;
 
     @OneToMany(mappedBy = "prontuaryId", cascade = CascadeType.ALL)
     private List<PersonPacientProntuary> prontuaries = new ArrayList<>();
+
+    @Column
+    private String pacientName;
 
 }

@@ -6,6 +6,7 @@ import com.br.clinicregistersystem.dto.PersonPacientChildOutDto;
 import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.model.PersonPacientChild;
+import com.br.clinicregistersystem.util.statics.ExceptionMessage;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class PersonPacientChildService {
     public List<PersonPacientChildOutDto> findAllById(Long personId) {
         List<PersonPacientChild> children = repository.findByPersonId(personId);
         if (children.isEmpty())
-            throw new NotFoundException("Child not found.");
+            throw new NotFoundException(ExceptionMessage.CHILD_NOT_FOUND);
 
         List<PersonPacientChildOutDto> childrenOutDtoList = new ArrayList<>();
         children.forEach(personPacientChild -> childrenOutDtoList.add(modelMapper.map(personPacientChild,
@@ -48,7 +49,7 @@ public class PersonPacientChildService {
     public ResponseEntity<PersonPacientChildOutDto> update(PersonPacientChildInDto dto) {
         Optional<PersonPacientChild> childOptional = repository.findById(dto.getChildId());
         if (childOptional.isEmpty())
-            throw new NotFoundException("Child not found.");
+            throw new NotFoundException(ExceptionMessage.CHILD_NOT_FOUND);
 
         childOptional.get().setLastUpdate(OffsetDateTime.now());
         childOptional.get().setChildName(dto.getChildName());
@@ -61,6 +62,7 @@ public class PersonPacientChildService {
     }
 
 
+    /**Convert ChildInDto to entity.*/
     public PersonPacientChild convertToEntity(PersonPacientChildInDto dto, PersonPacient pacient) {
         PersonPacientChild child = new PersonPacientChild();
         BeanUtils.copyProperties(dto, child);
@@ -70,4 +72,5 @@ public class PersonPacientChildService {
         child.setPacient(pacient);
         return child;
     }
+
 }

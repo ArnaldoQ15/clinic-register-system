@@ -6,9 +6,9 @@ import com.br.clinicregistersystem.model.PersonPacient;
 import com.br.clinicregistersystem.service.PersonPacientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -35,6 +35,7 @@ public class PersonPacientController {
 
 
     /**(POST) Add new pacient on database.*/
+    @Transactional
     @PostMapping("/new")
     public ResponseEntity<PersonPacientOutDto> persist(@Valid @RequestBody PersonPacientInDto dto) {
         return service.persist(dto);
@@ -50,7 +51,8 @@ public class PersonPacientController {
 
 
     /**(DELETE) Active/inactive a pacient.*/
-    @PutMapping("/{personId}/status")
+    @Transactional
+    @DeleteMapping("/{personId}/status")
     public ResponseEntity<Void> delete(@Valid @PathVariable Long personId) {
         return service.delete(personId);
     }

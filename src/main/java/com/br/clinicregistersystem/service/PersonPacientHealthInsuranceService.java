@@ -5,6 +5,7 @@ import com.br.clinicregistersystem.dto.PersonPacientHealthInsuranceInDto;
 import com.br.clinicregistersystem.dto.PersonPacientHealthInsuranceOutDto;
 import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.PersonPacientHealthInsurance;
+import com.br.clinicregistersystem.util.statics.ExceptionMessage;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class PersonPacientHealthInsuranceService {
     public PersonPacientHealthInsuranceOutDto findId(Long personId) {
         Optional<PersonPacientHealthInsurance> healthInsurance = repository.findByPersonId(personId);
         if (healthInsurance.isEmpty())
-            throw new NotFoundException("Pacient's health insurance not found.");
+            throw new NotFoundException(ExceptionMessage.HEALTH_INSURANCE_NOT_FOUND);
 
         return modelMapper.map(healthInsurance.get(), PersonPacientHealthInsuranceOutDto.class);
     }
@@ -37,7 +38,7 @@ public class PersonPacientHealthInsuranceService {
     public ResponseEntity<PersonPacientHealthInsuranceOutDto> update(Long personId, PersonPacientHealthInsuranceInDto dto) {
         Optional<PersonPacientHealthInsurance> healthInsurance = repository.findByPersonId(personId);
         if (healthInsurance.isEmpty())
-            throw new NotFoundException("Pacient's health insurance not found.");
+            throw new NotFoundException(ExceptionMessage.HEALTH_INSURANCE_NOT_FOUND);
 
         healthInsurance.get().setName(dto.getName());
         healthInsurance.get().setNumber(dto.getNumber());
@@ -49,6 +50,7 @@ public class PersonPacientHealthInsuranceService {
     }
 
 
+    /**Convert HealthInsuranceInDto to entity.*/
     public PersonPacientHealthInsurance convertToEntity(PersonPacientHealthInsuranceInDto dto) {
         PersonPacientHealthInsurance healthInsurance = modelMapper.map(dto, PersonPacientHealthInsurance.class);
         healthInsurance.setPersonRegisterDate(OffsetDateTime.now());

@@ -1,5 +1,7 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.FederativeUnits;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,7 +36,10 @@ public class PersonDoctor extends Person {
     @NotNull
     private MedicalEspeciality medicalEspeciality;
 
-    @OneToMany(mappedBy = "agendaId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "agendaId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PersonDoctorAgenda> agenda = new ArrayList<>();
+
+    @Column
+    private String doctorName;
 
 }

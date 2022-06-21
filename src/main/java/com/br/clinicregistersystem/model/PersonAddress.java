@@ -1,8 +1,10 @@
 package com.br.clinicregistersystem.model;
 
+import com.br.clinicregistersystem.util.enums.FederativeUnits;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -42,5 +44,14 @@ public class PersonAddress {
     @JoinColumn(name = "personId")
     @ToString.Exclude
     private Person person;
+
+    @Column
+    private OffsetDateTime registerDate;
+
+    @Column
+    private OffsetDateTime lastUpdate;
+
+    @Column
+    private Boolean addressStatus;
 
 }

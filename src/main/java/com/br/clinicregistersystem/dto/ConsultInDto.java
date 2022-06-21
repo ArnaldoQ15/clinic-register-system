@@ -1,8 +1,8 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.DayHour;
-import com.br.clinicregistersystem.model.DayWeek;
-import com.br.clinicregistersystem.model.MedicalEspeciality;
+import com.br.clinicregistersystem.util.enums.DayHour;
+import com.br.clinicregistersystem.util.enums.DayWeek;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

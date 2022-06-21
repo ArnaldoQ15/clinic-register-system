@@ -7,6 +7,7 @@ import com.br.clinicregistersystem.exception.BadRequestException;
 import com.br.clinicregistersystem.exception.NotFoundException;
 import com.br.clinicregistersystem.model.Person;
 import com.br.clinicregistersystem.model.PersonEmployee;
+import com.br.clinicregistersystem.util.statics.ExceptionMessage;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class PersonEmployeeService {
     public PersonEmployeeOutDto findId(Long personId) {
         Optional<PersonEmployee> employee = repository.findById(personId);
         if (employee.isEmpty())
-            throw new NotFoundException("Employee not found.");
+            throw new NotFoundException(ExceptionMessage.EMPLOYEE_NOT_FOUND);
 
         return modelMapper.map(employee.get(), PersonEmployeeOutDto.class);
     }
@@ -78,6 +79,7 @@ public class PersonEmployeeService {
         entityNew.setPersonPhones(personPhoneService.convertListToEntity(dto.getPersonPhones(),
                 modelMapper.map(entityNew, Person.class)));
 
+        entityNew.setEmployeeName(dto.getPersonName());
         entityNew.setPersonRegisterDate(OffsetDateTime.now());
         entityNew.setPersonStatus(true);
         entityNew.setAdmissionDate(LocalDate.now());
@@ -91,7 +93,7 @@ public class PersonEmployeeService {
     public ResponseEntity<PersonEmployee> update(Long personId, PersonEmployeeInDto dto) {
         Optional<PersonEmployee> employee = repository.findById(personId);
         if (employee.isEmpty())
-            throw new NotFoundException("Employee not found.");
+            throw new NotFoundException(ExceptionMessage.EMPLOYEE_NOT_FOUND);
 
         PersonEmployee entityNew = new PersonEmployee();
         BeanUtils.copyProperties(employee.get(), entityNew);
@@ -103,10 +105,11 @@ public class PersonEmployeeService {
 
         if (Objects.nonNull(dto.getInstitucionalEmail()) && !employee.get().getInstitucionalEmail().equals(dto.getInstitucionalEmail())
                 && Boolean.TRUE.equals(repository.existsByInstitucionalEmail(dto.getInstitucionalEmail())))
-            throw new BadRequestException("There is already an institutional email registered with the given address.");
+            throw new BadRequestException(ExceptionMessage.INSTITUCIONAL_EMAIL_IN_USE);
 
         entityNew.setInstitucionalEmail(dto.getInstitucionalEmail());
         entityNew.setPersonName(dto.getPersonName());
+        entityNew.setEmployeeName(dto.getPersonName());
         entityNew.setPersonStatus(dto.getPersonStatus());
         entityNew.setPersonSex(dto.getPersonSex());
         entityNew.setPersonBirthday(dto.getPersonBirthday());
@@ -126,7 +129,7 @@ public class PersonEmployeeService {
             repository.save(employee.get());
             return ResponseEntity.noContent().build();
         } else {
-            throw new NotFoundException("Employee not found.");
+            throw new NotFoundException(ExceptionMessage.EMPLOYEE_NOT_FOUND);
         }
     }
 

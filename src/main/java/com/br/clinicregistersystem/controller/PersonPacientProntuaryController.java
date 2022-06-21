@@ -40,7 +40,6 @@ public class PersonPacientProntuaryController {
     /**(POST) Persist a pacient's prontuary.*/
     @Transactional
     @PostMapping("/new")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<PersonPacientProntuaryOutDto> persist(@Valid @PathVariable Long personId,
                                                                 @RequestBody PersonPacientProntuaryInDto dto) {
         service.persist(personId, dto);

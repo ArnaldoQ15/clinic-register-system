@@ -6,28 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="1c7ccc98-ba7a-4e3d-a457-4d558b458a7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/ConsultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonAddressController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonDoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonDoctorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientChildController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientChildController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientHealthInsuranceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientHealthInsuranceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientProntuaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientProntuaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPhoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourFridayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourMondayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourSaturdayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourThursdayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourTuesdayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorHourWednesdayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonEmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorAgendaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorAgendaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientHealthInsuranceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientHealthInsuranceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultInDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultOutDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressInDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressOutDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorAgendaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorAgendaDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInformationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInformationDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorOutDto.java" afterDir="false" />
@@ -39,31 +31,33 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceOutDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientInDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryInDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/exception/BusinessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/exception/EntityNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneInDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneOutDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/ConsultStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/ConsultStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/ConsultStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/ConsultStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DayHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/DayHour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DayWeek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/DayWeek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/FederativeUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/FederativeUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/MedicalEspeciality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/MedicalEspeciality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourFriday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourMonday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourSaturday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourThursday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourTuesday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorHourWednesday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorScales.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorScales.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorAgenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorAgenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorScales.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployeeRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonEmployeeRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientChild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientChild.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsurance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientProntuary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsuranceCoverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPacientHealthInsuranceCoverage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsuranceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPacientHealthInsuranceName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhoneType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPhoneType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonSex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonSex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonAddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorAgendaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorAgendaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorAgendaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonEmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientChildService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientChildService.java" afterDir="false" />
@@ -72,7 +66,13 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPhoneService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonProntuaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonProntuaryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/annotations.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create-alter-database-table.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/create-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create-table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/br/clinicregistersystem/service/PersonDoctorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/br/clinicregistersystem/service/PersonDoctorServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +81,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,30 +167,80 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ClinicRegisterSystemApplication">
-    <configuration name="AwaitingConsultService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.AwaitingConsultService" />
+    <configuration name="PersonDoctorServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClinicRegisterSystemApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonDoctorServiceTest.deleteNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.ClinicRegisterSystemApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="METHOD_NAME" value="deleteNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDoctorServiceTest.deleteOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="METHOD_NAME" value="deleteOk" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDoctorServiceTest.renewValidityNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="METHOD_NAME" value="renewValidityNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonDoctorServiceTest.renewValidityOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="clinic-register-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="METHOD_NAME" value="renewValidityOk" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -202,14 +255,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.com.br.clinicregistersystem.service.AwaitingConsultService" />
-      <item itemvalue="JUnit.ClinicRegisterSystemApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.PersonDoctorServiceTest" />
+      <item itemvalue="JUnit.PersonDoctorServiceTest.deleteNotFoundException" />
+      <item itemvalue="JUnit.PersonDoctorServiceTest.deleteOk" />
+      <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityNotFoundException" />
+      <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityOk" />
       <item itemvalue="Spring Boot.ClinicRegisterSystemApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClinicRegisterSystemApplicationTests.contextLoads" />
-        <item itemvalue="Application.com.br.clinicregistersystem.service.AwaitingConsultService" />
+        <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityOk" />
+        <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityNotFoundException" />
+        <item itemvalue="JUnit.PersonDoctorServiceTest" />
+        <item itemvalue="JUnit.PersonDoctorServiceTest.deleteNotFoundException" />
+        <item itemvalue="JUnit.PersonDoctorServiceTest.deleteOk" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +286,7 @@
       <workItem from="1654145556390" duration="76657000" />
       <workItem from="1654383208060" duration="64867000" />
       <workItem from="1654997209203" duration="1231000" />
-      <workItem from="1655396309172" duration="147330000" />
+      <workItem from="1655396309172" duration="185749000" />
     </task>
     <servers />
   </component>
@@ -270,7 +329,16 @@
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest_persist__1_.ic" NAME="PersonDoctorServiceTest.persist (1) Coverage Results" MODIFIED="1655764711263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorService_persist.ic" NAME="PersonDoctorService.persist Coverage Results" MODIFIED="1655759903181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/clinic_register_system$ConsultService.ic" NAME="ConsultService Coverage Results" MODIFIED="1654115049781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest.ic" NAME="PersonDoctorServiceTest Coverage Results" MODIFIED="1655770572398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.br.clinicregistersystem.service.*</FILTER>
     </SUITE>
   </component>

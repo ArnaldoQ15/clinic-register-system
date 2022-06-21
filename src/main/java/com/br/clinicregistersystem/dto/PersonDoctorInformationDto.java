@@ -1,7 +1,7 @@
 package com.br.clinicregistersystem.dto;
 
-import com.br.clinicregistersystem.model.FederativeUnits;
-import com.br.clinicregistersystem.model.MedicalEspeciality;
+import com.br.clinicregistersystem.util.enums.FederativeUnits;
+import com.br.clinicregistersystem.util.enums.MedicalEspeciality;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

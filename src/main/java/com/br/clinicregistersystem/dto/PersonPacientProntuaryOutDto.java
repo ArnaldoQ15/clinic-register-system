@@ -13,7 +13,7 @@ import java.time.OffsetDateTime;
 @Builder
 public class PersonPacientProntuaryOutDto {
 
-    private String pacientName;
+    private String personName;
     private Boolean firstTime;
     private String symptoms;
     private OffsetDateTime registerDate;
