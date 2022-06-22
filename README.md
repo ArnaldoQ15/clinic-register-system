@@ -1,9 +1,10 @@
 <img src="https://i.imgur.com/SqJnBIO.png" title="Clinic Register System" alt="by Arnaldo Fagundes">
 
-</br>Código 97% Java (3% SQL) com testes unitários de ações CRUD e não-CRUD para a gestão de uma clínica médica, abarcando consultas, 
+</br></br>Código 97% Java (3% SQL) com testes unitários de ações CRUD e não-CRUD para a gestão de uma clínica médica, abarcando consultas, 
 cadastro de pacientes, funcionários, médicos e outros.</br></br></br>
-<img src="https://i.imgur.com/6JrxQqr.png" title="Let&#39;s start!"/></br>
 
+
+<img src="https://i.imgur.com/6JrxQqr.png" title="Let&#39;s start!"/></br></br>
 Essas instruções permitirão que você possa obter uma cópia do projeto para alterar/visualizar em sua máquina local para
 fins de desenvolvimento e testes.</br></br></br>
 
@@ -18,8 +19,12 @@ fins de desenvolvimento e testes.</br></br></br>
 - Mockito</br></br></br>
 
 <img src="https://i.imgur.com/mDTxaKb.png"></br></br>
-<img src="https://i.imgur.com/14cAmK7.jpg">
+<img src="https://i.imgur.com/14cAmK7.jpg"></br></br>
 <a href="https://i.imgur.com/14cAmK7.jpg">Imagem completa</a></br></br></br>
+
+
+<img src="https://i.imgur.com/hgG53ae.png"></br></br>
+<a href="https://documenter.getpostman.com/view/20932178/UzBpLRkn">Clique aqui para acessar a collection no Postman.</a></br></br></br>
 
 
 <img src="https://i.imgur.com/rYHmz18.png" title="Classes modelo"/></br>
