@@ -6,73 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c7ccc98-ba7a-4e3d-a457-4d558b458a7a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonAddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonDoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonDoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientProntuaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPacientProntuaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/controller/PersonPhoneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorAgendaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorAgendaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonDoctorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientHealthInsuranceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/domain/repository/PersonPacientHealthInsuranceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/ConsultOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonAddressOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorAgendaDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorAgendaDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInformationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorInformationDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonDoctorOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonEmployeeInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonEmployeeInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonEmployeeOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonEmployeeOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientChildInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientChildInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientChildOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientChildOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientHealthInsuranceOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPacientProntuaryOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneInDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneInDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneOutDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/dto/PersonPhoneOutDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Consult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/ConsultStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/ConsultStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DayHour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/DayHour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/DayWeek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/DayWeek.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/FederativeUnits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/FederativeUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/MedicalEspeciality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/MedicalEspeciality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorAgenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorAgenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonDoctorScales.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonEmployeeRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonEmployeeRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientChild.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientChild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsurance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsurance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsuranceCoverage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPacientHealthInsuranceCoverage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPacientHealthInsuranceName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPacientHealthInsuranceName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonPhoneType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonPhoneType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/model/PersonSex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/util/enums/PersonSex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/ConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonAddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonAddressService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorAgendaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorAgendaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonDoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonEmployeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientChildService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientChildService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientHealthInsuranceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientHealthInsuranceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPacientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonPhoneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonProntuaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonProntuaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/annotations.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/create-alter-database-table.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/create-table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/create-table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/br/clinicregistersystem/service/PersonDoctorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/br/clinicregistersystem/service/PersonDoctorServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/br/clinicregistersystem/service/PersonDoctorServiceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,10 +23,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -158,6 +93,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.br.clinicregistersystem.service" />
       <recent name="com.br.clinicregistersystem.model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -166,82 +102,80 @@
       <recent name="com.br.clinicregistersystem.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ClinicRegisterSystemApplication">
-    <configuration name="PersonDoctorServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.com.br.clinicregistersystem.service in clinic-register-system">
+    <configuration name="PersonDoctorAgendaServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorAgendaServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDoctorServiceTest.deleteNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonDoctorAgendaServiceTest.enableHourAgendaOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
-      <option name="METHOD_NAME" value="deleteNotFoundException" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorAgendaServiceTest" />
+      <option name="METHOD_NAME" value="enableHourAgendaOk" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDoctorServiceTest.deleteOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonDoctorAgendaServiceTest.findAgendaDayById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
-      <option name="METHOD_NAME" value="deleteOk" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorAgendaServiceTest" />
+      <option name="METHOD_NAME" value="findAgendaDayById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDoctorServiceTest.renewValidityNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonDoctorAgendaServiceTest.findId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
-      <option name="METHOD_NAME" value="renewValidityNotFoundException" />
+      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorAgendaServiceTest" />
+      <option name="METHOD_NAME" value="findId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonDoctorServiceTest.renewValidityOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.br.clinicregistersystem.service in clinic-register-system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinic-register-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.br.clinicregistersystem.util.statics.*" />
+          <option name="PATTERN" value="com.br.clinicregistersystem.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.br.clinicregistersystem.service" />
-      <option name="MAIN_CLASS_NAME" value="com.br.clinicregistersystem.service.PersonDoctorServiceTest" />
-      <option name="METHOD_NAME" value="renewValidityOk" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -255,20 +189,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.PersonDoctorServiceTest" />
-      <item itemvalue="JUnit.PersonDoctorServiceTest.deleteNotFoundException" />
-      <item itemvalue="JUnit.PersonDoctorServiceTest.deleteOk" />
-      <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityNotFoundException" />
-      <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityOk" />
+      <item itemvalue="JUnit.PersonDoctorAgendaServiceTest" />
+      <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.enableHourAgendaOk" />
+      <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.findAgendaDayById" />
+      <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.findId" />
+      <item itemvalue="JUnit.com.br.clinicregistersystem.service in clinic-register-system" />
       <item itemvalue="Spring Boot.ClinicRegisterSystemApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityOk" />
-        <item itemvalue="JUnit.PersonDoctorServiceTest.renewValidityNotFoundException" />
-        <item itemvalue="JUnit.PersonDoctorServiceTest" />
-        <item itemvalue="JUnit.PersonDoctorServiceTest.deleteNotFoundException" />
-        <item itemvalue="JUnit.PersonDoctorServiceTest.deleteOk" />
+        <item itemvalue="JUnit.com.br.clinicregistersystem.service in clinic-register-system" />
+        <item itemvalue="JUnit.PersonDoctorAgendaServiceTest" />
+        <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.findAgendaDayById" />
+        <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.findId" />
+        <item itemvalue="JUnit.PersonDoctorAgendaServiceTest.enableHourAgendaOk" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +220,7 @@
       <workItem from="1654145556390" duration="76657000" />
       <workItem from="1654383208060" duration="64867000" />
       <workItem from="1654997209203" duration="1231000" />
-      <workItem from="1655396309172" duration="185749000" />
+      <workItem from="1655396309172" duration="207902000" />
     </task>
     <servers />
   </component>
@@ -312,6 +246,11 @@
           <line>307</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/br/clinicregistersystem/service/PersonEmployeeService.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="174" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception" />
@@ -329,16 +268,136 @@
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest_renewValidityOk.ic" NAME="PersonDoctorServiceTest.renewValidityOk Coverage Results" MODIFIED="1655853460543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest_persist__1_.ic" NAME="PersonDoctorServiceTest.persist (1) Coverage Results" MODIFIED="1655764711263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientChildServiceTest.ic" NAME="PersonPacientChildServiceTest Coverage Results" MODIFIED="1655856334525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest_persist.ic" NAME="PersonPacientServiceTest.persist Coverage Results" MODIFIED="1655854174806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonServiceTest_validateCpfExistsOk.ic" NAME="PersonServiceTest.validateCpfExistsOk Coverage Results" MODIFIED="1655855025147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest_convertToInfoOk.ic" NAME="PersonDoctorServiceTest.convertToInfoOk Coverage Results" MODIFIED="1655853581188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPhoneServiceTest.ic" NAME="PersonPhoneServiceTest Coverage Results" MODIFIED="1655864330822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_validateConsultHourBadRequestException1.ic" NAME="PersonDoctorAgendaServiceTest.validateConsultHourBadRequestException1 Coverage Results" MODIFIED="1655871079487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$com_br_clinicregistersystem_service_in_clinic_register_system.ic" NAME="com.br.clinicregistersystem.service in clinic-register-system Coverage Results" MODIFIED="1655873671351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonServiceTest_validateEmailExists.ic" NAME="PersonServiceTest.validateEmailExists Coverage Results" MODIFIED="1655855090320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest.ic" NAME="PersonDoctorServiceTest Coverage Results" MODIFIED="1655853597542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonProntuaryServiceTest.ic" NAME="PersonProntuaryServiceTest Coverage Results" MODIFIED="1655866639170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonEmployeeServiceTest_persist.ic" NAME="PersonEmployeeServiceTest.persist Coverage Results" MODIFIED="1655857387190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonAddressServiceTest_findAllById.ic" NAME="PersonAddressServiceTest.findAllById Coverage Results" MODIFIED="1655858840196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest_findIdOk.ic" NAME="PersonPacientServiceTest.findIdOk Coverage Results" MODIFIED="1655854325654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$ConsultServiceTest_findIdOk.ic" NAME="ConsultServiceTest.findIdOk Coverage Results" MODIFIED="1655867568821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_validateConsultHourOk.ic" NAME="PersonDoctorAgendaServiceTest.validateConsultHourOk Coverage Results" MODIFIED="1655870990221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest_findAll.ic" NAME="PersonPacientServiceTest.findAll Coverage Results" MODIFIED="1655854231548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest_updateOk.ic" NAME="PersonPacientServiceTest.updateOk Coverage Results" MODIFIED="1655854403282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest.ic" NAME="PersonDoctorAgendaServiceTest Coverage Results" MODIFIED="1655873374833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_validateConsultAvailableOk.ic" NAME="PersonDoctorAgendaServiceTest.validateConsultAvailableOk Coverage Results" MODIFIED="1655870547875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonEmployeeServiceTest_updateNotFoundException.ic" NAME="PersonEmployeeServiceTest.updateNotFoundException Coverage Results" MODIFIED="1655857433982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_createAgendaOk.ic" NAME="PersonDoctorAgendaServiceTest.createAgendaOk Coverage Results" MODIFIED="1655869129314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientHealthInsuranceServiceTest.ic" NAME="PersonPacientHealthInsuranceServiceTest Coverage Results" MODIFIED="1655857111090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonAddressServiceTest.ic" NAME="PersonAddressServiceTest Coverage Results" MODIFIED="1655862967418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonServiceTest.ic" NAME="PersonServiceTest Coverage Results" MODIFIED="1655855589614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_validateConsultHourBadRequestException2.ic" NAME="PersonDoctorAgendaServiceTest.validateConsultHourBadRequestException2 Coverage Results" MODIFIED="1655871125660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest.ic" NAME="PersonPacientServiceTest Coverage Results" MODIFIED="1655854434063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonEmployeeServiceTest_updateOk.ic" NAME="PersonEmployeeServiceTest.updateOk Coverage Results" MODIFIED="1655857421280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientChildServiceTest_updateOk.ic" NAME="PersonPacientChildServiceTest.updateOk Coverage Results" MODIFIED="1655856112271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$ConsultServiceTest_findAllOk.ic" NAME="ConsultServiceTest.findAllOk Coverage Results" MODIFIED="1655867117241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientHealthInsuranceServiceTest_convertToEntity.ic" NAME="PersonPacientHealthInsuranceServiceTest.convertToEntity Coverage Results" MODIFIED="1655857092993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientChildServiceTest_findAllById.ic" NAME="PersonPacientChildServiceTest.findAllById Coverage Results" MODIFIED="1655855928739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonProntuaryServiceTest_findAllById.ic" NAME="PersonProntuaryServiceTest.findAllById Coverage Results" MODIFIED="1655865471176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest_findAllOk.ic" NAME="PersonDoctorServiceTest.findAllOk Coverage Results" MODIFIED="1655852830310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonPacientServiceTest_deleteOk.ic" NAME="PersonPacientServiceTest.deleteOk Coverage Results" MODIFIED="1655854417908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonEmployeeServiceTest.ic" NAME="PersonEmployeeServiceTest Coverage Results" MODIFIED="1655858047720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.br.clinicregistersystem.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorService_persist.ic" NAME="PersonDoctorService.persist Coverage Results" MODIFIED="1655759903181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.br.clinicregistersystem.service.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$ConsultServiceTest.ic" NAME="ConsultServiceTest Coverage Results" MODIFIED="1655868656270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_enableHourAgendaOk.ic" NAME="PersonDoctorAgendaServiceTest.enableHourAgendaOk Coverage Results" MODIFIED="1655871863706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorAgendaServiceTest_findAgendaDayById.ic" NAME="PersonDoctorAgendaServiceTest.findAgendaDayById Coverage Results" MODIFIED="1655873309943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/clinic_register_system$ConsultService.ic" NAME="ConsultService Coverage Results" MODIFIED="1654115049781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.br.clinicregistersystem.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/clinic_register_system$PersonDoctorServiceTest.ic" NAME="PersonDoctorServiceTest Coverage Results" MODIFIED="1655770572398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonServiceTest_makeBirthday.ic" NAME="PersonServiceTest.makeBirthday Coverage Results" MODIFIED="1655855435065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.br.clinicregistersystem.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clinic_register_system$PersonAddressServiceTest_convertToEntity.ic" NAME="PersonAddressServiceTest.convertToEntity Coverage Results" MODIFIED="1655860480357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.br.clinicregistersystem.service.*</FILTER>
     </SUITE>
   </component>

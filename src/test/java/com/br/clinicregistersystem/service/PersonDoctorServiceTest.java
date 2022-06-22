@@ -4,12 +4,8 @@ import com.br.clinicregistersystem.domain.repository.PersonDoctorRepository;
 import com.br.clinicregistersystem.dto.PersonDoctorInDto;
 import com.br.clinicregistersystem.dto.PersonDoctorOutDto;
 import com.br.clinicregistersystem.exception.NotFoundException;
-import com.br.clinicregistersystem.model.PersonAddress;
 import com.br.clinicregistersystem.model.PersonDoctor;
-import com.br.clinicregistersystem.model.PersonPhone;
-import lombok.Getter;
-import lombok.Setter;
-import net.minidev.asm.ConvertDate;
+import lombok.Data;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -21,36 +17,22 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.modelmapper.ModelMapper;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.br.clinicregistersystem.model.FederativeUnits.BA;
-import static com.br.clinicregistersystem.model.PersonPhoneType.CELLPHONE;
-import static com.br.clinicregistersystem.model.PersonSex.MALE;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-@Getter
-@Setter
+@Data
 @RunWith(MockitoJUnitRunner.class)
 class PersonDoctorServiceTest {
 
     @InjectMocks
     private PersonDoctorService service;
-
-    @Mock
-    private PersonService personService;
-
-    @Mock
-    private PersonAddressService personAddressService;
-
-    @Mock
-    private PersonPhoneService personPhoneService;
-
-    @Mock
-    private PersonDoctorAgendaService personDoctorAgendaService;
 
     @Mock
     private PersonDoctorRepository repository;
@@ -65,10 +47,19 @@ class PersonDoctorServiceTest {
     private PersonDoctorOutDto outDto;
 
     @Mock
-    private List<PersonDoctor> doctors;
+    private ModelMapper modelMapper;
 
     @Mock
-    private ModelMapper modelMapper;
+    private PersonService personService;
+
+    @Mock
+    private PersonAddressService personAddressService;
+
+    @Mock
+    private PersonPhoneService personPhoneService;
+
+    @Mock
+    private PersonDoctorAgendaService personDoctorAgendaService;
 
 
     @BeforeEach
@@ -79,7 +70,7 @@ class PersonDoctorServiceTest {
 
     @DisplayName("persist ok")
     @Test
-    public void persistOk() {
+    void persistOk() {
         when(inDto.getPersonDocumentCpf()).thenReturn("254.674.480-13");
         when(inDto.getPersonEmail()).thenReturn("arnaldo.s.fagundes@gmail.com");
         when(inDto.getPersonBirthday()).thenReturn(LocalDate.now());
@@ -90,14 +81,18 @@ class PersonDoctorServiceTest {
 
     @DisplayName("findAll ok")
     @Test
-    public void findAllOk() {
+    void findAllOk() {
+        List<PersonDoctor> doctors = new ArrayList<>();
+        doctors.add(doctor);
+
+        when(repository.findAll()).thenReturn(doctors);
         service.findAll();
         Assert.assertNotNull(outDto);
     }
 
     @DisplayName("findId ok")
     @Test
-    public void findIdOk() {
+    void findIdOk() {
         when(repository.findById(anyLong())).thenReturn(Optional.of(doctor));
         service.findId(anyLong());
         Assert.assertNotNull(outDto);
@@ -105,13 +100,13 @@ class PersonDoctorServiceTest {
 
     @DisplayName("findId NotFoundException")
     @Test
-    public void findIdNotFoundException() {
+    void findIdNotFoundException() {
         Assert.assertThrows(NotFoundException.class, () -> service.findId(anyLong()));
     }
 
     @DisplayName("update Ok")
     @Test
-    public void updateOk() {
+    void updateOk() {
         when(repository.findById(anyLong())).thenReturn(Optional.of(doctor));
         when(inDto.getPersonEmail()).thenReturn("arnaldo.s.fagundes@gmail.com");
         service.update(anyLong(), inDto);
@@ -120,14 +115,14 @@ class PersonDoctorServiceTest {
 
     @DisplayName("update NotFoundException")
     @Test
-    public void updateNotFoundException() {
+    void updateNotFoundException() {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
         Assert.assertThrows(NotFoundException.class, () -> service.update(anyLong(), inDto));
     }
 
     @DisplayName("delete ok")
     @Test
-    public void deleteOk() {
+    void deleteOk() {
         when(repository.findById(anyLong())).thenReturn(Optional.of(doctor));
         service.delete(anyLong());
         Assert.assertNotNull(doctor);
@@ -135,62 +130,37 @@ class PersonDoctorServiceTest {
 
     @DisplayName("delete NotFoundException")
     @Test
-    public void deleteNotFoundException() {
+    void deleteNotFoundException() {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
         Assert.assertThrows(NotFoundException.class, () -> service.delete(anyLong()));
     }
 
     @DisplayName("renewValidity ok")
     @Test
-    public void renewValidityOk() {
-        doctor.setProfessionalRegisterValidity(LocalDate.now());
-        when(repository.findById(anyLong())).thenReturn(Optional.of(doctor));
+    void renewValidityOk() {
+        PersonDoctor doctorTest = new PersonDoctor();
+        LocalDate validity = LocalDate.of((LocalDate.now().getYear()), (LocalDate.now().getMonthValue() + 1),
+                LocalDate.now().getDayOfMonth());
+        doctorTest.setProfessionalRegisterValidity(validity);
+        when(repository.findById(anyLong())).thenReturn(Optional.of(doctorTest));
         service.renewValidity(anyLong());
         Assert.assertNotNull(doctor);
     }
 
     @DisplayName("renewValidity NotFoundException")
     @Test
-    public void renewValidityNotFoundException() {
+    void renewValidityNotFoundException() {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
         Assert.assertThrows(NotFoundException.class, () -> service.renewValidity(anyLong()));
     }
 
-
-
-
-
-
-
-    private PersonDoctor doctorMock() {
-        PersonDoctor personDoctor = new PersonDoctor();
-        personDoctor.setPersonId(1L);
-        personDoctor.setPersonDocumentCpf("254.674.480-13");
-        personDoctor.setPersonEmail("arnaldo.s.fagundes@gmail.com");
-        personDoctor.setPersonSex(MALE);
-        personDoctor.getPersonAddresses().add(addressMock());
-        personDoctor.getPersonPhones().add(phoneMock());
-        return personDoctor;
-    }
-
-    private PersonAddress addressMock() {
-        PersonAddress address = new PersonAddress();
-        address.setNumber("54");
-        address.setCity("Salvador");
-        address.setState(BA);
-        address.setStreet("Rua das gaivotas");
-        address.setDistrict("Andorinhas");
-        address.setAddressId(1L);
-        return address;
-    }
-
-    private PersonPhone phoneMock() {
-        PersonPhone phone = new PersonPhone();
-        phone.setNumber(65158148864L);
-        phone.setPersonPhoneName("Arnaldo");
-        phone.setType(CELLPHONE);
-        phone.setPhoneId(1L);
-        return phone;
+    @DisplayName("convertToInfo ok")
+    @Test
+    void convertToInfoOk() {
+        List<PersonDoctor> doctors = new ArrayList<>();
+        when(repository.findAll()).thenReturn(doctors);
+        service.convertToInfo();
+        Assert.assertNotNull(doctors);
     }
 
 }
