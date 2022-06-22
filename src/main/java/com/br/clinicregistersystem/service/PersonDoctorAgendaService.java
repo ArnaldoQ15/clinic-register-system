@@ -249,7 +249,7 @@ public class PersonDoctorAgendaService {
 
 
     /**Validate hour disponibility of a doctor agenda before save consult.*/
-    private ResponseEntity<ConsultInDto> validateConsultHour(ConsultInDto dto, PersonDoctorAgenda agenda) {
+    public ResponseEntity<ConsultInDto> validateConsultHour(ConsultInDto dto, PersonDoctorAgenda agenda) {
         switch (dto.getHourRequest()) {
             case MORNING0800 -> {
                 if (agenda.getMorning0800().equals(true)) {
@@ -371,10 +371,10 @@ public class PersonDoctorAgendaService {
                     return saveEntity(agenda);
                 }
             }
-            default -> throw new BadRequestException(ExceptionMessage.AGENDA_INVALID_HOUR);
         }
         throw new BadRequestException(ExceptionMessage.AGENDA_BADREQUEST);
     }
+
 
     private ResponseEntity<ConsultInDto> saveEntity(PersonDoctorAgenda agenda) {
         repository.save(agenda);
@@ -387,7 +387,6 @@ public class PersonDoctorAgendaService {
         List<PersonDoctorAgenda> agendaList = repository.findByPersonId(personId);
         List<PersonDoctorAgendaDto> agendaDtoList = new ArrayList<>();
         agendaList.forEach(agenda -> agendaDtoList.add(modelMapper.map(agenda, PersonDoctorAgendaDto.class)));
-
         return agendaDtoList;
     }
 
@@ -397,8 +396,7 @@ public class PersonDoctorAgendaService {
         PersonDoctorAgendaDto entityNew = new PersonDoctorAgendaDto();
         findId(personId).forEach(personDoctorAgendaDto -> {
             if (personDoctorAgendaDto.getDayWeek().equals(dayWeek))
-                BeanUtils.copyProperties(personDoctorAgendaDto, entityNew);
-        });
+                BeanUtils.copyProperties(personDoctorAgendaDto, entityNew);});
         return entityNew;
     }
 
@@ -410,7 +408,6 @@ public class PersonDoctorAgendaService {
         if (agendaOptional.isEmpty())
             throw new NotFoundException(ExceptionMessage.AGENDA_NOT_FOUND);
         PersonDoctorAgenda agenda = agendaOptional.get();
-
         switch (consult.getHourRequest()) {
             case MORNING0800 -> agenda.setMorning0800(true);
             case MORNING0830 -> agenda.setMorning0830(true);
@@ -432,7 +429,6 @@ public class PersonDoctorAgendaService {
             case NIGHT1830 -> agenda.setNight1830(true);
             case NIGHT1900 -> agenda.setNight1900(true);
             case NIGHT1930 -> agenda.setNight1930(true);
-            default -> throw new BadRequestException(ExceptionMessage.AGENDA_INVALID_HOUR);
         }
         agenda.setLastUpdate(OffsetDateTime.now());
         repository.save(agenda);
