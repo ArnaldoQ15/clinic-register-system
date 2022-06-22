@@ -17,6 +17,10 @@ fins de desenvolvimento e testes.</br></br></br>
 - JUnit 5</br>
 - Mockito</br></br></br>
 
+<img src="https://i.imgur.com/mDTxaKb.png"></br></br>
+<img src="https://i.imgur.com/14cAmK7.jpg">
+<a href="https://i.imgur.com/14cAmK7.jpg">Imagem completa</a></br></br></br>
+
 
 <img src="https://i.imgur.com/rYHmz18.png" title="Classes modelo"/></br>
 - Médico</br>
